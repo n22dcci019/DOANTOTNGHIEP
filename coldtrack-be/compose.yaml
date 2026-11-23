@@ -1,12 +1,58 @@
 name: coldtrack-be
+x-app: &app
+  restart: unless-stopped
+  init: true
+  environment: &environment
+    NODE_ENV: production
+    DATABASE_URL: postgresql://postgres:postgres@host.docker.internal:54322/postgres
+    MQTT_URL: mqtts://mosquitto:8883
+    MQTT_CA_FILE: /run/mqtt/ca.crt
+    MQTT_USERNAME: coldtrack-test
+    MQTT_PASSWORD_FILE: /run/mqtt/test-password
+  volumes:
+    - ./infra/mosquitto/certs/ca.crt:/run/mqtt/ca.crt:ro
+    - ./infra/mosquitto/secrets/test-password:/run/mqtt/test-password:ro
+  depends_on:
+    mosquitto:
+      condition: service_started
 services:
   mosquitto:
     image: eclipse-mosquitto:2
     ports:
-      - '127.0.0.1:1883:1883'
+      - '127.0.0.1:8883:8883'
     volumes:
       - ./infra/mosquitto/config:/mosquitto/config:ro
+      - ./infra/mosquitto/certs:/mosquitto/certs:ro
+      - ./infra/mosquitto/secrets:/mosquitto/secrets:ro
+      - ./infra/mosquitto/scripts:/mosquitto/scripts:ro
       - mqtt-data:/mosquitto/data
     restart: unless-stopped
+  api:
+    <<: *app
+    build:
+      context: .
+      target: api
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: postgresql://postgres:postgres@host.docker.internal:54322/postgres
+      PORT: 3000
+    ports:
+      - '127.0.0.1:3000:3000'
+    healthcheck:
+      test: [CMD, node, -e, "fetch('http://127.0.0.1:3000/api/v1/health').then(async r=>{if(!r.ok || (await r.json()).db!=='ok') process.exit(1)}).catch(()=>process.exit(1))"]
+      interval: 10s
+      timeout: 5s
+      start_period: 10s
+      retries: 3
+  ingest:
+    <<: *app
+    build:
+      context: .
+      target: ingest
+  publisher:
+    <<: *app
+    build:
+      context: .
+      target: publisher
 volumes:
   mqtt-data:

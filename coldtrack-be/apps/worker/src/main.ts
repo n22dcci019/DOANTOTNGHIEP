@@ -1,4 +1,4 @@
-import { bootstrap } from '../../../libs/platform/bootstrap.js';
+import { startTransport } from '../../../libs/platform/transport.js';
 
 // Infrastructure bootstrap only: no command publication until outbox is implemented.
-await bootstrap('worker');
+await startTransport('publisher');

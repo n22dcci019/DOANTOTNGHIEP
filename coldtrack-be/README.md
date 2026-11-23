@@ -1,5 +1,54 @@
 # ColdTrack Backend
 
+## Bước 0.2 — Docker Compose TLS
+
+Compose có bốn service `mosquitto`, `api`, `ingest`, `publisher` (dùng `apps/worker`).
+Supabase chạy riêng trên host; không thêm service PostgreSQL. Cả ba app dùng
+`DATABASE_URL=postgresql://postgres:postgres@host.docker.internal:54322/postgres`.
+Chỉ publish cổng loopback 3000 (API) và 8883 (MQTT TLS).
+
+Chạy tại `coldtrack-be/`, với Docker Desktop và Supabase local đang chạy:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File infra/mosquitto/scripts/gen-certs.ps1
+docker compose config --quiet
+docker compose up -d --build
+docker compose ps
+curl.exe -i http://localhost:3000/api/v1/health
+docker compose exec -T mosquitto sh /mosquitto/scripts/test-tls.sh
+docker compose logs ingest publisher
+```
+
+Script thiết lập chạy một lần, dùng OpenSSL trong container tạm để tạo CA local,
+chứng chỉ server có SAN `mosquitto`, `localhost`, `127.0.0.1` (hạn 365 ngày),
+và mật khẩu ngẫu nhiên cho `coldtrack-test`. Không in mật khẩu; script từ chối
+ghi đè credential đã có. `certs/` và `secrets/` được ignore; không commit chúng.
+Nếu cần dùng client khác: username `coldtrack-test`, password đọc từ
+`infra/mosquitto/secrets/test-password`, CA là `infra/mosquitto/certs/ca.crt`.
+Không tắt kiểm tra chứng chỉ TLS. User này chỉ được đọc/ghi `coldtrack/test/#`.
+Password/ACL thiết bị cũ được giữ trên đĩa nhưng không được broker dùng ở bước 0.2;
+provisioning và ACL theo thiết bị thuộc bước 1.9. Không chạy `local:configure`
+để tạo credential cho bước này.
+
+Ingest/publisher chỉ kiểm tra DB bằng `select 1`, kết nối MQTT và ghi log
+`DB connected` / `MQTT connected`; không subscribe, ACK hay publish nghiệp vụ,
+không mở HTTP endpoint. DB/MQTT lỗi thì ghi log và thử lại sau 5 giây.
+API health vẫn HTTP 200 khi DB lỗi; Docker healthcheck chuyển unhealthy.
+Trước khi Compose chạy cần dừng API host cũ nếu đang chiếm cổng 3000.
+
+Kiểm tra DB tắt/khôi phục, không dùng `db:reset`:
+
+```powershell
+npm run db:stop
+curl.exe -i http://localhost:3000/api/v1/health
+npm run db:start
+curl.exe -i http://localhost:3000/api/v1/health
+```
+
+`docker compose stop` dừng bốn service, giữ volume MQTT và stack Supabase riêng.
+Phần hướng dẫn hạ tầng plaintext/credential tự động cũ phía dưới là lịch sử,
+không áp dụng cho Compose TLS của bước 0.2.
+
 ## Bước 0.1 — API
 
 API dùng `@nestjs/config`, đọc `.env` tại gốc workspace (`D:/DoAnTotNghiep/.env`)

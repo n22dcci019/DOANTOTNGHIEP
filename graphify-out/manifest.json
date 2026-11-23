@@ -677,516 +677,6 @@
     "ast_hash": "941917b6854fdc04059529a881b0245c",
     "semantic_hash": "941917b6854fdc04059529a881b0245c"
   },
-  "coldtrack-web/artifacts/admin/1440-admin-cai-dat-tab-notifications.png": {
-    "mtime": 1793785237.3903859,
-    "seen": 1794164600.8964505,
-    "ast_hash": "311331018113b88150bdc408bbba93e6",
-    "semantic_hash": "311331018113b88150bdc408bbba93e6"
-  },
-  "coldtrack-web/artifacts/admin/1440-admin-cai-dat-tab-thresholds.png": {
-    "mtime": 1793785237.6449268,
-    "seen": 1794164600.8964527,
-    "ast_hash": "324e671a9a3d6a4868b072eb81737440",
-    "semantic_hash": "324e671a9a3d6a4868b072eb81737440"
-  },
-  "coldtrack-web/artifacts/admin/1440-admin-cai-dat.png": {
-    "mtime": 1793785237.2387586,
-    "seen": 1794164600.8964543,
-    "ast_hash": "54cbb0b2f4d4d8dc42a250f25cfe9bb7",
-    "semantic_hash": "54cbb0b2f4d4d8dc42a250f25cfe9bb7"
-  },
-  "coldtrack-web/artifacts/admin/1440-admin-canh-bao-CB-2026-001.png": {
-    "mtime": 1793785235.6250267,
-    "seen": 1794164600.8964565,
-    "ast_hash": "f8f36a668fa6000c593a5b548c588698",
-    "semantic_hash": "f8f36a668fa6000c593a5b548c588698"
-  },
-  "coldtrack-web/artifacts/admin/1440-admin-canh-bao.png": {
-    "mtime": 1793785235.2619767,
-    "seen": 1794164600.8964581,
-    "ast_hash": "68babaef82acba83ed7d3055b419f331",
-    "semantic_hash": "68babaef82acba83ed7d3055b419f331"
-  },
-  "coldtrack-web/artifacts/admin/1440-admin-lich-su-CT-2026-0301.png": {
-    "mtime": 1793785236.868771,
-    "seen": 1794164600.8964603,
-    "ast_hash": "117ae4f9c92813da0dcaa9f74bb29fc6",
-    "semantic_hash": "117ae4f9c92813da0dcaa9f74bb29fc6"
-  },
-  "coldtrack-web/artifacts/admin/1440-admin-lich-su.png": {
-    "mtime": 1793785236.4872823,
-    "seen": 1794164600.896462,
-    "ast_hash": "e9f29c3ab90e791f5614e985ca4e2e0b",
-    "semantic_hash": "e9f29c3ab90e791f5614e985ca4e2e0b"
-  },
-  "coldtrack-web/artifacts/admin/1440-admin-lo-hang-CT-2026-0156.png": {
-    "mtime": 1793785234.452619,
-    "seen": 1794164600.8964639,
-    "ast_hash": "eba23b0e5709f6b717ccd23152cc457e",
-    "semantic_hash": "eba23b0e5709f6b717ccd23152cc457e"
-  },
-  "coldtrack-web/artifacts/admin/1440-admin-lo-hang-CT-2026-0401-duyet.png": {
-    "mtime": 1793785235.0092769,
-    "seen": 1794164600.896466,
-    "ast_hash": "1df5165e891d800fa9598ef1a34d1ae8",
-    "semantic_hash": "1df5165e891d800fa9598ef1a34d1ae8"
-  },
-  "coldtrack-web/artifacts/admin/1440-admin-lo-hang-status-Ch-i-u-ph-i-duy-t.png": {
-    "mtime": 1793785234.654612,
-    "seen": 1794164600.8964677,
-    "ast_hash": "ee15884b25b2a3d190f50dda831aabcc",
-    "semantic_hash": "ee15884b25b2a3d190f50dda831aabcc"
-  },
-  "coldtrack-web/artifacts/admin/1440-admin-lo-hang.png": {
-    "mtime": 1793785233.9446597,
-    "seen": 1794164600.8964696,
-    "ast_hash": "1278b617d64cd3d53de05db40c881384",
-    "semantic_hash": "1278b617d64cd3d53de05db40c881384"
-  },
-  "coldtrack-web/artifacts/admin/1440-admin-nhat-ky.png": {
-    "mtime": 1793785237.0855622,
-    "seen": 1794164600.8964713,
-    "ast_hash": "f746967e0fbdf71a7a3c9bc6e9837eaa",
-    "semantic_hash": "f746967e0fbdf71a7a3c9bc6e9837eaa"
-  },
-  "coldtrack-web/artifacts/admin/1440-admin-xe-xe-01.png": {
-    "mtime": 1793785236.161003,
-    "seen": 1794164600.8964732,
-    "ast_hash": "e9f29c3ab90e791f5614e985ca4e2e0b",
-    "semantic_hash": "e9f29c3ab90e791f5614e985ca4e2e0b"
-  },
-  "coldtrack-web/artifacts/admin/1440-admin-xe.png": {
-    "mtime": 1793785235.8517785,
-    "seen": 1794164600.8964748,
-    "ast_hash": "a38ba54b7ce93f0caa4e138a9fdaa571",
-    "semantic_hash": "a38ba54b7ce93f0caa4e138a9fdaa571"
-  },
-  "coldtrack-web/artifacts/admin/1440-admin.png": {
-    "mtime": 1793785233.645533,
-    "seen": 1794164600.8964772,
-    "ast_hash": "c3addcb9f43d83b476e18195ed05db77",
-    "semantic_hash": "c3addcb9f43d83b476e18195ed05db77"
-  },
-  "coldtrack-web/artifacts/admin/390-admin-cai-dat-tab-notifications.png": {
-    "mtime": 1793785243.707329,
-    "seen": 1794164600.896479,
-    "ast_hash": "e8eca5041885389f9ef2d2e3e158ad1b",
-    "semantic_hash": "e8eca5041885389f9ef2d2e3e158ad1b"
-  },
-  "coldtrack-web/artifacts/admin/390-admin-cai-dat-tab-thresholds.png": {
-    "mtime": 1793785243.8614006,
-    "seen": 1794164600.8964808,
-    "ast_hash": "8aff195418d1c0a21c19391ccff1d436",
-    "semantic_hash": "8aff195418d1c0a21c19391ccff1d436"
-  },
-  "coldtrack-web/artifacts/admin/390-admin-cai-dat.png": {
-    "mtime": 1793785243.568329,
-    "seen": 1794164600.8964825,
-    "ast_hash": "bcdcc4a343abf9055a01abb66a65c3ca",
-    "semantic_hash": "bcdcc4a343abf9055a01abb66a65c3ca"
-  },
-  "coldtrack-web/artifacts/admin/390-admin-canh-bao-CB-2026-001.png": {
-    "mtime": 1793785242.3883288,
-    "seen": 1794164600.8964844,
-    "ast_hash": "5348e85339b1ee1cd14a0d7691387077",
-    "semantic_hash": "5348e85339b1ee1cd14a0d7691387077"
-  },
-  "coldtrack-web/artifacts/admin/390-admin-canh-bao.png": {
-    "mtime": 1793785242.092893,
-    "seen": 1794164600.896486,
-    "ast_hash": "e55485305ae739f18b8953b6783de9e2",
-    "semantic_hash": "e55485305ae739f18b8953b6783de9e2"
-  },
-  "coldtrack-web/artifacts/admin/390-admin-lich-su-CT-2026-0301.png": {
-    "mtime": 1793785243.2315469,
-    "seen": 1794164600.896488,
-    "ast_hash": "41a0a275f128dbe72c9529873d5b6686",
-    "semantic_hash": "41a0a275f128dbe72c9529873d5b6686"
-  },
-  "coldtrack-web/artifacts/admin/390-admin-lich-su.png": {
-    "mtime": 1793785242.9733293,
-    "seen": 1794164600.8964896,
-    "ast_hash": "af76f9153b0276c70d6167063336dbf8",
-    "semantic_hash": "af76f9153b0276c70d6167063336dbf8"
-  },
-  "coldtrack-web/artifacts/admin/390-admin-lo-hang-CT-2026-0156.png": {
-    "mtime": 1793785241.535391,
-    "seen": 1794164600.8964918,
-    "ast_hash": "277d7cc4e63348213020e6297c0f2fc6",
-    "semantic_hash": "277d7cc4e63348213020e6297c0f2fc6"
-  },
-  "coldtrack-web/artifacts/admin/390-admin-lo-hang-CT-2026-0401-duyet.png": {
-    "mtime": 1793785241.9418952,
-    "seen": 1794164600.8964937,
-    "ast_hash": "e382db93dd41959eee87c08971b10f64",
-    "semantic_hash": "e382db93dd41959eee87c08971b10f64"
-  },
-  "coldtrack-web/artifacts/admin/390-admin-lo-hang-status-Ch-i-u-ph-i-duy-t.png": {
-    "mtime": 1793785241.68939,
-    "seen": 1794164600.8964956,
-    "ast_hash": "781d4380e8f62308bc287992fdef1035",
-    "semantic_hash": "781d4380e8f62308bc287992fdef1035"
-  },
-  "coldtrack-web/artifacts/admin/390-admin-lo-hang.png": {
-    "mtime": 1793785241.2557645,
-    "seen": 1794164600.8964975,
-    "ast_hash": "d30a8b19df4058f83ef7f0c45cd8ec78",
-    "semantic_hash": "d30a8b19df4058f83ef7f0c45cd8ec78"
-  },
-  "coldtrack-web/artifacts/admin/390-admin-nhat-ky.png": {
-    "mtime": 1793785243.4115374,
-    "seen": 1794164600.8964994,
-    "ast_hash": "c7f856c59eab7251b9c13bf8fd7055a9",
-    "semantic_hash": "c7f856c59eab7251b9c13bf8fd7055a9"
-  },
-  "coldtrack-web/artifacts/admin/390-admin-xe-xe-01.png": {
-    "mtime": 1793785242.775326,
-    "seen": 1794164600.8965013,
-    "ast_hash": "d36d423f75b05cdad8cd8f1385b75109",
-    "semantic_hash": "d36d423f75b05cdad8cd8f1385b75109"
-  },
-  "coldtrack-web/artifacts/admin/390-admin-xe.png": {
-    "mtime": 1793785242.5973344,
-    "seen": 1794164600.8965027,
-    "ast_hash": "21bc55b38e1a020ef61c8c1637b979ca",
-    "semantic_hash": "21bc55b38e1a020ef61c8c1637b979ca"
-  },
-  "coldtrack-web/artifacts/admin/390-admin.png": {
-    "mtime": 1793785241.1268895,
-    "seen": 1794164600.8965049,
-    "ast_hash": "69f092ee7052a24a35d24cf303118b55",
-    "semantic_hash": "69f092ee7052a24a35d24cf303118b55"
-  },
-  "coldtrack-web/artifacts/auth/1440-login.png": {
-    "mtime": 1794318063.5172937,
-    "seen": 1794320721.8566437,
-    "ast_hash": "f238a4cacc05d57385ca5b9344a4d857",
-    "semantic_hash": "f238a4cacc05d57385ca5b9344a4d857"
-  },
-  "coldtrack-web/artifacts/auth/1440-register.png": {
-    "mtime": 1794318066.8621528,
-    "seen": 1794320721.8566499,
-    "ast_hash": "104425c5b6c7199b157e8c58893395e4",
-    "semantic_hash": ""
-  },
-  "coldtrack-web/artifacts/auth/1440-reset-expired.png": {
-    "mtime": 1794318064.5772057,
-    "seen": 1794320721.8566568,
-    "ast_hash": "39b512c43da5ffdd68c83673adc6f77c",
-    "semantic_hash": "39b512c43da5ffdd68c83673adc6f77c"
-  },
-  "coldtrack-web/artifacts/auth/1440-reset-success.png": {
-    "mtime": 1794318066.3272321,
-    "seen": 1794320721.8566632,
-    "ast_hash": "d83ecd8fa9a1c31c37360456d59d70ad",
-    "semantic_hash": "d83ecd8fa9a1c31c37360456d59d70ad"
-  },
-  "coldtrack-web/artifacts/auth/1440-reset-token-invalid.png": {
-    "mtime": 1794318065.8620017,
-    "seen": 1794320721.85667,
-    "ast_hash": "a3eb6d4db9a6adf1b03fb80a9e8589ee",
-    "semantic_hash": "a3eb6d4db9a6adf1b03fb80a9e8589ee"
-  },
-  "coldtrack-web/artifacts/auth/1440-reset-valid.png": {
-    "mtime": 1793782812.8662546,
-    "seen": 1794164600.8965158,
-    "ast_hash": "5060e5183a3874ca74f535d9801f7a8b",
-    "semantic_hash": "5060e5183a3874ca74f535d9801f7a8b"
-  },
-  "coldtrack-web/artifacts/auth/390-login.png": {
-    "mtime": 1794318072.5779588,
-    "seen": 1794320721.8566835,
-    "ast_hash": "b397fc3b941fbdc0edace2deb63ecb08",
-    "semantic_hash": "b397fc3b941fbdc0edace2deb63ecb08"
-  },
-  "coldtrack-web/artifacts/auth/390-register.png": {
-    "mtime": 1794318075.1990325,
-    "seen": 1794320721.8566897,
-    "ast_hash": "349fcb8774d88c7601bd2b36ac1b0815",
-    "semantic_hash": ""
-  },
-  "coldtrack-web/artifacts/auth/390-reset-expired.png": {
-    "mtime": 1794318073.2809737,
-    "seen": 1794320721.856696,
-    "ast_hash": "35f7a4e701646440383745607ec8bfc3",
-    "semantic_hash": "35f7a4e701646440383745607ec8bfc3"
-  },
-  "coldtrack-web/artifacts/auth/390-reset-success.png": {
-    "mtime": 1794318074.7779322,
-    "seen": 1794320721.856702,
-    "ast_hash": "5e5fced8a52493e51401c1ad5683152b",
-    "semantic_hash": "5e5fced8a52493e51401c1ad5683152b"
-  },
-  "coldtrack-web/artifacts/auth/390-reset-token-invalid.png": {
-    "mtime": 1794318074.428889,
-    "seen": 1794320721.856709,
-    "ast_hash": "88428893f4788d9307bf9e26faa7f7a7",
-    "semantic_hash": "88428893f4788d9307bf9e26faa7f7a7"
-  },
-  "coldtrack-web/artifacts/auth/390-reset-valid.png": {
-    "mtime": 1793782812.9496524,
-    "seen": 1794164600.8965266,
-    "ast_hash": "dafe849d19d74325176406866463634d",
-    "semantic_hash": "dafe849d19d74325176406866463634d"
-  },
-  "coldtrack-web/artifacts/customer/1440-kh-cai-dat-tab-notifications.png": {
-    "mtime": 1793786940.3049743,
-    "seen": 1794164600.8965285,
-    "ast_hash": "fa24c62c8fb0caa765e9dd1b8a621b24",
-    "semantic_hash": "fa24c62c8fb0caa765e9dd1b8a621b24"
-  },
-  "coldtrack-web/artifacts/customer/1440-kh-cai-dat.png": {
-    "mtime": 1793786940.1949022,
-    "seen": 1794164600.8965302,
-    "ast_hash": "886ade4bc263bd6969e87be0007811b8",
-    "semantic_hash": "886ade4bc263bd6969e87be0007811b8"
-  },
-  "coldtrack-web/artifacts/customer/1440-kh-lich-su-ma-CT-2026-0301.png": {
-    "mtime": 1793786940.0576382,
-    "seen": 1794164600.8965323,
-    "ast_hash": "8a8be978330e1f04fd4b4b827c16a23c",
-    "semantic_hash": "8a8be978330e1f04fd4b4b827c16a23c"
-  },
-  "coldtrack-web/artifacts/customer/1440-kh-lich-su.png": {
-    "mtime": 1793786939.8396418,
-    "seen": 1794164600.896534,
-    "ast_hash": "7ed4a05eeb926c0d98c8b46c3362aed2",
-    "semantic_hash": "7ed4a05eeb926c0d98c8b46c3362aed2"
-  },
-  "coldtrack-web/artifacts/customer/1440-kh-lo-hang-ma-CT-2026-0156.png": {
-    "mtime": 1793786939.1842422,
-    "seen": 1794164600.8965359,
-    "ast_hash": "2c1a1850d0b4dea3bedda3b07122d679",
-    "semantic_hash": "2c1a1850d0b4dea3bedda3b07122d679"
-  },
-  "coldtrack-web/artifacts/customer/1440-kh-lo-hang.png": {
-    "mtime": 1793786938.9461136,
-    "seen": 1794164600.8965375,
-    "ast_hash": "2976e82ad03022768f1640cc09bda8a5",
-    "semantic_hash": "2976e82ad03022768f1640cc09bda8a5"
-  },
-  "coldtrack-web/artifacts/customer/1440-kh-tao-lo-hang-xem-lai.png": {
-    "mtime": 1793786939.536612,
-    "seen": 1794164600.8965394,
-    "ast_hash": "f868bacf0ae2e68582bd13c286ae4b61",
-    "semantic_hash": "f868bacf0ae2e68582bd13c286ae4b61"
-  },
-  "coldtrack-web/artifacts/customer/1440-kh-tao-lo-hang.png": {
-    "mtime": 1793786939.341344,
-    "seen": 1794164600.896541,
-    "ast_hash": "37e9f4667e9a1c39af32fe4f4b1280f4",
-    "semantic_hash": "37e9f4667e9a1c39af32fe4f4b1280f4"
-  },
-  "coldtrack-web/artifacts/customer/390-kh-cai-dat-tab-notifications.png": {
-    "mtime": 1793786942.2486076,
-    "seen": 1794164600.896543,
-    "ast_hash": "cf06d7083725ff8f5afdd10c123ab2b7",
-    "semantic_hash": "cf06d7083725ff8f5afdd10c123ab2b7"
-  },
-  "coldtrack-web/artifacts/customer/390-kh-cai-dat.png": {
-    "mtime": 1793786942.1606035,
-    "seen": 1794164600.896545,
-    "ast_hash": "2039a021c2578f01e8f4c38974ac865a",
-    "semantic_hash": "2039a021c2578f01e8f4c38974ac865a"
-  },
-  "coldtrack-web/artifacts/customer/390-kh-lich-su-ma-CT-2026-0301.png": {
-    "mtime": 1793786942.0546055,
-    "seen": 1794164600.8965468,
-    "ast_hash": "80b780b3e4ca715a94614ef6368e1aa9",
-    "semantic_hash": "80b780b3e4ca715a94614ef6368e1aa9"
-  },
-  "coldtrack-web/artifacts/customer/390-kh-lich-su.png": {
-    "mtime": 1793786941.9346333,
-    "seen": 1794164600.8965485,
-    "ast_hash": "27e938e88a63b4666df1c06738bcfae3",
-    "semantic_hash": "27e938e88a63b4666df1c06738bcfae3"
-  },
-  "coldtrack-web/artifacts/customer/390-kh-lo-hang-ma-CT-2026-0156.png": {
-    "mtime": 1793786941.6274025,
-    "seen": 1794164600.896551,
-    "ast_hash": "30b3e4800aa5a947fe0824d288494a4d",
-    "semantic_hash": "30b3e4800aa5a947fe0824d288494a4d"
-  },
-  "coldtrack-web/artifacts/customer/390-kh-lo-hang.png": {
-    "mtime": 1793786941.5030131,
-    "seen": 1794164600.896553,
-    "ast_hash": "8406df912824fdc77d304c8ab88ec0ac",
-    "semantic_hash": "8406df912824fdc77d304c8ab88ec0ac"
-  },
-  "coldtrack-web/artifacts/customer/390-kh-tao-lo-hang-xem-lai.png": {
-    "mtime": 1793786941.8425233,
-    "seen": 1794164600.8965547,
-    "ast_hash": "20a0dc7629fce5b3b1c8df6d4733667c",
-    "semantic_hash": "20a0dc7629fce5b3b1c8df6d4733667c"
-  },
-  "coldtrack-web/artifacts/customer/390-kh-tao-lo-hang.png": {
-    "mtime": 1793786941.7315345,
-    "seen": 1794164600.8965566,
-    "ast_hash": "3680c69dde5d3c3dd55abfeb342f2673",
-    "semantic_hash": "3680c69dde5d3c3dd55abfeb342f2673"
-  },
-  "coldtrack-web/artifacts/driver/1440-modal-B-o-s-c.png": {
-    "mtime": 1793790052.6479034,
-    "seen": 1794164600.8965664,
-    "ast_hash": "91a57509cb5f325578f5761266da000e",
-    "semantic_hash": "91a57509cb5f325578f5761266da000e"
-  },
-  "coldtrack-web/artifacts/driver/1440-modal-Ho-n-th-nh-ch-ng.png": {
-    "mtime": 1793790053.7709756,
-    "seen": 1794164600.8965683,
-    "ast_hash": "5a0c4782079593bc4a6338819021284d",
-    "semantic_hash": "5a0c4782079593bc4a6338819021284d"
-  },
-  "coldtrack-web/artifacts/driver/1440-modal-X-c-nh-n.png": {
-    "mtime": 1793790054.7932115,
-    "seen": 1794164600.8965704,
-    "ast_hash": "162b36ee4ea28bed8dc5cc3317224a43",
-    "semantic_hash": "162b36ee4ea28bed8dc5cc3317224a43"
-  },
-  "coldtrack-web/artifacts/driver/1440-tx-cai-dat-tab-notifications.png": {
-    "mtime": 1793790051.883225,
-    "seen": 1794164600.896572,
-    "ast_hash": "7676b8d3ee09a42571a72a96039a7a59",
-    "semantic_hash": "7676b8d3ee09a42571a72a96039a7a59"
-  },
-  "coldtrack-web/artifacts/driver/1440-tx-cai-dat.png": {
-    "mtime": 1793790051.7163017,
-    "seen": 1794164600.8965743,
-    "ast_hash": "95db6c0d35021149c130032061bf6a33",
-    "semantic_hash": "95db6c0d35021149c130032061bf6a33"
-  },
-  "coldtrack-web/artifacts/driver/1440-tx-canh-bao.png": {
-    "mtime": 1793790051.4987907,
-    "seen": 1794164600.896576,
-    "ast_hash": "a716e90cd2bc5f08c5d4c1bfd3bbe8a8",
-    "semantic_hash": "a716e90cd2bc5f08c5d4c1bfd3bbe8a8"
-  },
-  "coldtrack-web/artifacts/driver/1440-tx-chuyen.png": {
-    "mtime": 1793790050.4732714,
-    "seen": 1794164600.8965778,
-    "ast_hash": "bd7c81c7b8727f983ab23f0178c56620",
-    "semantic_hash": "bd7c81c7b8727f983ab23f0178c56620"
-  },
-  "coldtrack-web/artifacts/driver/1440-tx-lich-su-ma-CT-2026-0301.png": {
-    "mtime": 1793790051.2312243,
-    "seen": 1794164600.8965795,
-    "ast_hash": "819cff985c4239d25a40bf9ad476aa6b",
-    "semantic_hash": "819cff985c4239d25a40bf9ad476aa6b"
-  },
-  "coldtrack-web/artifacts/driver/1440-tx-lich-su.png": {
-    "mtime": 1793790050.8093865,
-    "seen": 1794164600.8965814,
-    "ast_hash": "fee2161c0108d5d5cc8485b52be2bd12",
-    "semantic_hash": "fee2161c0108d5d5cc8485b52be2bd12"
-  },
-  "coldtrack-web/artifacts/driver/390-modal-B-o-s-c.png": {
-    "mtime": 1793790059.3113213,
-    "seen": 1794164600.8965833,
-    "ast_hash": "b30378005dfa66004855aeb03bd7fb8d",
-    "semantic_hash": "b30378005dfa66004855aeb03bd7fb8d"
-  },
-  "coldtrack-web/artifacts/driver/390-modal-Ho-n-th-nh-ch-ng.png": {
-    "mtime": 1793790059.6556556,
-    "seen": 1794164600.8965852,
-    "ast_hash": "62666ea751b69de83e7bdc506dad74cb",
-    "semantic_hash": "62666ea751b69de83e7bdc506dad74cb"
-  },
-  "coldtrack-web/artifacts/driver/390-modal-X-c-nh-n.png": {
-    "mtime": 1793790060.0881884,
-    "seen": 1794164600.896587,
-    "ast_hash": "2b82819d3d51a737239b9b9b41f7e836",
-    "semantic_hash": "2b82819d3d51a737239b9b9b41f7e836"
-  },
-  "coldtrack-web/artifacts/driver/390-tx-cai-dat-tab-notifications.png": {
-    "mtime": 1793790058.9711788,
-    "seen": 1794164600.8965888,
-    "ast_hash": "9d2ddc3212dd0483d4d4cd880740a500",
-    "semantic_hash": "9d2ddc3212dd0483d4d4cd880740a500"
-  },
-  "coldtrack-web/artifacts/driver/390-tx-cai-dat.png": {
-    "mtime": 1793790058.8571768,
-    "seen": 1794164600.8965907,
-    "ast_hash": "84e432b53eeca10b30cf759abf734208",
-    "semantic_hash": "84e432b53eeca10b30cf759abf734208"
-  },
-  "coldtrack-web/artifacts/driver/390-tx-canh-bao.png": {
-    "mtime": 1793790058.7301772,
-    "seen": 1794164600.8965924,
-    "ast_hash": "7ac9b9c6a77c9128b08e25caee947396",
-    "semantic_hash": "7ac9b9c6a77c9128b08e25caee947396"
-  },
-  "coldtrack-web/artifacts/driver/390-tx-chuyen.png": {
-    "mtime": 1793790058.196416,
-    "seen": 1794164600.8965948,
-    "ast_hash": "f9505d1fddcec740df33eab0047b39a8",
-    "semantic_hash": "f9505d1fddcec740df33eab0047b39a8"
-  },
-  "coldtrack-web/artifacts/driver/390-tx-lich-su-ma-CT-2026-0301.png": {
-    "mtime": 1793790058.5791762,
-    "seen": 1794164600.8965964,
-    "ast_hash": "160027233e73fb978837f14be05c12e6",
-    "semantic_hash": "160027233e73fb978837f14be05c12e6"
-  },
-  "coldtrack-web/artifacts/driver/390-tx-lich-su.png": {
-    "mtime": 1793790058.3807945,
-    "seen": 1794164600.896599,
-    "ast_hash": "083782fd27aaaf170ca32f3d8f0d1f23",
-    "semantic_hash": "083782fd27aaaf170ca32f3d8f0d1f23"
-  },
-  "coldtrack-web/artifacts/landing/1024-home.png": {
-    "mtime": 1793791840.324035,
-    "seen": 1794164600.8966007,
-    "ast_hash": "09229911f645d834f8004688fb54ebe5",
-    "semantic_hash": "09229911f645d834f8004688fb54ebe5"
-  },
-  "coldtrack-web/artifacts/landing/1280-home.png": {
-    "mtime": 1793791839.671735,
-    "seen": 1794164600.8966029,
-    "ast_hash": "7e1b116e7ea1c3eab4745869906bb4cd",
-    "semantic_hash": "7e1b116e7ea1c3eab4745869906bb4cd"
-  },
-  "coldtrack-web/artifacts/landing/1440-home.png": {
-    "mtime": 1793791838.84343,
-    "seen": 1794164600.8966043,
-    "ast_hash": "d1680483638e865952dedc46b1e682e1",
-    "semantic_hash": "d1680483638e865952dedc46b1e682e1"
-  },
-  "coldtrack-web/artifacts/landing/1440-viewport.png": {
-    "mtime": 1793791838.9846575,
-    "seen": 1794164600.8966064,
-    "ast_hash": "b74a8ac346e645975382a7b7765dc745",
-    "semantic_hash": "b74a8ac346e645975382a7b7765dc745"
-  },
-  "coldtrack-web/artifacts/landing/320-home.png": {
-    "mtime": 1793791842.156344,
-    "seen": 1794164600.8966084,
-    "ast_hash": "24ac697446ebf9f364928dd67f86e71d",
-    "semantic_hash": "24ac697446ebf9f364928dd67f86e71d"
-  },
-  "coldtrack-web/artifacts/landing/390-home.png": {
-    "mtime": 1793791841.6425164,
-    "seen": 1794164600.89661,
-    "ast_hash": "48cdd41cebcdf45a1c760658ad23ff10",
-    "semantic_hash": "48cdd41cebcdf45a1c760658ad23ff10"
-  },
-  "coldtrack-web/artifacts/landing/390-viewport.png": {
-    "mtime": 1793791841.6902697,
-    "seen": 1794164600.896612,
-    "ast_hash": "b84b05f5a007dc922fc5f4ccadc6403b",
-    "semantic_hash": "b84b05f5a007dc922fc5f4ccadc6403b"
-  },
-  "coldtrack-web/artifacts/landing/768-home.png": {
-    "mtime": 1793791840.9721193,
-    "seen": 1794164600.896614,
-    "ast_hash": "9dd3bdd4a242dd62f6c54e970054e532",
-    "semantic_hash": "9dd3bdd4a242dd62f6c54e970054e532"
-  },
-  "coldtrack-web/artifacts/landing/tracking-result.png": {
-    "mtime": 1793791843.5350463,
-    "seen": 1794164600.8966162,
-    "ast_hash": "1a076af945fc035e057c33059aaa9a50",
-    "semantic_hash": "1a076af945fc035e057c33059aaa9a50"
-  },
   "coldtrack-web/public/favicon.svg": {
     "mtime": 1793346443.0185995,
     "seen": 1794164600.8966181,
@@ -1217,12 +707,6 @@
     "ast_hash": "9960a24288958394ac50e57ff638b036",
     "semantic_hash": "9960a24288958394ac50e57ff638b036"
   },
-  "coldtrack-web/artifacts/audit/results.json": {
-    "mtime": 1794318238.5831232,
-    "seen": 1794320721.8555055,
-    "ast_hash": "06ad3aa6f7745437f0b2fc47ce8b941c",
-    "semantic_hash": ""
-  },
   "coldtrack-web/scripts/check-ui-fixes.mjs": {
     "mtime": 1794320651.5973806,
     "seen": 1794320721.8555691,
@@ -1247,138 +731,6 @@
     "ast_hash": "d90a2657335e5bc44547ff8dd048102a",
     "semantic_hash": ""
   },
-  "coldtrack-web/artifacts/audit/1440-_.png": {
-    "mtime": 1794318094.4940205,
-    "seen": 1794320721.8565683,
-    "ast_hash": "5c3dbc856849b0c3ede1e56803cf7698",
-    "semantic_hash": ""
-  },
-  "coldtrack-web/artifacts/audit/1440-_login.png": {
-    "mtime": 1794318095.400918,
-    "seen": 1794320721.856575,
-    "ast_hash": "af5d6d7add78712c67f38ae4dca1f7ac",
-    "semantic_hash": ""
-  },
-  "coldtrack-web/artifacts/audit/1440-_register.png": {
-    "mtime": 1794318096.278741,
-    "seen": 1794320721.8565803,
-    "ast_hash": "37ecfe6bb8386465a515a999482eb989",
-    "semantic_hash": ""
-  },
-  "coldtrack-web/artifacts/audit/1440-_unknown_page.png": {
-    "mtime": 1794318097.0687332,
-    "seen": 1794320721.8565862,
-    "ast_hash": "db2077dc900db66851fd3020482c64cd",
-    "semantic_hash": ""
-  },
-  "coldtrack-web/artifacts/audit/1440-admin.png": {
-    "mtime": 1794318236.8568268,
-    "seen": 1794320721.856592,
-    "ast_hash": "d1a17c6993666a6ad2630060c5b47b81",
-    "semantic_hash": ""
-  },
-  "coldtrack-web/artifacts/audit/320-admin.png": {
-    "mtime": 1794318238.5831232,
-    "seen": 1794320721.8565977,
-    "ast_hash": "9439132b60c788f897e1a4e556073ab1",
-    "semantic_hash": ""
-  },
-  "coldtrack-web/artifacts/audit/390-_.png": {
-    "mtime": 1794318097.9326406,
-    "seen": 1794320721.8566031,
-    "ast_hash": "abd90091fe14a6d99fa88757ad9bbe8d",
-    "semantic_hash": ""
-  },
-  "coldtrack-web/artifacts/audit/390-_login.png": {
-    "mtime": 1794318098.763531,
-    "seen": 1794320721.8566082,
-    "ast_hash": "1d1e6fd9fb564730b39a3da444b248d1",
-    "semantic_hash": ""
-  },
-  "coldtrack-web/artifacts/audit/390-_register.png": {
-    "mtime": 1794318099.6610804,
-    "seen": 1794320721.8566139,
-    "ast_hash": "2ab62c89e00d6a6712048fcb5000eefc",
-    "semantic_hash": ""
-  },
-  "coldtrack-web/artifacts/audit/390-_unknown_page.png": {
-    "mtime": 1794318100.432383,
-    "seen": 1794320721.8566196,
-    "ast_hash": "c9ceacec8030e1b2eefe1dbb1e3113f4",
-    "semantic_hash": ""
-  },
-  "coldtrack-web/artifacts/audit/390-admin.png": {
-    "mtime": 1794318237.6482234,
-    "seen": 1794320721.8566246,
-    "ast_hash": "f84c9ecd878709688529d3d75c6db349",
-    "semantic_hash": ""
-  },
-  "coldtrack-web/artifacts/audit/admin-drivers-placeholder.png": {
-    "mtime": 1794319138.8811314,
-    "seen": 1794320721.85663,
-    "ast_hash": "97a1b91a5919d5508f71e8e583b07f7f",
-    "semantic_hash": ""
-  },
-  "coldtrack-web/artifacts/audit/mobile-hidden-focus-evidence.png": {
-    "mtime": 1794319137.9684422,
-    "seen": 1794320721.856636,
-    "ast_hash": "d03f8930119ed8c19a82c59ff925adfe",
-    "semantic_hash": ""
-  },
-  "coldtrack-web/artifacts/ui-fixes/1440-admin-drivers.png": {
-    "mtime": 1794320668.1042156,
-    "seen": 1794320721.8570628,
-    "ast_hash": "f8df6d01b975bf48584af7c391084b13",
-    "semantic_hash": ""
-  },
-  "coldtrack-web/artifacts/ui-fixes/1440-driver-sensors.png": {
-    "mtime": 1794320682.7450387,
-    "seen": 1794320721.8570695,
-    "ast_hash": "7dacb4d3b4a2e5a75521b2fb64f1ccfd",
-    "semantic_hash": ""
-  },
-  "coldtrack-web/artifacts/ui-fixes/320-admin-drivers.png": {
-    "mtime": 1794320668.3032107,
-    "seen": 1794320721.8570752,
-    "ast_hash": "8d5e8004b7103f5524ae81633bc1d0dc",
-    "semantic_hash": ""
-  },
-  "coldtrack-web/artifacts/ui-fixes/320-driver-sensors.png": {
-    "mtime": 1794320682.9038792,
-    "seen": 1794320721.857081,
-    "ast_hash": "dd550d069a6bf27418c702827e69c3aa",
-    "semantic_hash": ""
-  },
-  "coldtrack-web/artifacts/ui-fixes/390-admin-drivers.png": {
-    "mtime": 1794320668.2302127,
-    "seen": 1794320721.8570857,
-    "ast_hash": "cccf620e327b99e41bb0807c8ea17f58",
-    "semantic_hash": ""
-  },
-  "coldtrack-web/artifacts/ui-fixes/390-driver-sensors.png": {
-    "mtime": 1794320682.852035,
-    "seen": 1794320721.8570914,
-    "ast_hash": "642f2ff0e76c04f74fe529ed8bb22bf4",
-    "semantic_hash": ""
-  },
-  "coldtrack-web/artifacts/ui-fixes/admin-finish.png": {
-    "mtime": 1794320670.9875762,
-    "seen": 1794320721.8570964,
-    "ast_hash": "bce1130124f6a6c0237847f9e0a737c1",
-    "semantic_hash": ""
-  },
-  "coldtrack-web/artifacts/ui-fixes/admin-incident.png": {
-    "mtime": 1794320669.853464,
-    "seen": 1794320721.8571022,
-    "ast_hash": "95d5913f356a8005080b8848c4bfa2f0",
-    "semantic_hash": ""
-  },
-  "coldtrack-web/artifacts/ui-fixes/admin-validation.png": {
-    "mtime": 1794320668.4922936,
-    "seen": 1794320721.8571076,
-    "ast_hash": "3c3af3dde441fae6a0a4914dec6b2ec5",
-    "semantic_hash": ""
-  },
   "coldtrack-be/.prettierrc.json": {
     "mtime": 1794478504.6899076,
     "seen": 1794479019.3705094,
@@ -1392,21 +744,21 @@
     "semantic_hash": ""
   },
   "coldtrack-be/apps/ingest/src/main.ts": {
-    "mtime": 1794478643.1505077,
-    "seen": 1794479019.3705275,
-    "ast_hash": "48f873600f2a4d4a2635441181ec61f4",
+    "mtime": 1795448607.5401819,
+    "seen": 1795448824.357952,
+    "ast_hash": "54f34b7fce3608bb05e51cec1bb7dcbc",
     "semantic_hash": ""
   },
   "coldtrack-be/apps/worker/src/main.ts": {
-    "mtime": 1794478644.8462677,
-    "seen": 1794479019.3705347,
-    "ast_hash": "732cbf24f69a2fc3ccb074ef4c555972",
+    "mtime": 1795448608.0503945,
+    "seen": 1795448824.3579612,
+    "ast_hash": "d1338862e7fe70cd8db6966a27a4db98",
     "semantic_hash": ""
   },
   "coldtrack-be/compose.yaml": {
-    "mtime": 1794478834.9687786,
-    "seen": 1794479019.3705416,
-    "ast_hash": "6b4abf71054fa95adfb641fb40e2318d",
+    "mtime": 1795448730.7807665,
+    "seen": 1795448824.3579698,
+    "ast_hash": "2ce25b3c5607d55277b21c43d833c937",
     "semantic_hash": ""
   },
   "coldtrack-be/libs/platform/bootstrap.ts": {
@@ -1464,9 +816,9 @@
     "semantic_hash": ""
   },
   "coldtrack-be/README.md": {
-    "mtime": 1795446879.8488545,
-    "seen": 1795446900.5621,
-    "ast_hash": "35d6cb07d9d4abd94a77169c09945b47",
+    "mtime": 1795448782.3239784,
+    "seen": 1795448824.4071918,
+    "ast_hash": "1d4ce00fbee5ae0fb86146fb1631ac3e",
     "semantic_hash": ""
   },
   "docs/BE-SYSTEM-DESIGN.md": {
@@ -1599,6 +951,30 @@
     "mtime": 1795444617.1029596,
     "seen": 1795446900.5621028,
     "ast_hash": "aeb21cf2a9375c321d1c98414c7eb352",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/infra/mosquitto/scripts/gen-certs.ps1": {
+    "mtime": 1795448678.6666634,
+    "seen": 1795448824.3584466,
+    "ast_hash": "74c5fc571f75144e9739f6fde560b821",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/infra/mosquitto/scripts/gen-certs.sh": {
+    "mtime": 1795448677.69521,
+    "seen": 1795448824.3584526,
+    "ast_hash": "5569aa2b1349fea2a9b9ea2e9c9c39d2",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/infra/mosquitto/scripts/test-tls.sh": {
+    "mtime": 1795448731.6618428,
+    "seen": 1795448824.358457,
+    "ast_hash": "35b6b07544d0a27567c7779fc65e3378",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/libs/platform/transport.ts": {
+    "mtime": 1795448608.5801785,
+    "seen": 1795448824.3608863,
+    "ast_hash": "88c3e77881e857dc3e885012e0e53766",
     "semantic_hash": ""
   },
   "coldtrack-be/package-lock.json": {

@@ -1,4 +1,4 @@
-import { bootstrap } from '../../../libs/platform/bootstrap.js';
+import { startTransport } from '../../../libs/platform/transport.js';
 
 // Infrastructure bootstrap only: no subscriptions or telemetry ACK until ingest is implemented.
-await bootstrap('ingest');
+await startTransport('ingest');
