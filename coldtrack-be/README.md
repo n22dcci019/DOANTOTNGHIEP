@@ -1,5 +1,39 @@
 # ColdTrack Backend
 
+## Bước 1.1 — Baseline tài khoản
+
+Project Supabase hiện hành là `DoAnTotNghiep`, cấu hình tại
+`../supabase/config.toml`; migration duy nhất cho bước này nằm trong
+`../supabase/migrations/`. Không dùng `coldtrack-be/supabase/` để migrate/reset.
+Các script `db:*` đã thêm `--workdir ..` để trỏ đúng project gốc.
+
+Migration tạo `roles`, `permissions`, `role_permissions`, `profiles`,
+`account_access`, hai helper RLS và dữ liệu tham chiếu hệ thống. Client chỉ
+được SELECT theo RLS, không được ghi kể cả hồ sơ của mình. `profiles.update`
+là capability dành cho PATCH /me bước 2.2, không phải SQL UPDATE grant.
+Helper chỉ nhận vai trò/quyền của account active từ DB, không tin role metadata JWT.
+Permission không thay thế việc kiểm tra chủ sở hữu, chuyến và trạng thái ở bước sau.
+
+```powershell
+# Chạy tại coldtrack-be/, sau khi xác minh stack DoAnTotNghiep:
+npm run db:status
+# Lệnh sau XÓA dữ liệu local rồi dựng lại từ migrations:
+npm run db:reset
+npm run lint
+npm test
+npm run build
+```
+
+Integration test dùng `DATABASE_URL` từ môi trường hoặc `.env` gốc. Test tạo user
+trong `auth.users` bằng Supabase Auth Admin với service-role key, tạo fixture
+public bằng SQL `service_role`, rồi kiểm thử `SET LOCAL ROLE authenticated/anon`
+và JWT claims trên PostgreSQL thật. Fixture public luôn rollback; Auth fixtures
+được xóa sau test. Không có seed demo. Key lấy từ `SUPABASE_SERVICE_ROLE_KEY`
+nếu được truyền; nếu thiếu, test đọc qua Supabase CLI `status` ở project gốc,
+không ghi key ra file/log. `SUPABASE_URL` mặc định `http://127.0.0.1:54321`.
+Không cấp INSERT trực tiếp vào `auth.users` cho service_role để phục vụ test.
+Schema dùng `timestamptz` và cập nhật `updated_at` bằng trigger.
+
 ## Bước 0.2 — Docker Compose TLS
 
 Compose có bốn service `mosquitto`, `api`, `ingest`, `publisher` (dùng `apps/worker`).
