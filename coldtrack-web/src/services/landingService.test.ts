@@ -1,0 +1,10 @@
+﻿import { describe, expect, it } from 'vitest';
+import { createLandingService } from './landingService';
+import { createMockAdminService } from './adminService';
+import { createCustomerService } from './customerService';
+import { MOCK_USERS } from '../mock/data';
+describe('public landing mock service', () => {
+  it('shares every food range with customer shipment configuration', async () => { const source = createMockAdminService({ demo: true, delayMs: 0 }); const landing = createLandingService({ demo: true, delayMs: 0 }, source); const customer = createCustomerService(MOCK_USERS.khachHang, source); const products = (await customer.load()).config!.products; expect((await landing.load()).products).toEqual(products); await source.saveThresholds({ ...(await source.load()).settings!.temperature, defaultMin: -22 }, 'Kiểm tra đồng bộ'); expect((await landing.load()).products).toEqual((await customer.load()).config!.products); });
+  it('normalizes lookup code and returns only public illustrative data', async () => { const service = createLandingService({ demo: false, delayMs: 0 }, createMockAdminService({ demo: false, delayMs: 0 })); const data = await service.load(); const record = await service.lookup(` ${data.sampleCodes[0].toLowerCase()} `); expect(record?.milestones).toHaveLength(4); expect(record).not.toHaveProperty('maTaiXe'); expect(record).not.toHaveProperty('khachHangId'); expect(await service.lookup('')).toBeNull(); expect(await service.lookup('unknown')).toBeNull(); });
+  it('controls mock error/empty states only with demo on', async () => { const source = createMockAdminService({ demo: true, delayMs: 0 }); const enabled = createLandingService({ demo: true, delayMs: 0 }, source); enabled.setDemoState!('empty'); expect((await enabled.load()).products).toEqual([]); enabled.setDemoState!('error'); await expect(enabled.lookup('CT-2026-0901')).rejects.toThrow(); enabled.setDemoState!('data'); expect((await enabled.load()).testimonials).toHaveLength(3); const disabled = createLandingService({ demo: false, delayMs: 0 }, source); disabled.setDemoState!('error'); expect((await disabled.load()).preview).toBeTruthy(); });
+});

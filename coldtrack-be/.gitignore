@@ -1,0 +1,13 @@
+node_modules/
+dist/
+coverage/
+.test-dist/
+.env
+.env.*
+!.env.example
+*.log
+supabase/.temp/
+supabase/.branches/
+infra/mosquitto/config/passwords
+infra/mosquitto/certs/
+infra/mosquitto/device.env

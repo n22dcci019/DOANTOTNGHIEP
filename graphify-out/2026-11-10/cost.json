@@ -1,0 +1,13 @@
+{
+  "runs": [
+    {
+      "date": "2026-11-08T19:03:20.937944+00:00",
+      "input_tokens": null,
+      "output_tokens": null,
+      "files": 203,
+      "note": "Host agent usage unavailable; extraction JSON token zeros are placeholders, not measured zero usage."
+    }
+  ],
+  "total_input_tokens": 0,
+  "total_output_tokens": 0
+}

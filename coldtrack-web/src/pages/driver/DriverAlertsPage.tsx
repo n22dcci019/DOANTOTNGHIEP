@@ -1,0 +1,18 @@
+﻿import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { PageHeading, DataTable, Filters, SearchBox, SelectFilter, StatePanel, Status, Message } from '../../components/admin/AdminUI';
+import { StatCard } from '../../components/common/StatCard';
+import { dateVi, numberVi, temperatureVi } from '../../services/adminTypes';
+import type { DriverData } from '../../services/driverTypes';
+import type { CanhBao } from '../../mock/types';
+import { AcknowledgeAlertModal } from './DriverActions';
+import { DriverGate } from './DriverGate';
+function Alerts({ data }: { data: DriverData }) {
+  const [query, setQuery] = useState(''); const [level, setLevel] = useState(''); const [status, setStatus] = useState('Đang mở'); const [selected, setSelected] = useState<CanhBao | null>(null); const [notice, setNotice] = useState('');
+  if (!data.current) return <><PageHeading title="Cảnh báo của chuyến" subtitle="Cảnh báo chỉ hiển thị cho chuyến đang được phân công." /><StatePanel type="empty" message="Bạn chưa có chuyến đang vận chuyển để xem cảnh báo." /><div className="driver-empty-actions"><Link to="/tx/chuyen">Quay lại chuyến hiện tại</Link></div></>;
+  const opened = data.alerts.filter(item => !item.daXuLy); const rows = data.alerts.filter(item => (!level || item.mucDo === level) && (!status || item.daXuLy === (status === 'Đã xử lý')) && `${item.id} ${item.tieuDe} ${item.noiDung}`.toLowerCase().includes(query.trim().toLowerCase()));
+  return <><PageHeading title="Cảnh báo của chuyến" subtitle={`Theo dõi cảnh báo nhiệt độ và sự cố của lô ${data.current.ma}.`} /><Message success>{notice}</Message><div className="admin-stats three">{['Nghiêm trọng', 'Cảnh báo', 'Thông tin'].map(label => <StatCard key={label} title={label} value={numberVi(opened.filter(item => item.mucDo === label).length)} subtitle="Cảnh báo đang mở của chuyến" />)}</div><Filters reset={() => { setQuery(''); setLevel(''); setStatus('Đang mở'); }}><SearchBox value={query} onChange={setQuery} placeholder="Tìm loại cảnh báo hoặc mô tả sự cố…" /><SelectFilter label="Mức độ" value={level} onChange={setLevel} options={['Nghiêm trọng', 'Cảnh báo', 'Thông tin']} /><SelectFilter label="Trạng thái" value={status} onChange={setStatus} options={['Đang mở', 'Đã xử lý']} /></Filters><DataTable title="Danh sách cảnh báo của chuyến" data={rows} rowKey={item => item.id} pageSize={data.config?.pageSize ?? Math.max(1, rows.length)} filterKey={`${query}|${level}|${status}`} columns={[
+    { key: 'mucDo', header: 'Mức độ', render: item => <Status label={item.mucDo} /> }, { key: 'tieuDe', header: 'Loại cảnh báo' }, { key: 'maLo', header: 'Mã lô hàng' }, { key: 'noidung', header: 'Chi tiết', render: item => <div className="admin-log-detail">{item.noiDung}</div> }, { key: 'value', header: 'Giá trị', render: item => temperatureVi(item.nhietDoLucBao) }, { key: 'time', header: 'Thời gian', render: item => dateVi(item.thoiGian) }, { key: 'status', header: 'Trạng thái', render: item => <Status label={item.daXuLy ? 'Đã xử lý' : 'Đang mở'} /> }, { key: 'action', header: 'Hành động', render: item => { const acknowledged = data.acknowledgements.some(record => record.alertId === item.id); return <button className="driver-text-button" disabled={item.daXuLy || acknowledged} onClick={() => setSelected(item)}>{item.daXuLy ? 'Đã xử lý' : acknowledged ? 'Đã xác nhận' : 'Xác nhận'}</button>; } },
+  ]} />{selected && <AcknowledgeAlertModal key={selected.id} data={data} alert={selected} onClose={() => setSelected(null)} onSuccess={setNotice} />}</>;
+}
+export function DriverAlertsPage() { return <DriverGate>{data => <Alerts data={data} />}</DriverGate>; }

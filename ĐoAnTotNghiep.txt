@@ -1,0 +1,65 @@
+coi lại giao thức MQTT : mosquitto mqtt
+module AI dùng text to speed gọi API 
+vừa làm app vừa làm
+
+-Không có sóng wed với app gửi cảnh báo
+
+
+train thông qua server ngoài hay chạy trực tiếp trên stm32
+
+
+xác thực vị trí tài xế qua so khớp GPS điện thoại và GPS thiết bị, ngưỡng sai lệch cho phép X mét
+
+Các chức năng của wed
+chatbot dạng "trợ lý tra cứu đơn hàng "không phải chatbot đa năng và làm ở giai đoạn cuối khi phần lõi đã ổn.
+
+6. Đánh giá/phản hồi từ người dùng sau khi nhận hàng
+1. Xác nhận giao hàng có bằng chứng (Proof of Delivery) app
+
+Nút "Gọi trực ban" — bấm là gọi thẳng SĐT người trực (giữ như phương án A, đơn giản, luôn hoạt động kể cả khi app lỗi)
+Nút "Báo cáo sự cố" — form ngắn gọn (chọn loại sự cố: xe hỏng/tai nạn/hàng hư/khác + ghi chú ngắn) → gửi thẳng vào hệ thống, admin thấy ngay trong Trung tâm cảnh báo, có lưu log (khớp với chức năng Audit log bạn vừa chọn thêm)
+app cho tài xế
+
+Dự đoán ETA (thời gian đến dự kiến)
+
+Phân cấp mức độ cảnh báo
+Hiện tại "cảnh báo" đang là một nhóm chung. 
+Nên chia rõ: Cảnh báo nhẹ (gần chạm ngưỡng, màu vàng) và Cảnh báo nghiêm trọng (đã vượt ngưỡng, màu đỏ). 
+Giúp admin/tài xế ưu tiên xử lý đúng việc gấp trước — đây cũng là điểm hội đồng hay hỏi ("hệ thống của bạn phân biệt mức độ cảnh báo thế nào?").
+
+Lịch sử thao tác/nhật ký hệ thống (Audit log) cho Admin
+Ai đã đóng cảnh báo nào, lúc nào, ai sửa ngưỡng nhiệt độ — rất quan trọng cho tính minh bạch và cũng dễ ghi điểm ở phần bảo mật/quản trị khi bảo vệ đồ án.
+
+auth: 
+Đăng nhập
+Đăng xuất
+
+bảo mật 
+jwt: reset token
+thông tin cty và khách hàng
+
+2 chế độ admin, tài xế và người dùng
+- Cảnh báo
+Khi mất 4G sẽ ghi lại data gần nhất và gửi cảnh báo về admim.
+
+- Lịch sử dữ liệu ( xuất được ra file excel )
+
+người dùng:
+- coi được các thông số từ cảm biến: nhiệt độ, GPS
+Chỉ xem được đơn hàng/lô hàng của mình đang ở đâu, nhiệt độ hiện tại có đảm bảo không
+Không thấy được thông tin xe khác hay dữ liệu nội bộ công ty
+Xem lịch sử nhiệt độ suốt hành trình của lô hàng.
+thấy được thông tin cơ bản của của tài xế
+
+Tài xế 
+- Điểm đến giao hàng
+Chỉ xem xe mình đang phụ trách
+Xem nhiệt độ, độ ẩm, vị trí GPS real-time của xe mình
+Nhận cảnh báo khi vượt ngưỡng qua web
+Có thể xác nhận đã xử lý sự cố (đóng cảnh báo)
+Xem lịch sử chuyến đi của mình
+
+Admin
+- Danh sách đang hoạt động, đang chờ hàng và đã hoàn tất
+tên tài xế, biển số xe,sdt, tuyến đường, trạng thái hoạt động
+khi ấn đúp chuột vào 1 trong các dòng này trong danh sách nó sẽ ra dasdboard như ở bên người dùng

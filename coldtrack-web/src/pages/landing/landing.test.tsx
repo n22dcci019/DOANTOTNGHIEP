@@ -1,0 +1,25 @@
+﻿// @vitest-environment jsdom
+import { useEffect } from 'react';
+import type { ReactNode } from 'react';
+import { afterEach, describe, expect, it } from 'vitest';
+import { cleanup, configure, fireEvent, render, screen, within } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { MemoryRouter } from 'react-router-dom';
+import { AuthProvider, useAuth } from '../../auth/AuthContext';
+import { LandingPage } from './LandingPage';
+import { createLandingService } from '../../services/landingService';
+import { createMockAdminService } from '../../services/adminService';
+import { MOCK_USERS } from '../../mock/data';
+import { roleHome } from '../../auth/service';
+configure({ asyncUtilTimeout: 5000 }); afterEach(cleanup);
+function Identity({ children, userKey }: { children: ReactNode; userKey?: string }) { const { setUser } = useAuth(); useEffect(() => { if (userKey) setUser(MOCK_USERS[userKey]); }, []); return children; }
+function setup(userKey?: string) { const service = createLandingService({ demo: true, delayMs: 0 }, createMockAdminService({ demo: true, delayMs: 0 })); render(<AuthProvider><Identity userKey={userKey}><MemoryRouter><LandingPage service={service} /></MemoryRouter></Identity></AuthProvider>); return service; }
+describe('B0 public landing', () => {
+  it('renders public hero, auth links and no application sidebar', async () => { setup(); expect(screen.getByRole('heading', { level: 1, name: 'Vận chuyển thực phẩm lạnh, kiểm soát từng độ C' })).toBeTruthy(); const banner = screen.getByRole('banner'); expect(within(banner).getByRole('link', { name: 'Đăng nhập' }).getAttribute('href')).toBe('/login'); expect(within(banner).getByRole('link', { name: 'Đăng ký' }).getAttribute('href')).toBe('/register'); expect(screen.queryByRole('navigation', { name: 'Menu chính' })).toBeNull(); expect(document.querySelector('.admin-sidebar')).toBeNull(); await screen.findByRole('switch', { name: 'Bật giám sát Kem' }); });
+  it('requires a code for empty tracking request', async () => { setup(); fireEvent.click(screen.getByRole('button', { name: 'Tra cứu' })); expect(screen.getByText('Vui lòng nhập mã kiện hàng.')).toBeTruthy(); await screen.findByRole('switch', { name: 'Bật giám sát Kem' }); });
+  it('looks up a sample and renders milestones; handles unknown code', async () => { setup(); await screen.findByRole('button', { name: 'CT-2026-0901' }); fireEvent.click(screen.getByRole('button', { name: 'CT-2026-0901' })); fireEvent.click(screen.getByRole('button', { name: 'Tra cứu' })); const result = await screen.findByRole('article', { name: 'Kết quả tra cứu' }); expect(within(result).getByText('Đang vận chuyển')).toBeTruthy(); expect(within(result).getByRole('list', { name: 'Mốc hành trình và nhiệt độ' })).toBeTruthy(); fireEvent.change(screen.getByLabelText('Mã kiện hàng'), { target: { value: 'not-found' } }); fireEvent.click(screen.getByRole('button', { name: 'Tra cứu' })); await screen.findByText('Không tìm thấy kiện hàng phù hợp. Hãy kiểm tra lại mã.'); });
+  it('toggles a food policy using keyboard without changing operational config', async () => { const user = userEvent.setup(); setup(); const toggle = await screen.findByRole('switch', { name: 'Bật giám sát Kem' }); expect((toggle as HTMLInputElement).checked).toBe(true); toggle.focus(); await user.keyboard(' '); expect((toggle as HTMLInputElement).checked).toBe(false); await user.keyboard(' '); expect((toggle as HTMLInputElement).checked).toBe(true); });
+  it('opens and closes FAQ using keyboard and labels the panel', async () => { const user = userEvent.setup(); setup(); const question = screen.getByRole('button', { name: 'Khách hàng xem được những thông tin nào?' }); expect(question.getAttribute('aria-expanded')).toBe('false'); question.focus(); await user.keyboard('{Enter}'); expect(question.getAttribute('aria-expanded')).toBe('true'); expect(screen.getByRole('region', { name: 'Khách hàng xem được những thông tin nào?' })).toBeTruthy(); await user.keyboard('{Enter}'); expect(question.getAttribute('aria-expanded')).toBe('false'); await screen.findByRole('switch', { name: 'Bật giám sát Kem' }); });
+  it('toggles and closes mobile menu', async () => { setup(); fireEvent.click(screen.getByRole('button', { name: 'Mở menu' })); expect(screen.getByRole('button', { name: 'Đóng menu' }).getAttribute('aria-expanded')).toBe('true'); fireEvent.click(within(screen.getByRole('navigation', { name: 'Menu trang chủ' })).getByRole('link', { name: 'Dịch vụ' })); expect(screen.getByRole('button', { name: 'Mở menu' }).getAttribute('aria-expanded')).toBe('false'); await screen.findByRole('switch', { name: 'Bật giám sát Kem' }); });
+  it.each(['admin', 'khachHang', 'taiXe'])('links authenticated %s directly to its role UI', async userKey => { setup(userKey); const link = await screen.findByRole('link', { name: 'Vào hệ thống' }); expect(link.getAttribute('href')).toBe(roleHome(MOCK_USERS[userKey].vaiTro)); expect(screen.queryByRole('link', { name: 'Đăng nhập' })).toBeNull(); await screen.findByRole('switch', { name: 'Bật giám sát Kem' }); });
+});

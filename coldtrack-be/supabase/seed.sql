@@ -1,0 +1,2 @@
+-- Local seed placeholder. Business fixtures will be added after application migrations.
+-- No default production users or credentials are created here.

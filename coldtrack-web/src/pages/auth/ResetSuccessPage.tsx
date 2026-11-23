@@ -1,0 +1,1 @@
+﻿export { ResetSuccessPage } from './AuthPages';

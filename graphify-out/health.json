@@ -1,0 +1,205 @@
+{
+  "node_count": 878,
+  "unverified_node_count": 0,
+  "raw_edge_count": 2572,
+  "non_object_edges": 0,
+  "missing_endpoint_edges": 0,
+  "dangling_endpoint_edges": 5,
+  "external_reference_edges": 8,
+  "self_loop_edges": 3,
+  "valid_candidate_edges": 2559,
+  "exact_duplicate_edges": 2,
+  "directed_unique_endpoint_pairs": 2487,
+  "directed_same_endpoint_collapsed_edges": 72,
+  "undirected_unique_endpoint_pairs": 2486,
+  "undirected_same_endpoint_collapsed_edges": 73,
+  "same_endpoint_group_count": 70,
+  "relation_variant_groups": 34,
+  "source_file_variant_groups": 0,
+  "source_location_variant_groups": 36,
+  "context_variant_groups": 1,
+  "post_build_graph_type": "Graph",
+  "post_build_node_count": 887,
+  "post_build_edge_count": 2498,
+  "post_build_error": "",
+  "producer_suppression": {
+    "path": "C:\\Users\\HT\\AppData\\Roaming\\uv\\tools\\graphifyy\\Lib\\site-packages\\graphify\\extract.py",
+    "total_sites": 12,
+    "sites": [
+      {
+        "line": 1886,
+        "name": "seen_ids",
+        "tuple_arity": 0,
+        "sample": "seen_ids = {n[\"id\"] for n in nodes}"
+      },
+      {
+        "line": 2581,
+        "name": "seen_ids",
+        "tuple_arity": 0,
+        "sample": "seen_ids = {n[\"id\"] for n in nodes}"
+      },
+      {
+        "line": 2583,
+        "name": "seen_doc_refs",
+        "tuple_arity": 0,
+        "sample": "seen_doc_refs: set[str] = set()"
+      },
+      {
+        "line": 3250,
+        "name": "seen_ids",
+        "tuple_arity": 0,
+        "sample": "seen_ids: set[str] = {n[\"id\"] for n in nodes}"
+      },
+      {
+        "line": 3397,
+        "name": "seen_ids",
+        "tuple_arity": 0,
+        "sample": "seen_ids = {n.get(\"id\") for n in nodes}"
+      },
+      {
+        "line": 4811,
+        "name": "seen_keys",
+        "tuple_arity": 0,
+        "sample": "seen_keys: set[tuple] = set()"
+      },
+      {
+        "line": 4997,
+        "name": "seen_keys",
+        "tuple_arity": 0,
+        "sample": "seen_keys: set[tuple] = set()"
+      },
+      {
+        "line": 8958,
+        "name": "seen_ids",
+        "tuple_arity": 0,
+        "sample": "seen_ids: set[str] = set()"
+      },
+      {
+        "line": 9066,
+        "name": "seen_ids",
+        "tuple_arity": 0,
+        "sample": "seen_ids: set[str] = set()"
+      },
+      {
+        "line": 9145,
+        "name": "seen_ids",
+        "tuple_arity": 0,
+        "sample": "seen_ids: set[str] = set()"
+      },
+      {
+        "line": 9670,
+        "name": "seen_ids",
+        "tuple_arity": 0,
+        "sample": "seen_ids: set[str] = set()"
+      },
+      {
+        "line": 9671,
+        "name": "seen_edges",
+        "tuple_arity": 4,
+        "sample": "seen_edges: set[tuple[str, str, str, str | None]] = set()"
+      }
+    ],
+    "error": ""
+  },
+  "examples": [
+    {
+      "source": "coldtrack_web_src_components_admin_adminui",
+      "target": "coldtrack_web_src_components_common_auth",
+      "edge_count": 3,
+      "relations": [
+        "imports_from",
+        "re_exports"
+      ],
+      "source_files": [
+        "coldtrack-web/src/components/admin/AdminUI.tsx"
+      ],
+      "source_locations": [
+        "L10",
+        "L12"
+      ],
+      "contexts": [
+        "export",
+        "import",
+        "re-export"
+      ]
+    },
+    {
+      "source": "coldtrack_web_src_services_adminservice",
+      "target": "coldtrack_web_src_services_admintypes",
+      "edge_count": 3,
+      "relations": [
+        "imports_from",
+        "re_exports"
+      ],
+      "source_files": [
+        "coldtrack-web/src/services/adminService.ts"
+      ],
+      "source_locations": [
+        "L2",
+        "L3",
+        "L83"
+      ],
+      "contexts": [
+        "export",
+        "import"
+      ]
+    },
+    {
+      "source": "coldtrack_web_src_auth_authcontext",
+      "target": "ref_react",
+      "edge_count": 2,
+      "relations": [
+        "imports_from"
+      ],
+      "source_files": [
+        "coldtrack-web/src/auth/AuthContext.tsx"
+      ],
+      "source_locations": [
+        "L1",
+        "L2"
+      ],
+      "contexts": [
+        "import"
+      ]
+    },
+    {
+      "source": "coldtrack_web_src_auth_flows_test",
+      "target": "coldtrack_web_src_auth_flows_test_fill",
+      "edge_count": 2,
+      "relations": [
+        "calls",
+        "contains"
+      ],
+      "source_files": [
+        "coldtrack-web/src/auth/flows.test.tsx"
+      ],
+      "source_locations": [
+        "L28",
+        "L9"
+      ],
+      "contexts": [
+        "",
+        "call"
+      ]
+    },
+    {
+      "source": "coldtrack_web_src_auth_index",
+      "target": "coldtrack_web_src_auth_authcontext",
+      "edge_count": 2,
+      "relations": [
+        "imports_from",
+        "re_exports"
+      ],
+      "source_files": [
+        "coldtrack-web/src/auth/index.ts"
+      ],
+      "source_locations": [
+        "L1"
+      ],
+      "contexts": [
+        "export",
+        "re-export"
+      ]
+    }
+  ]
+}

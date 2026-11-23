@@ -1,0 +1,12 @@
+name: coldtrack-be
+services:
+  mosquitto:
+    image: eclipse-mosquitto:2
+    ports:
+      - '127.0.0.1:1883:1883'
+    volumes:
+      - ./infra/mosquitto/config:/mosquitto/config:ro
+      - mqtt-data:/mosquitto/data
+    restart: unless-stopped
+volumes:
+  mqtt-data:

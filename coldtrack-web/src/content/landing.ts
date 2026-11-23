@@ -1,0 +1,46 @@
+﻿// Copy adapted from the Stitch landing export. Metrics and contact details require approval before publication.
+export const landingContent = {
+  brand: { name: 'ColdTrack', first: 'Cold', last: 'Track', tagline: 'Giám sát chuỗi lạnh thông minh' },
+  navigation: [{ label: 'Trang chủ', href: '#trang-chu' }, { label: 'Dịch vụ', href: '#giai-phap' }, { label: 'Giới thiệu', href: '#kien-truc' }, { label: 'Tra cứu đơn hàng', href: '#tra-cuu' }],
+  auth: { login: 'Đăng nhập', register: 'Đăng ký', enter: 'Vào hệ thống' },
+  hero: { badge: 'Giám sát nhiệt độ theo thời gian thực', title: 'Vận chuyển thực phẩm lạnh, kiểm soát từng độ C', description: 'ColdTrack giúp doanh nghiệp theo dõi vị trí và nhiệt độ từng chuyến hàng, cảnh báo ngay khi vượt ngưỡng để thực phẩm luôn tươi ngon đến tay khách hàng.', primary: 'Tra cứu đơn hàng', secondary: 'Xem cách hoạt động', mockLabel: 'Bản mô phỏng giám sát', mockUrl: 'coldtrack.vn / giám sát hành trình', code: 'Mã lô hàng', product: 'Lô hàng', temperature: 'Nhiệt độ cảm biến khoang lạnh', range: 'Dải yêu cầu', eta: 'Dự kiến đến', journey: 'Lộ trình giao nhận', progress: 'Tiến trình vận chuyển chuỗi lạnh', map: 'Giám sát lộ trình phương tiện', mapNote: 'Sơ đồ hành trình minh họa', current: 'Vị trí hiện tại' },
+  metrics: [{ value: '99,9%', label: 'Thời gian hệ thống hoạt động' }, { value: '24/7', label: 'Giám sát liên tục' }, { value: '±0,5°C', label: 'Sai số cảm biến' }, { value: 'Dưới 30 giây', label: 'Gửi cảnh báo khi vượt ngưỡng' }],
+  metricsNote: 'Số liệu marketing minh họa, cần xác nhận trước khi công bố.',
+  solutions: { eyebrow: 'CÔNG NGHỆ GIÁM SÁT', title: 'Giải pháp công nghệ toàn diện', description: 'Kiến trúc phần cứng IoT và phần mềm đám mây đồng bộ theo thời gian thực', highlight: 'Kiểm soát dải nhiệt theo từng lô hàng', detail: 'Giám sát nhiệt độ, vị trí và tình trạng chuyến hàng trong cùng một hệ thống.', cards: [
+    { icon: 'thermometer', title: 'Kiểm soát dải nhiệt', description: 'Thiết lập nhiệt độ mục tiêu và dung sai theo loại thực phẩm đông lạnh.' },
+    { icon: 'satellite', title: 'Giám sát viễn thông & IoT', description: 'Theo dõi nhiệt độ, độ ẩm, vị trí và trạng thái cửa thùng xe.' },
+    { icon: 'bell', title: 'Cảnh báo tự động', description: 'Phân mức cảnh báo để tài xế và Điều phối theo dõi, xử lý sự cố.' },
+    { icon: 'file', title: 'Báo cáo & truy xuất', description: 'Tra cứu lịch sử chuyến và nhật ký nhiệt độ theo từng lô hàng.' },
+  ], telemetryTitle: 'ColdTrack · Giám sát nhiệt độ', connected: 'Đã kết nối', preview: 'Dữ liệu cảm biến minh họa', coldCompartment: 'Buồng đông lạnh', chart: 'Nhật ký nhiệt độ', humidity: 'Độ ẩm', location: 'Vị trí' },
+  architecture: { eyebrow: 'HỆ SINH THÁI KỸ THUẬT SỐ', title: 'Kiến trúc công nghệ ColdTrack', description: 'Mô hình kết nối cảm biến, viễn thông và nền tảng xử lý dữ liệu chuỗi lạnh.', core: 'Nền tảng xử lý dữ liệu', items: [
+    { icon: 'sensor', title: 'Cảm biến IoT đa điểm', description: 'Đo nhiệt độ, độ ẩm và trạng thái cửa thùng xe.' },
+    { icon: 'pin', title: 'Định vị GPS', description: 'Theo dõi vị trí và lưu vết hành trình vận chuyển.' },
+    { icon: 'bell', title: 'Cảnh báo theo ngưỡng', description: 'Nhận biết tiến sát ngưỡng, vượt ngưỡng và mức nghiêm trọng.' },
+    { icon: 'file', title: 'Báo cáo tự động', description: 'Tổng hợp lịch sử nhiệt độ và kết quả hoàn thành chuyến.' },
+    { icon: 'network', title: 'API tích hợp hệ thống', description: 'Định hướng kết nối dữ liệu với hệ thống ERP/TMS qua API.' },
+    { icon: 'globe', title: 'Cổng thông tin khách hàng', description: 'Tra cứu trạng thái lô hàng và theo dõi yêu cầu vận chuyển.' },
+  ] },
+  comparison: { eyebrow: 'SO SÁNH HIỆU QUẢ', title: 'So sánh với phương thức truyền thống', description: 'Từ ghi nhận thủ công đến theo dõi dữ liệu trong suốt hành trình.', traditional: { title: 'Phương thức truyền thống', items: ['Khó theo dõi nhiệt độ thực tế trong thùng xe khi đang vận chuyển.', 'Phát hiện bất thường muộn khi hàng đã đến điểm giao.', 'Ghi chép bằng sổ sách hoặc thiết bị ghi dữ liệu rời.', 'Mất thời gian tổng hợp bằng chứng khi cần truy xuất.'] }, coldtrack: { title: 'Với ColdTrack', items: ['Theo dõi nhiệt độ, độ ẩm và vị trí trên một giao diện.', 'Cảnh báo khi nhiệt độ tiến sát hoặc vượt dải yêu cầu.', 'Lưu dữ liệu theo lô hàng để tra cứu lịch sử chuyến.', 'Hỗ trợ đối chiếu dữ liệu nhiệt độ và nhật ký hành trình.'] } },
+  process: { title: 'Quy trình vận hành 4 bước', description: 'Theo dõi từ kho nguồn đến điểm bàn giao cuối cùng.', steps: [
+    { number: '01', icon: 'sensor', title: 'Tiếp nhận & gắn cảm biến', description: 'Kiểm tra lô hàng, thiết lập dải nhiệt yêu cầu và gắn thiết bị giám sát.' },
+    { number: '02', icon: 'truck', title: 'Vận chuyển & bảo quản', description: 'Phân công xe đông lạnh phù hợp và theo dõi hành trình vận chuyển.' },
+    { number: '03', icon: 'activity', title: 'Giám sát & cảnh báo', description: 'Theo dõi dữ liệu và phối hợp xử lý khi có bất thường nhiệt độ.' },
+    { number: '04', icon: 'check', title: 'Bàn giao & lưu dữ liệu', description: 'Xác nhận kết quả chặng, lưu nhiệt độ kết thúc và lịch sử chuyến.' },
+  ] },
+  tracking: { title: 'Tra cứu hành trình và nhiệt độ theo kiện hàng', description: 'Nhập mã kiện mẫu để xem hành trình và dữ liệu cảm biến minh họa.', label: 'Mã kiện hàng', placeholder: 'Nhập mã kiện hàng', button: 'Tra cứu', samples: 'Mã mẫu để tra cứu thử', required: 'Vui lòng nhập mã kiện hàng.', notFound: 'Không tìm thấy kiện hàng phù hợp. Hãy kiểm tra lại mã.', error: 'Không thể tra cứu dữ liệu. Vui lòng thử lại.', mock: 'Kết quả minh họa', result: 'Kết quả tra cứu', range: 'Dải nhiệt bảo quản yêu cầu', timeline: 'Mốc hành trình và nhiệt độ', retry: 'Thử lại', current: 'Hiện tại' },
+  foods: { title: 'Nhiệt độ chuẩn cho từng loại thực phẩm', description: 'Cấu hình nhiệt độ mục tiêu và dung sai theo từng loại hàng hóa.', bullets: ['Ngưỡng cảnh báo riêng cho từng loại hàng', 'Nhật ký nhiệt độ theo từng chuyến', 'Truy vết theo từng lô hàng', 'Phân quyền theo vai trò'], panelTitle: 'Chính sách ngưỡng nhiệt độ', active: 'Đang kích hoạt', range: 'Dải nhiệt', switchLabel: 'Bật giám sát', noticeTitle: 'Lưu ý về cấu hình nhiệt độ', notice: 'Các dải nhiệt là cấu hình minh họa dùng chung với form Tạo lô hàng, cần xác nhận trước khi áp dụng. Công tắc tại đây chỉ thay đổi bản xem trước, không thay cấu hình vận hành.' },
+  testimonials: { eyebrow: 'KHÁCH HÀNG', title: 'Khách hàng nói về ColdTrack', description: 'Những góc nhìn minh họa từ doanh nghiệp thực phẩm.', mock: 'Nội dung đánh giá minh họa' },
+  faq: { title: 'Câu hỏi thường gặp', description: 'Giải đáp các thắc mắc phổ biến về hệ thống giám sát chuỗi lạnh ColdTrack.', pending: 'Thông tin này đang được cập nhật. Vui lòng liên hệ ColdTrack để được tư vấn.', items: [
+    { id: 'account', question: 'Tôi có cần tài khoản để tra cứu đơn hàng không?', answer: 'Không. Bạn có thể nhập mã kiện mẫu để xem hành trình, nhiệt độ và thời gian dự kiến trong bản tra cứu minh họa.' },
+    { id: 'visibility', question: 'Khách hàng xem được những thông tin nào?', answer: null },
+    { id: 'offline', question: 'Điều gì xảy ra khi xe mất sóng 4G?', answer: null },
+    { id: 'retention', question: 'Dữ liệu nhiệt độ được lưu bao lâu?', answer: null },
+    { id: 'register', question: 'Làm sao để đăng ký sử dụng ColdTrack?', answer: null },
+  ] },
+  cta: { title: 'Sẵn sàng giám sát chuỗi lạnh của bạn?', description: 'Đăng ký tài khoản hoặc tra cứu đơn hàng ngay hôm nay.', primary: 'Đăng ký tài khoản', secondary: 'Tra cứu đơn hàng' },
+  footer: { description: 'Hệ thống giám sát chuỗi cung ứng thực phẩm đông lạnh, theo dõi nhiệt độ, cảnh báo và hỗ trợ truy xuất hành trình.', columns: [
+    { title: 'Dịch vụ', links: [{ label: 'Giám sát vận tải lạnh', href: '#giai-phap' }, { label: 'Cảm biến IoT', href: '#kien-truc' }, { label: 'Cảnh báo nhiệt độ', href: '#giai-phap' }] },
+    { title: 'Tìm hiểu ColdTrack', links: [{ label: 'Quy trình vận hành', href: '#quy-trinh' }, { label: 'Tra cứu kiện hàng', href: '#tra-cuu' }, { label: 'Câu hỏi thường gặp', href: '#cau-hoi' }] },
+  ], contactTitle: 'Liên hệ', email: 'contact@coldtrack.vn', phone: '1900 6868', contactNote: 'Thông tin liên hệ mẫu từ thiết kế, cần xác nhận.', copyright: 'ColdTrack. Mọi quyền được bảo lưu.', bottom: 'Hệ thống giám sát chuỗi lạnh thông minh' },
+  ui: { openMenu: 'Mở menu', closeMenu: 'Đóng menu', mainMenu: 'Menu trang chủ', skip: 'Bỏ qua menu đến nội dung', loading: 'Đang tải dữ liệu minh họa…', loadError: 'Không thể tải dữ liệu minh họa.', retry: 'Thử lại', empty: 'Chưa có cấu hình loại thực phẩm.', demo: 'Chế độ minh họa', data: 'Có dữ liệu', emptyState: 'Rỗng', errorState: 'Lỗi kết nối', foodLabel: 'Chính sách nhiệt độ theo loại thực phẩm' },
+};

@@ -1,0 +1,10 @@
+{
+  "name": "coldtrack-workspace",
+  "private": true,
+  "scripts": {
+    "lint": "npm --prefix coldtrack-be run lint",
+    "test": "npm --prefix coldtrack-be test",
+    "build": "npm --prefix coldtrack-be run build",
+    "start": "npm --prefix coldtrack-be run start:api"
+  }
+}
