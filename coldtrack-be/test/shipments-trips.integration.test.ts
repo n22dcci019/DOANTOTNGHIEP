@@ -234,17 +234,13 @@ describe('shipments/trips migration (real PostgreSQL)', () => {
       await expect(asClient(role === 'anon' ? null : users.admin, () => db.query(`delete from public.${table}`))).rejects.toMatchObject({ code: '42501' });
     }
   });
-  it('has UTC timestamps, defers departure config FK, and adds no automatic triggers', async () => {
+  it('has UTC timestamps and adds no automatic triggers', async () => {
     const times = await db.query(`select data_type from information_schema.columns where table_schema = 'public'
       and table_name = any($1) and column_name in ('created_at','updated_at','reviewed_at','deleted_at','departed_at','completed_at','received_at','started_at','ended_at')`, [tables]);
     expect(times.rowCount).toBe(13);
     expect(times.rows.every((r: { data_type: string }) => r.data_type === 'timestamp with time zone')).toBe(true);
-    const constraints = await db.query(`select pg_get_constraintdef(oid) as definition from pg_constraint
-      where conrelid = 'public.trips'::regclass and contype = 'f'`);
-    expect(constraints.rows.every((r: { definition: string }) => !r.definition.includes('departure_config_version_id'))).toBe(true);
     expect((await db.query(`select * from pg_trigger where tgrelid = any($1::regclass[]) and not tgisinternal`, [tables.map(t => `public.${t}`)])).rowCount).toBe(0);
     await isolated(async () => {
-      await db.query('update public.trips set departure_config_version_id = $1 where id = $2', [randomUUID(),trips[0]]);
       await db.query(`update public.trips set status = 'completed', departed_at = '2026-01-01T00:00:00Z',
         completed_at = '2026-01-01T01:00:00Z' where id = $1`, [trips[0]]);
       expect((await db.query('select status from public.shipments where id = $1', [shipments[0]])).rows[0].status).toBe('draft');

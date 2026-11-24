@@ -996,9 +996,21 @@
     "semantic_hash": ""
   },
   "coldtrack-be/test/shipments-trips.integration.test.ts": {
-    "mtime": 1795503489.1145604,
-    "seen": 1795503553.2447484,
-    "ast_hash": "1d0e2df1f272d95af4854822bf90dcce",
+    "mtime": 1795506741.276557,
+    "seen": 1795506878.0814533,
+    "ast_hash": "ffad4066aa80ac41d6c992864a06ca40",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/test/telemetry.integration.test.ts": {
+    "mtime": 1795506741.9815476,
+    "seen": 1795506878.0814571,
+    "ast_hash": "7e607efc40efdaec96a852afec8cd5f1",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/test/config-commands.integration.test.ts": {
+    "mtime": 1795506846.860276,
+    "seen": 1795506878.0808709,
+    "ast_hash": "5aed1987508141b44fa0a8aea02d29d1",
     "semantic_hash": ""
   },
   "coldtrack-be/package-lock.json": {
