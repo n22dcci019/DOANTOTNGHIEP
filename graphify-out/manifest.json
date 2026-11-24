@@ -816,9 +816,9 @@
     "semantic_hash": ""
   },
   "coldtrack-be/README.md": {
-    "mtime": 1795450938.1056821,
-    "seen": 1795451039.8047137,
-    "ast_hash": "f26854500159ac918b91c3803067f6f8",
+    "mtime": 1795500142.9203975,
+    "seen": 1795500232.5512614,
+    "ast_hash": "b2f38763498ede5aac34a5ef30bb4c76",
     "semantic_hash": ""
   },
   "docs/BE-SYSTEM-DESIGN.md": {
@@ -981,6 +981,18 @@
     "mtime": 1795450881.8133237,
     "seen": 1795451039.7391422,
     "ast_hash": "d730f77f2f6ff1151ca9e12ad7f87513",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/libs/credentials/mosquitto-hash.ts": {
+    "mtime": 1795500140.7846823,
+    "seen": 1795500232.500057,
+    "ast_hash": "e04fb852ca7e99acf50102672e6e151b",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/test/resources.integration.test.ts": {
+    "mtime": 1795500302.6226292,
+    "seen": 1795500332.1825984,
+    "ast_hash": "eb6ae1f8be1d961fb86e2b961fc6d130",
     "semantic_hash": ""
   },
   "coldtrack-be/package-lock.json": {

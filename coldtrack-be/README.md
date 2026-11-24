@@ -1,5 +1,49 @@
 # ColdTrack Backend
 
+## Bước 1.2 — Xe, thiết bị và phân công
+
+Migration `../supabase/migrations/*_resources_vehicles_devices.sql` bổ sung bốn
+bảng, không sửa migration 1.1 và không thêm dữ liệu demo. Status theo quyết định
+đã chốt của bước 1.2: xe `active` (mặc định), `maintenance`, `inactive`; thiết bị
+`active` (mặc định), `disabled`, `retired`. Online/offline không thuộc status này.
+Các timestamp là `timestamptz`; reuse trigger cập nhật timestamp của bước 1.1.
+
+Hai partial unique index `WHERE valid_to IS NULL` giới hạn một phân công mở
+cho mỗi thiết bị và mỗi xe. Phải đóng phân công cũ trước khi mở phân công mới.
+Không chặn chồng lấn giữa các khoảng lịch sử đã đóng. `devices.vehicle_id`
+và lịch sử phân công sẽ được đồng bộ trong transaction server khi triển khai API;
+migration này không tự tạo trigger đồng bộ hoặc logic chuyến.
+
+RLS dùng lại `current_account_role()` và `has_permission()`. Chỉ admin active có
+quyền đọc tài nguyên theo permission; driver/customer chưa có policy vì cần phạm
+vi chuyến ở bước 1.3/1.7. Client không có quyền ghi trên cả bốn bảng. Credential
+không có SELECT grant/policy cho bất kỳ client nào, kể cả admin.
+
+`libs/credentials/mosquitto-hash.ts` cung cấp hàm async
+`hashMosquittoCredential(password)` bằng crypto chuẩn của Node: PBKDF2-HMAC-SHA512,
+220.000 vòng, salt ngẫu nhiên 64 byte, derived key 64 byte. Kết quả là phần hash
+`$7$iterations$base64(salt)$base64(digest)` tương thích `mosquitto_passwd
+-H sha512-pbkdf2`, không chứa username hoặc password rõ. Chọn thuật toán này để
+dùng trực tiếp định dạng password file Mosquitto; chỉ định rõ thuật toán thay vì
+phụ thuộc default của từng phiên bản. Số vòng cao làm tăng chi phí thử mật khẩu;
+cần đo hiệu năng broker trước khi provisioning thiết bị thật ở bước 1.9.
+Tham chiếu: https://mosquitto.org/man/mosquitto_passwd-1.html.
+
+DB chấp nhận salt 12 byte của định dạng cũ và 64 byte của định dạng mới.
+DB kiểm tra định dạng hash và partial unique index `WHERE active` bảo đảm tối đa
+một credential active/thiết bị. `provisioning_status` giữ dạng text nullable như
+đặc tả, không tự đặt enum trước bước provisioning. Hàm hash không lưu credential,
+không ghi password file hay cấp tài khoản thiết bị. Không thể xác minh một giá trị
+thật sự là hash chỉ bằng cấu trúc chuỗi; server phải dùng hàm hash thay vì nhận
+`credential_hash` do client gửi vào.
+
+Chạy `npm run db:reset`, `npm run lint`, `npm test`, `npm run build` tại
+`coldtrack-be/` (reset xóa dữ liệu local project gốc `DoAnTotNghiep`). Test mới
+dùng PostgreSQL thật, fixture trong transaction rollback, cộng hai container
+Mosquitto tạm `--network none --rm` không publish cổng: đối chiếu hash native và
+kiểm chứng broker chấp nhận hash 220.000 vòng. Cần Docker đang chạy và có image
+`eclipse-mosquitto:2`; không dùng credential thật, không sửa broker Compose/ACL.
+
 ## Bước 1.1 — Baseline tài khoản
 
 Project Supabase hiện hành là `DoAnTotNghiep`, cấu hình tại
