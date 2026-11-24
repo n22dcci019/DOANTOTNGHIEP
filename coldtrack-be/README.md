@@ -1,5 +1,43 @@
 # ColdTrack Backend
 
+## Bước 1.3 — Lô, chuyến, giao nhận và phiên thiết bị
+
+Migration `../supabase/migrations/*_shipments_trips.sql` thêm đúng bốn bảng
+`shipments`, `trips`, `delivery_proofs`, `device_sessions`; giữ nguyên 1.1/1.2.
+Dải shipment trong [-25,-15], min < max, rộng **hơn** 1°C (1°C cũng bị từ chối),
+hai biên bội 0.5. Shipment bị từ chối phải có lý do khác rỗng.
+
+Bốn partial unique index riêng trên `shipment_id`, `vehicle_id`, `driver_id`,
+`device_id` của trips, với predicate `status IN ('scheduled','in_transit')`,
+bảo vệ cả trường hợp scheduled lẫn in_transit. Completed/cancelled không giữ
+tài nguyên. CHECK buộc timestamp khởi hành/hoàn thành hợp lệ và tổng manual off
+trong [0,1200]. `result` mặc định NULL, không tự pass khi complete. FK của
+`departure_config_version_id` chưa tạo, dành bước 1.5.
+
+Client chỉ SELECT theo RLS và helper 1.1: admin đọc shipment chưa xóa mềm và
+mọi trip/proof; customer chỉ đọc shipment của mình chưa xóa mềm; driver chỉ
+đọc trip/proof của mình, không đọc bảng shipment trực tiếp. Customer không đọc
+trực tiếp trips/proofs; view dành cho khách ở bước 1.7. Pending/suspended không
+đọc các bảng này; anon không có SELECT. Sessions hoàn toàn server-only. Không
+có client write grant/policy trên bất kỳ bảng mới nào.
+
+Không có trigger mới, kể cả trigger cập nhật `updated_at`. API bước 2.x chịu
+trách nhiệm cập nhật timestamp và đồng bộ trạng thái lô/chuyến trong cùng một
+transaction. Bước này chỉ lưu `photo_path` dạng chuỗi đường dẫn object riêng tư;
+chưa tạo bucket, URL ảnh hoặc kiểm tra sự tồn tại object trong Storage.
+
+Theo schema được yêu cầu, sessions unique `(device_id,boot_id)` và `trip_id`
+nullable. BE-0 có trường hợp một boot qua nhiều chuyến; bước này không tự mở rộng
+thành mô hình nhiều đoạn phân chuyến hoặc suy diễn trip từ boot. Việc gán mẫu
+theo thời gian/monotonic thuộc các bước ingest sau.
+
+`test/shipments-trips.integration.test.ts` dùng PostgreSQL thật qua DATABASE_URL,
+fixture server-side trong transaction được rollback. Kiểm tra constraint, từng
+unique index, RLS cho nhiều chủ sở hữu/tài xế, soft delete, quyền proof/session,
+không ghi client, timestamp UTC, FK trì hoãn và không tự đổi trạng thái/result.
+Mục test m của yêu cầu ghi “năm bảng” nhưng liệt kê bốn: test bao phủ đúng bốn
+bảng ở trên, không tạo thêm bảng thứ năm.
+
 ## Bước 1.2 — Xe, thiết bị và phân công
 
 Migration `../supabase/migrations/*_resources_vehicles_devices.sql` bổ sung bốn

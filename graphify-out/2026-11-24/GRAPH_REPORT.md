@@ -1,7 +1,7 @@
 # Graph Report - DoAnTotNghiep  (2026-11-24)
 
 ## Corpus Check
-- 162 files · ~113,916 words
+- 162 files · ~113,943 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 20 file(s) not represented in the graph (top: (none) 8, .css 7, .example 2)
 
@@ -359,16 +359,16 @@ Nodes (6): validateEnvironment(), startTransport(), mqtt@5.16.1, reflect-metadat
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `react` connect `react` to `Shared Admin Components`, `Status Badges Content`, `Development Tool Dependencies`, `useAuth`, `Application Runtime Dependencies`, `App.tsx`, `App`, `customer.test.tsx`, `CreateShipmentPage.tsx`?**
-  _High betweenness centrality (0.083) - this node is a cross-community bridge._
+  _High betweenness centrality (0.063) - this node is a cross-community bridge._
 - **What connects `./tsconfig.json`, `./tsconfig.json`, `Vite logo` to the rest of the system?**
   _60 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `service.ts` be split into smaller, more focused modules?**
   _Cohesion score 0.12315270935960591 - nodes in this community are weakly interconnected._
 - **Why does `@playwright/test` connect `Browser Verification Scripts` to `Development Tool Dependencies`, `check-ui-fixes.mjs`?**
-  _High betweenness centrality (0.054) - this node is a cross-community bridge._
+  _High betweenness centrality (0.046) - this node is a cross-community bridge._
 - **Should `Shared Admin Components` be split into smaller, more focused modules?**
   _Cohesion score 0.12061364838652795 - nodes in this community are weakly interconnected._
 - **Why does `react-router-dom` connect `Shared Admin Components` to `Status Badges Content`, `Development Tool Dependencies`, `useAuth`, `Application Runtime Dependencies`, `App.tsx`, `react`, `App`, `customer.test.tsx`, `CreateShipmentPage.tsx`?**
-  _High betweenness centrality (0.038) - this node is a cross-community bridge._
+  _High betweenness centrality (0.042) - this node is a cross-community bridge._
 - **Should `BE-0: Đặc tả thiết kế backend ColdTrack` be split into smaller, more focused modules?**
   _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._
