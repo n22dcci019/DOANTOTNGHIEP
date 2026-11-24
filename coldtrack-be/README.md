@@ -26,10 +26,11 @@ trách nhiệm cập nhật timestamp và đồng bộ trạng thái lô/chuyế
 transaction. Bước này chỉ lưu `photo_path` dạng chuỗi đường dẫn object riêng tư;
 chưa tạo bucket, URL ảnh hoặc kiểm tra sự tồn tại object trong Storage.
 
-Theo schema được yêu cầu, sessions unique `(device_id,boot_id)` và `trip_id`
-nullable. BE-0 có trường hợp một boot qua nhiều chuyến; bước này không tự mở rộng
-thành mô hình nhiều đoạn phân chuyến hoặc suy diễn trip từ boot. Việc gán mẫu
-theo thời gian/monotonic thuộc các bước ingest sau.
+Migration `*_fix_device_sessions_boot_index.sql` cho phép một boot có nhiều
+phiên đã đóng, kể cả trên cùng chuyến. Index thường `(device_id, boot_id)` hỗ trợ
+tra cứu. Index unique có điều kiện `ended_at IS NULL` giới hạn mỗi thiết bị tối đa
+một phiên mở. `trip_id` có thể là NULL. Việc gán mẫu theo thời gian và monotonic
+thuộc các bước ingest sau.
 
 `test/shipments-trips.integration.test.ts` dùng PostgreSQL thật qua DATABASE_URL,
 fixture server-side trong transaction được rollback. Kiểm tra constraint, từng

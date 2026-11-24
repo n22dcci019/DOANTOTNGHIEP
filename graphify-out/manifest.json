@@ -816,9 +816,9 @@
     "semantic_hash": ""
   },
   "coldtrack-be/README.md": {
-    "mtime": 1795502700.164061,
-    "seen": 1795502752.5628452,
-    "ast_hash": "2c16ca4dbea43dba8e19f33694bd2617",
+    "mtime": 1795503511.171617,
+    "seen": 1795503553.3420994,
+    "ast_hash": "193fa33ebb8370c1ccc335e429cc8331",
     "semantic_hash": ""
   },
   "docs/BE-SYSTEM-DESIGN.md": {
@@ -996,9 +996,9 @@
     "semantic_hash": ""
   },
   "coldtrack-be/test/shipments-trips.integration.test.ts": {
-    "mtime": 1795502642.2470877,
-    "seen": 1795502752.51921,
-    "ast_hash": "3cfc45934a394e22fae3dd8d6d33d3a9",
+    "mtime": 1795503489.1145604,
+    "seen": 1795503553.2447484,
+    "ast_hash": "1d0e2df1f272d95af4854822bf90dcce",
     "semantic_hash": ""
   },
   "coldtrack-be/package-lock.json": {

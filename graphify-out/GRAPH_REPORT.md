@@ -1,7 +1,7 @@
 # Graph Report - DoAnTotNghiep  (2026-11-24)
 
 ## Corpus Check
-- 164 files · ~116,682 words
+- 165 files · ~116,956 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 20 file(s) not represented in the graph (top: (none) 8, .css 7, .example 2)
 
@@ -11,7 +11,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `653f5bd7`
+- Built from commit: `37ae1911`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -363,16 +363,16 @@ Nodes (8): validateEnvironment(), startTransport(), mqtt@5.16.1, pg@8.23.1, refl
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `react` connect `useAuth` to `service.ts`, `Shared Admin Components`, `Status Badges Content`, `Development Tool Dependencies`, `customerTypes.ts`, `Application Runtime Dependencies`, `App.tsx`, `react`, `App`, `adminService.ts`?**
-  _High betweenness centrality (0.063) - this node is a cross-community bridge._
+  _High betweenness centrality (0.072) - this node is a cross-community bridge._
 - **What connects `./tsconfig.json`, `./tsconfig.json`, `Vite logo` to the rest of the system?**
   _60 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `service.ts` be split into smaller, more focused modules?**
   _Cohesion score 0.09986504723346828 - nodes in this community are weakly interconnected._
 - **Why does `@playwright/test` connect `Browser Verification Scripts` to `Development Tool Dependencies`?**
-  _High betweenness centrality (0.045) - this node is a cross-community bridge._
+  _High betweenness centrality (0.046) - this node is a cross-community bridge._
 - **Should `Shared Admin Components` be split into smaller, more focused modules?**
   _Cohesion score 0.11518661518661519 - nodes in this community are weakly interconnected._
 - **Why does `react-router-dom` connect `Shared Admin Components` to `service.ts`, `Status Badges Content`, `Development Tool Dependencies`, `useAuth`, `Application Runtime Dependencies`, `App.tsx`, `react`, `App`, `adminService.ts`?**
-  _High betweenness centrality (0.036) - this node is a cross-community bridge._
+  _High betweenness centrality (0.039) - this node is a cross-community bridge._
 - **Should `BE-0: Đặc tả thiết kế backend ColdTrack` be split into smaller, more focused modules?**
   _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._

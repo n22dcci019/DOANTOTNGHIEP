@@ -154,12 +154,45 @@ describe('shipments/trips migration (real PostgreSQL)', () => {
       values ($1, 'private/test.jpg', now(), $2)`, [trips[0], users.admin], '23505');
     await rejected('update public.delivery_proofs set photo_path = null where trip_id = $1', [trips[0]], '23502');
   });
-  it('i: sessions enforce unique boot, monotonic order and nullable trip', async () => {
-    expect((await db.query('select trip_id from public.device_sessions where device_id = $1 and boot_id = $2', [devices[0],boot])).rows[0].trip_id).toBeNull();
-    await rejected('insert into public.device_sessions (device_id, boot_id) values ($1, $2)', [devices[0],boot], '23505');
-    await rejected('update public.device_sessions set end_monotonic_ms = 99 where device_id = $1', [devices[0]]);
-    await isolated(() => db.query('update public.device_sessions set end_monotonic_ms = 100, trip_id = $1 where device_id = $2', [trips[0],devices[0]]));
-    await isolated(() => db.query('insert into public.device_sessions (device_id, boot_id, end_monotonic_ms) values ($1, $2, 500)', [devices[0],randomUUID()]));
+  it.each(['different trips', 'the same trip'])('i: one boot permits two closed sessions on %s', async (scope) => {
+    await isolated(async () => {
+      let secondTrip = trips[0];
+      if (scope === 'different trips') {
+        secondTrip = trips[1];
+        await db.query('update public.trips set device_id = $1 where id = $2', [devices[0], secondTrip]);
+      }
+      await db.query(`update public.device_sessions set trip_id = $1, ended_at = '2026-01-01T01:00:00Z',
+        end_monotonic_ms = 200 where device_id = $2 and boot_id = $3`, [trips[0], devices[0], boot]);
+      await db.query(`insert into public.device_sessions (device_id, boot_id, trip_id, started_at, ended_at,
+        start_monotonic_ms, end_monotonic_ms)
+        values ($1, $2, $3, '2026-01-01T01:00:00Z', '2026-01-01T02:00:00Z', 200, 300)`,
+      [devices[0], boot, secondTrip]);
+      const result = await db.query(`select trip_id from public.device_sessions
+        where device_id = $1 and boot_id = $2 and ended_at is not null order by end_monotonic_ms`, [devices[0], boot]);
+      expect(result.rows).toEqual([{ trip_id: trips[0] }, { trip_id: secondTrip }]);
+    });
+  });
+  it('i: rejects a second open session for the device even with a different boot', async () => {
+    await expect(isolated(() => db.query('insert into public.device_sessions (device_id, boot_id) values ($1, $2)',
+      [devices[0], randomUUID()]))).rejects.toMatchObject({
+      code: '23505', constraint: 'device_sessions_one_open_per_device_idx',
+    });
+  });
+  it('i: permits a closed session beside an open session for the same device and boot', async () => {
+    await isolated(async () => {
+      await db.query(`insert into public.device_sessions (device_id, boot_id, trip_id, ended_at, end_monotonic_ms)
+        values ($1, $2, $3, '2026-01-01T00:00:00Z', 100)`, [devices[0], boot, trips[0]]);
+      const result = await db.query(`select ended_at is null as is_open from public.device_sessions
+        where device_id = $1 and boot_id = $2 order by is_open`, [devices[0], boot]);
+      expect(result.rows).toEqual([{ is_open: false }, { is_open: true }]);
+    });
+  });
+  it('i: still rejects an end monotonic timestamp below its start', async () => {
+    await rejected('update public.device_sessions set end_monotonic_ms = 99 where device_id = $1 and boot_id = $2', [devices[0], boot]);
+  });
+  it('i: permits a session without a trip', async () => {
+    const result = await db.query('select trip_id from public.device_sessions where device_id = $1 and boot_id = $2', [devices[0], boot]);
+    expect(result.rows).toEqual([{ trip_id: null }]);
   });
   it('j: reads only the allowed shipment/trip scope for active users', async () => {
     for (const [name,id] of Object.entries(users)) {
