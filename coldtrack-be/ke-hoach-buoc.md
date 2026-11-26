@@ -52,7 +52,7 @@ Nguồn đặc tả: `BE-0-thiet-ke-backend-coldtrack.md` (v0.5) và `BE-1-BE-3-
 - **3.4** Cảnh báo nhiệt và cửa (120 giây), mất tín hiệu (300 giây), phục hồi.
 - **3.5** Rollup phút và độ phủ.
 - **3.6** Đánh giá chuyến pass/fail/pending.
-- **3.7** Simulator 5–7 thiết bị, kịch bản xác định.
+- **3.7** Simulator 4 thiết bị mô phỏng, kịch bản xác định.
 - **3.8** Realtime chỉ gửi invalidation, dashboard đọc lại mỗi 15 giây.
 
 ### Firmware (song song)

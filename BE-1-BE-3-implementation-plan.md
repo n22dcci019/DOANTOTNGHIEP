@@ -19,8 +19,8 @@ Công việc:
 1. DTO/schema theo BE-0 mục3; pin PostgreSQL>=15 cho NULLS NOT DISTINCT. Config_version_no tăng theo device qua mọi chuyến, counter next_config_version_no; trips.manual_off_issued_seconds default0/check0..1200. Version bản ghi tách phiên bản firmware.
 2. Thứ tự migration: roles/permissions → profiles/account_access → RLS helpers → xe/thiết bị/credential/assignments → shipments/trips/sessions/proofs → telemetry/latest/events/rollup → configs/commands/attempts/ACK và FK cấu hình muộn → alerts/events/notifications → audit/idempotency/outbox → views/Storage/publication. departure_config_version_id thêm FK sau bảng config.
 3. Bật RLS/revoke client ngay khi tạo bảng. View theo vai trò/chuyến, khách không lộ GPS qua JSON/lịch sử nếu duyệt chỉ in_transit. Tài xế không mutation lệnh hoặc dải nhiệt.
-4. Seed tham chiếu/demo tách biệt, demo chỉ local/test, không secret. Bootstrap admin qua server/Auth, không tin vai trò metadata. Chưa tự thu trường nhạy cảm.
-5. Generate Kysely types từ DB local đã migrate; CI reset/apply/generate/typecheck phát hiện drift. Wire integer trong miền JSON an toàn; bigint/UTC mapping rõ, không mất chính xác âm thầm.
+4. Seed tham chiếu/demo tách biệt. Demo local gồm 1 admin, 3 khách, 5 tài xế, 4 xe mô phỏng và 1 xe thiết bị thật, mỗi xe một thiết bị. Script server tạo admin qua Auth Admin API và gán vai trò trong `account_access`. Mật khẩu ngẫu nhiên lưu trong `.env.local` đã được Git ignore. Đăng ký tự do không cấp quyền admin.
+5. Dùng `kysely-codegen` sinh kiểu từ DB local đã migrate. `npm run db:types:check` reset và so sánh lại với file kiểu trong repo. Chạy thủ công khi repo chưa có workflow CI. Wire integer trong miền JSON an toàn, bigint/UTC mapping rõ, không mất chính xác âm thầm.
 6. Compose/TLS trust/env.example, credential/ACL. Reconnect transport backoff jitter1/2/4/8/16/cap30 giây, báo degraded sau5 phút, vẫn tiếp tục thử; command không được kéo dài hạn theo transport.
 
 Nghiệm thu: reset rỗng/upgrade baseline, unique tài nguyên chuyến, check dải>1°C/bước0,5, config tăng qua chuyến, tổng off0..1200, rollup null không trùng. Thêm index report(trip_id,minute_utc),(device_id,minute_utc). RLS ba vai trò/pending/suspended; client không ghi trực tiếp/RPC. Cấp/revoke credential thử phiên đang mở và reconnect thật; chưa gọi đạt khi chỉ DB đã revoked.
@@ -60,7 +60,7 @@ Ingest/báo cáo:
 
 Commit trước sync ACK, dedup ID/nội dung, SD không xóa theo PUBACK. Tách freshness/connectivity, boot/sequence không lùi latest, backfill đúng chuyến hoặc null. Alert nhiệt/cửa đủ120 giây, connection_lost>300; realtime chỉ mẫu live có chất lượng giờ phù hợp. Rollup upsert không đếm trùng/không bỏ phút thiếu; giữ chi tiết chưa tổng hợp/còn cần pending. Công thức độ phủ theo BE-0 mục8 sau duyệt, có version/audit khi đánh giá lại. Đo rows/index/storage trước chốt12 tháng. Notifications chỉ invalidation không GPS/PII, dashboard đọc lại15 giây.
 
-Simulator process riêng,5–7 credential/boot/sequence, TLS và journal bền vững. Scenario/seed xác định, mẫu30 giây; guard kiểm theo monotonic độc lập tick publish. Clock ảo cho integration, thời gian thực cho nghiệm thu thiết bị.
+Simulator chạy process riêng cho 4 thiết bị mô phỏng. Mỗi thiết bị có credential, boot và sequence riêng, dùng TLS và journal bền vững. Scenario/seed xác định, mẫu30 giây; guard kiểm theo monotonic độc lập tick publish. Clock ảo cho integration, thời gian thực cho nghiệm thu thiết bị.
 
 | Kịch bản | Kỳ vọng |
 |---|---|
@@ -85,3 +85,7 @@ Nghiệm thu thiết bị thật bắt buộc:
 ## Bàn giao và giới hạn lượt này
 
 Mỗi giai đoạn bàn giao code/migration bổ sung, contract/OpenAPI, test report và runbook. Sau sửa code chạy graphify update . theo quy tắc dự án. Lượt v0.5 chỉ soạn tài liệu, chưa BE-1/apply schema môi trường thật/nghiệm thu thiết bị; không mở lại quyết định điều khiển cũ đã được yêu cầu thay thế.
+
+## Ghi chú thay đổi
+
+- 26/11/2026 — Chốt seed bước 1.8, bootstrap admin qua Auth Admin API và kiểm tra drift bằng `kysely-codegen`. Simulator bước 3.7 chạy 4 thiết bị mô phỏng.

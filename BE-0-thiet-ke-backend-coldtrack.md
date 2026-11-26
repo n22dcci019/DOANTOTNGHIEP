@@ -4,7 +4,7 @@ Phiên bản **0.5 rút gọn**, ngày 15/11/2026. Thiết kế hiện hành tha
 
 ## 1. Phạm vi và thông số
 
-Ba vai trò admin/khách/tài xế; một thiết bị thật, 5–7 xe mô phỏng có nhãn. Chỉ admin cấu hình dải nhiệt và điều khiển tay. Điện thoại tài xế theo dõi chuyến, xác nhận cảnh báo và giao nhận.
+Ba vai trò admin/khách/tài xế. Demo gồm 4 xe mô phỏng có nhãn và 1 xe gắn thiết bị thật, tổng 5 xe. Chỉ admin cấu hình dải nhiệt và điều khiển tay. Điện thoại tài xế theo dõi chuyến, xác nhận cảnh báo và giao nhận.
 
 | Tham số | Thiết kế MVP |
 |---|---|
@@ -254,3 +254,4 @@ Realtime chỉ publish `INSERT` và `UPDATE` của `notifications` và `alerts`,
 ## Ghi chú thay đổi
 
 - 26/11/2026 — Chốt độ rộng dải nhiệt của lô hàng và cấu hình thiết bị là max − min ≥ 2°C. Áp dụng bằng migration `fix_temperature_width_minimum_2`.
+- 26/11/2026 — Chốt demo gồm 1 admin, 3 khách, 5 tài xế, 4 xe mô phỏng (`SIM-01` đến `SIM-04`) và 1 xe gắn thiết bị thật (`CT-001`). Admin đầu tiên do script server tạo qua Auth Admin API. Mật khẩu demo chỉ lưu tại máy chạy seed trong `.env.local` đã được Git ignore.

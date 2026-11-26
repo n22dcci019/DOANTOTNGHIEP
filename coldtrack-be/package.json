@@ -25,12 +25,17 @@
     "db:status": "supabase status --workdir ..",
     "db:reset": "supabase db reset --workdir ..",
     "db:migration": "supabase migration new --workdir ..",
+    "db:seed": "tsx scripts/seed-demo.ts",
+    "db:types": "kysely-codegen --env-file ../.env --dialect postgres --include-pattern \"public.*\" --out-file libs/database/schema.ts --log-level info",
+    "db:types:check": "npm run db:reset && npm run db:types -- --verify",
     "mqtt:up": "docker compose up -d mosquitto",
     "mqtt:down": "docker compose stop mosquitto",
     "local:configure": "node scripts/configure-local.mjs",
     "check:local": "node scripts/check-local.mjs",
-    "lint": "eslint apps libs test",
-    "test": "tsc -p tsconfig.test.json && node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand"
+    "lint": "eslint apps libs test scripts/seed-demo.ts",
+    "test": "npm run db:reset && npm run test:core && npm run test:seed",
+    "test:core": "tsc -p tsconfig.test.json && node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand --testPathIgnorePatterns=seed-bootstrap[.]integration[.]test[.]js$",
+    "test:seed": "npm run db:reset && npm run db:seed && tsc -p tsconfig.test.json && node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand --runTestsByPath .test-dist/test/seed-bootstrap.integration.test.js"
   },
   "dependencies": {
     "@nestjs/common": "12.4.2",
@@ -59,6 +64,7 @@
     "@types/pg": "8.23.1",
     "eslint": "^10.15.0",
     "jest": "^30.5.2",
+    "kysely-codegen": "0.20.0",
     "prettier": "3.10.1",
     "supabase": "3.1.0",
     "tsx": "4.23.15",

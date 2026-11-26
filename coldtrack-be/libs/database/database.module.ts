@@ -2,9 +2,10 @@ import { Inject, Injectable, Module, type OnApplicationShutdown } from '@nestjs/
 import { ConfigService } from '@nestjs/config';
 import { Kysely, PostgresDialect } from 'kysely';
 import pg from 'pg';
+import type { DB } from './schema.js';
 
 export const DATABASE = Symbol('DATABASE');
-export type Database = Kysely<Record<string, never>>;
+export type Database = Kysely<DB>;
 
 @Injectable()
 class DatabaseLifecycle implements OnApplicationShutdown {

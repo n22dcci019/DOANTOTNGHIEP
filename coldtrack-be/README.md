@@ -1,5 +1,39 @@
 # ColdTrack Backend
 
+## Bước 1.8 — Seed demo và kiểu Kysely
+
+Chạy từ `coldtrack-be/` với stack local `DoAnTotNghiep` đang hoạt động. Lấy URL
+và secret key từ CLI vào biến môi trường của terminal, tránh in kết quả status
+ra màn hình. `DATABASE_URL` lấy từ `.env` gốc hoặc môi trường hiện tại.
+
+```powershell
+$localStatus = npm.cmd run --silent db:status -- --output json | ConvertFrom-Json
+$env:SUPABASE_URL = $localStatus.API_URL
+$env:SUPABASE_SECRET_KEY = $localStatus.SECRET_KEY
+npm run db:reset
+npm run db:seed
+```
+
+Seed tạo 1 admin, 3 khách và 5 tài xế qua Supabase Auth Admin API. Script server
+gán vai trò trong `account_access` và tạo 5 xe với các thiết bị `SIM-01` đến
+`SIM-04` và `CT-001`, mỗi thiết bị một phân công mở. Credential Mosquitto thuộc
+bước 1.9. Đăng ký tự do chỉ tạo danh tính Auth, còn quyền admin đến từ server.
+
+Thông tin đăng nhập demo được lưu trong `.env.local` đã được Git ignore. Seed
+thường giữ nguyên mật khẩu các tài khoản đã tồn tại. Chạy
+`npm run db:seed -- --reset-passwords` khi cần đổi chúng. Nếu email demo đã bị
+đăng ký ngoài script, seed sẽ báo xung đột và yêu cầu xử lý tài khoản đó trước.
+
+`npm run db:types` chạy `kysely-codegen` trên schema `public` và ghi ra
+`libs/database/schema.ts`. Khi thay migration, reset DB local và chạy lại lệnh
+này, sau đó đưa file kiểu cùng thay đổi migration vào Git.
+
+`npm run db:types:check` dùng `kysely-codegen --verify` để sinh lại kiểu và so sánh
+với file trong checkout. Lệnh trả mã lỗi nếu có drift. **Lệnh reset DB local và
+xóa dữ liệu demo.** Repo chưa có workflow CI, nên chạy lệnh kiểm tra thủ công
+trên `DoAnTotNghiep` với `DATABASE_URL` trỏ về cổng `54322`. Sau kiểm tra có thể
+chạy lại seed để tạo dữ liệu demo.
+
 ## Bước 1.3 — Lô, chuyến, giao nhận và phiên thiết bị
 
 Migration `../supabase/migrations/*_shipments_trips.sql` thêm đúng bốn bảng
@@ -206,7 +240,7 @@ Thiết kế và ERD: [BE-SYSTEM-DESIGN.md](../docs/BE-SYSTEM-DESIGN.md).
 - MQTT ingest và worker chạy ngoài Supabase.
 - Kysely truy vấn database; Supabase CLI quản lý migration duy nhất.
 - Supabase Auth, Database, Storage, Realtime và RLS.
-- Simulator 5–7 xe cho demo.
+- Demo gồm 4 xe mô phỏng và 1 xe gắn thiết bị thật.
 
 NestJS 12, TypeScript, Kysely + pg, MQTT.js, Supabase SDK, JOSE, Zod, Helmet và OpenAPI. Supabase CLI được cài local qua npm; phiên bản khóa trong package-lock.json. Không cần cài Nest/Supabase global.
 

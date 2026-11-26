@@ -780,9 +780,9 @@
     "semantic_hash": ""
   },
   "coldtrack-be/package.json": {
-    "mtime": 1795450849.7618494,
-    "seen": 1795451039.7384064,
-    "ast_hash": "e28fda0adf14bdd04dfbdb1a47b1e78f",
+    "mtime": 1795683823.9139762,
+    "seen": 1795683994.1516376,
+    "ast_hash": "35c9969284ec2a6d8b85360e64673948",
     "semantic_hash": ""
   },
   "coldtrack-be/scripts/configure-local.mjs": {
@@ -798,9 +798,9 @@
     "semantic_hash": ""
   },
   "coldtrack-be/tsconfig.json": {
-    "mtime": 1794478503.695057,
-    "seen": 1794479019.3705847,
-    "ast_hash": "8f18575122cd960b3d4c3e50766362d2",
+    "mtime": 1795682449.250275,
+    "seen": 1795682885.873648,
+    "ast_hash": "0e5ab5106ff7ae8105b208230392ca8b",
     "semantic_hash": ""
   },
   "BE-0-backend-spec-review.md": {
@@ -816,9 +816,9 @@
     "semantic_hash": ""
   },
   "coldtrack-be/README.md": {
-    "mtime": 1795503511.171617,
-    "seen": 1795503553.3420994,
-    "ast_hash": "193fa33ebb8370c1ccc335e429cc8331",
+    "mtime": 1795682649.8806374,
+    "seen": 1795682885.9143765,
+    "ast_hash": "2282e064e8a6aab792776d7f7a67b3e4",
     "semantic_hash": ""
   },
   "docs/BE-SYSTEM-DESIGN.md": {
@@ -864,9 +864,9 @@
     "semantic_hash": ""
   },
   "coldtrack-be/eslint.config.js": {
-    "mtime": 1795446769.963203,
-    "seen": 1795446900.5416977,
-    "ast_hash": "8ecf85f0a17a3a5042d98480cca96c05",
+    "mtime": 1795682473.2692451,
+    "seen": 1795682885.8640506,
+    "ast_hash": "4d125eb0eab317f11789c991afe07fcb",
     "semantic_hash": ""
   },
   "coldtrack-be/jest.config.js": {
@@ -882,9 +882,9 @@
     "semantic_hash": ""
   },
   "coldtrack-be/libs/database/database.module.ts": {
-    "mtime": 1795446614.673267,
-    "seen": 1795446900.541706,
-    "ast_hash": "668b87e048c2570af8398287819ff96b",
+    "mtime": 1795682450.0451076,
+    "seen": 1795682885.8661845,
+    "ast_hash": "d2d560a401084ae4a979ed5cd71e62e3",
     "semantic_hash": ""
   },
   "coldtrack-be/test/environment.test.ts": {
@@ -924,9 +924,9 @@
     "semantic_hash": ""
   },
   "BE-0-thiet-ke-backend-coldtrack.md": {
-    "mtime": 1795681161.3168032,
-    "seen": 1795681381.696483,
-    "ast_hash": "9562d6a1decc3c8184aee4b13013cd04",
+    "mtime": 1795682646.6132681,
+    "seen": 1795682885.9137537,
+    "ast_hash": "3f97faf15b79eff5590d48e13a9d2c2e",
     "semantic_hash": ""
   },
   "BE-1-BE-3-implementation-plan-v0.3.md": {
@@ -942,15 +942,15 @@
     "semantic_hash": ""
   },
   "BE-1-BE-3-implementation-plan.md": {
-    "mtime": 1794760502.3641915,
-    "seen": 1795446900.5619385,
-    "ast_hash": "6acc07e3586ab1ff3ad6f1d3b55ad0cc",
+    "mtime": 1795682647.8802478,
+    "seen": 1795682885.9141657,
+    "ast_hash": "691bd0381cb475d33d20cd1194612bb8",
     "semantic_hash": ""
   },
   "coldtrack-be/ke-hoach-buoc.md": {
-    "mtime": 1795444617.1029596,
-    "seen": 1795446900.5621028,
-    "ast_hash": "aeb21cf2a9375c321d1c98414c7eb352",
+    "mtime": 1795682648.9407363,
+    "seen": 1795682885.9143806,
+    "ast_hash": "19e083a5ff0ae8ddc43e4d1de5529376",
     "semantic_hash": ""
   },
   "coldtrack-be/infra/mosquitto/scripts/gen-certs.ps1": {
@@ -978,8 +978,8 @@
     "semantic_hash": ""
   },
   "coldtrack-be/test/accounts.integration.test.ts": {
-    "mtime": 1795450881.8133237,
-    "seen": 1795451039.7391422,
+    "mtime": 1795683802.677672,
+    "seen": 1795683994.1527054,
     "ast_hash": "d730f77f2f6ff1151ca9e12ad7f87513",
     "semantic_hash": ""
   },
@@ -1025,10 +1025,28 @@
     "ast_hash": "96d874431b4cb36855617a7aa65ef7ec",
     "semantic_hash": ""
   },
+  "coldtrack-be/libs/database/schema.ts": {
+    "mtime": 1795682463.1702108,
+    "seen": 1795682885.8661926,
+    "ast_hash": "a842b435746863efad995dc070eb411e",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/scripts/seed-demo.ts": {
+    "mtime": 1795682349.975348,
+    "seen": 1795682885.8681312,
+    "ast_hash": "c577443a8fa3b6b1b0201d56a16c9e15",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/test/seed-bootstrap.integration.test.ts": {
+    "mtime": 1795682813.0822744,
+    "seen": 1795682885.8692977,
+    "ast_hash": "4c2d29a935f9c711eb1e8ff3c38894be",
+    "semantic_hash": ""
+  },
   "coldtrack-be/package-lock.json": {
-    "mtime": 1795446937.9914129,
-    "seen": 1795447165.606589,
-    "ast_hash": "c299ab367da4e6c9c8836faca976944b",
+    "mtime": 1795682294.6986334,
+    "seen": 1795682885.918759,
+    "ast_hash": "2b712c46d2965378f97964822da33f77",
     "semantic_hash": ""
   },
   "coldtrack-web/package-lock.json": {
