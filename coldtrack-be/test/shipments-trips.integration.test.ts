@@ -90,11 +90,11 @@ describe('shipments/trips migration (real PostgreSQL)', () => {
       await isolated(() => db.query('update public.shipments set status = $1, rejected_reason = $2 where id = $3', [status, 'test reason', shipments[0]]));
     }
   });
-  it('c: enforces temperature bounds, width strictly > 1 and 0.5 degree steps', async () => {
-    for (const [min, max] of [[-20,-20],[-18,-20],[-20,-19.5],[-20,-19],[-25.5,-23],[-16,-14.5],[-20.25,-18],[-20,-18.25]]) {
+  it('c: enforces temperature bounds, width at least 2 and 0.5 degree steps', async () => {
+    for (const [min, max] of [[-20,-20],[-18,-20],[-20,-19.5],[-20,-19],[-20.5,-19],[-25.5,-23],[-17,-14.5],[-20.25,-18],[-20.5,-18.25]]) {
       await rejected('update public.shipments set temp_min = $1, temp_max = $2 where id = $3', [min, max, shipments[0]]);
     }
-    for (const [min, max] of [[-25,-15],[-20.5,-19],[-20,-18]]) {
+    for (const [min, max] of [[-25,-15],[-20,-18],[-20.5,-18]]) {
       await isolated(() => db.query('update public.shipments set temp_min = $1, temp_max = $2 where id = $3', [min, max, shipments[0]]));
     }
   });

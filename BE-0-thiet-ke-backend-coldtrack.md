@@ -9,7 +9,7 @@ Ba vai trò admin/khách/tài xế; một thiết bị thật, 5–7 xe mô ph�
 | Tham số | Thiết kế MVP |
 |---|---|
 | Telemetry | Thiết bị thật 15 giây/mẫu, simulator 30 giây/mẫu |
-| Dải mục tiêu | −25°C ≤ min < max ≤ −15°C, bước 0,5°C, max−min>1°C nên rộng tối thiểu 1,5°C |
+| Dải mục tiêu | −25°C ≤ min < max ≤ −15°C, bước 0,5°C, max − min ≥ 2°C |
 | Dải mặc định khi chưa đọc được cấu hình | −20°C đến −18°C, auto |
 | Hysteresis relay | Nhiệt >target_max yêu cầu on; <target_min yêu cầu off; ở giữa hoặc đúng biên giữ trạng thái |
 | Khoảng cách đổi relay thực | Ít nhất 45 giây giữa mọi lần đổi tự động hoặc tay |
@@ -39,14 +39,14 @@ Supabase CLI là hệ migration duy nhất, backend dùng Kysely + pg. API/inges
 | Lô hàng | Duyệt/từ chối/phân công/hủy đúng trạng thái | Tạo/sửa lô mình draft/pending_review, submit/hủy trước đi | Đọc lô được giao |
 | Chuyến/giao nhận | Phân công/quản lý | Đọc chuyến/bằng chứng lô mình | Khởi hành/hoàn thành chuyến được giao, driver_notes, bằng chứng |
 | Nhiệt/độ ẩm/cửa | Đọc | Lô mình kể cả sau chuyến | Chuyến được giao |
-| GPS | Đọc | Đề xuất chỉ khi in_transit | Chuyến được giao |
+| GPS | Đọc | Tọa độ khi `in_transit`. Chuyến `completed` chỉ có tổng quãng đường và thời gian. | Chuyến được giao |
 | Dải nhiệt | Tạo phiên bản, gửi xuống | Không | Không |
 | Relay tay | Gửi on/off | Không | Không, API403 |
 | Cảnh báo | Xác nhận/đóng có ghi chú | Đọc theo lô | Xác nhận đã nhận theo chuyến |
 | Xe/thiết bị/credential | Quản lý, không xem lại secret | Không | Đọc thông tin vận hành xe được giao |
 | Hồ sơ/thông báo | Đúng phạm vi | Của mình | Của mình |
 
-Pending/suspended không đọc dữ liệu nghiệp vụ. Không lộ hồ sơ tài xế cho khách. Chính sách GPS áp dụng trên view, JSON, lịch sử/realtime, không chỉ ẩn marker. GPS sau chuyến, chính sách đánh giá chất lượng, dữ liệu nhạy cảm, chữ ký và retention vẫn cần rà soát; các thông số điều khiển mục1 đã theo yêu cầu v0.5, không tiếp tục treo quyết định điều khiển cũ.
+Pending/suspended không đọc dữ liệu nghiệp vụ. Không lộ hồ sơ tài xế cho khách. Chính sách GPS áp dụng trên view, JSON, lịch sử/realtime, không chỉ ẩn marker. Chính sách đánh giá chất lượng, dữ liệu nhạy cảm, chữ ký và retention vẫn cần rà soát; các thông số điều khiển mục1 đã theo yêu cầu v0.5, không tiếp tục treo quyết định điều khiển cũ.
 
 ## 3. Schema tối thiểu
 
@@ -71,7 +71,7 @@ Mặc định id UUID, timestamptz UTC, hiển thị Asia/Ho_Chi_Minh. Không ca
 Ràng buộc:
 
 - shipments.status: draft,pending_review,approved,rejected,scheduled,in_transit,completed,cancelled. trips.status: scheduled,in_transit,completed,cancelled.
-- Dải shipment/config trong giới hạn mục1, min/max bội0,5°C và max−min>1°C. Không áp bước này lên số đo cảm biến.
+- Dải shipment/config trong giới hạn mục 1, min/max bội 0,5°C và max − min ≥ 2°C. Không áp bước này lên số đo cảm biến.
 - Unique riêng trên vehicle_id,driver_id,shipment_id,device_id của trips WHERE status IN ('scheduled','in_transit'). Một thiết bị chính/xe, không đổi giữa chuyến đang chạy.
 - config_version_no tăng đơn điệu theo thiết bị qua mọi chuyến, cấp dưới khóa devices, unique(device_id,config_version_no). Không reset tại đầu chuyến. version bản ghi dùng chống cập nhật đồng thời, khác phiên bản cấu hình gửi firmware.
 - manual_off_issued_seconds integer trong[0,1200], là tổng thời lượng lệnh đã cấp, không phải thời gian tắt thực đo được. Không có bảng quản lý ngân sách riêng.
@@ -94,6 +94,8 @@ QoS1, TLS, username=device_code, ACL chỉ nhánh thiết bị. Broker buộc us
 Status có boot_id,connection_id,state. Retained online không chứng minh cảm biến còn mới. boot_id UUID mới mỗi reboot, không đổi khi reconnect; sequence_no tăng trong boot, không sắp xếp UUID giữa hai boot.
 
 ### 4.1 Dải nhiệt
+
+Dải `set_target_range` tuân theo mục 1. Hai biên nằm trong khoảng −25°C đến −15°C theo bước 0,5°C và max − min ≥ 2°C. Ví dụ dưới đây dùng độ rộng đúng 2°C.
 
 ```json
 {
@@ -191,6 +193,11 @@ Prefix /api/v1. JWT và account_access active; mọi mutation có Idempotency-Ke
 | POST /alerts/:id/acknowledge hoặc resolve | Tài xế được giao/admin ACK; chỉ admin resolve có ghi chú |
 | POST /notifications/:id/read | Người nhận |
 
+Ảnh giao nhận lưu trong bucket riêng tư `delivery-proofs`, theo đường dẫn đề xuất
+`proofs/{trip_id}/{uuid}.jpg`. Server dùng `service_role` tạo signed URL có thời hạn.
+API ở bước 2.4 kiểm tra người yêu cầu là admin active hoặc tài xế active được giao
+chuyến trước khi ký URL. Client lấy ảnh qua URL đã ký.
+
 Body commands chỉ type,state,duration_seconds (thiếu thì600), từ chối trường ngoài hợp đồng. Thời lượng integer1..1800. Off tính tổng chuyến<=1200, on không cộng. Retained status/backfill không đủ chứng minh online.
 
 **Thời điểm tính tổng:** server cấp command off trong transaction của POST /commands, tại issued_at, cộng toàn bộ duration_seconds vào trips.manual_off_issued_seconds. Command/outbox/audit/response idempotency cùng commit; không đợi publish hoặc ACK. Tổng mới>1200 thì rollback,409 OFF_LIMIT_REACHED, không tạo lệnh. Off1800 bị từ chối dù nằm trong giới hạn thời lượng một lệnh. Sau commit không hoàn khi guard rejected, publish lỗi, timeout, kết thúc sớm hoặc quá nhiệt. Response mất rồi replay cùng key không cộng lại; lỗi trước commit không tính như đã cấp. Khóa trip/device để hai request không vượt tổng; không giữ chỗ hoặc đối soát thời gian tắt thực.
@@ -230,7 +237,7 @@ Rollup upsert theo phút/chuyến/config, không cộng lặp backfill, tạo c�
 
 Compose local cho API/ingest/publisher/Mosquitto/simulator, Supabase DB/Auth/Storage. Credential file/ACL server đồng bộ, revoke restart broker có kiểm soát cho demo và ngắt mọi client. Reconnect backoff jitter cap30 giây tiếp tục khi service chạy; command riêng vẫn hết hạn30 giây/tối đa3 lượt publish, không gửi muộn khi broker phục hồi. Không ACK dữ liệu chưa commit.
 
-Realtime tối giản notifications INSERT có RLS, payload invalidation không GPS/PII; dashboard đọc lại view mỗi15 giây. Không publish raw telemetry/credential/outbox. Không cam kết24/7 hoặc vừa quota miễn phí; đo dung lượng/kiểm tra Dashboard trước demo.
+Realtime chỉ publish `INSERT` và `UPDATE` của `notifications` và `alerts`, theo phạm vi RLS. Payload thông báo dùng để báo dữ liệu thay đổi và không chứa GPS hay thông tin nhận dạng cá nhân. Dashboard đọc lại view mỗi 15 giây. Không cam kết24/7 hoặc vừa quota miễn phí; đo dung lượng/kiểm tra Dashboard trước demo.
 
 ## 9. Nghiệm thu v0.5
 
@@ -243,3 +250,7 @@ Realtime tối giản notifications INSERT có RLS, payload invalidation không 
 7. Backfill/trùng/đảo thứ tự đúng chuyến/latest; stale dù broker online; cảnh báo120/300 giây, rollup chia phút/độ phủ tính lại được.
 8. **Thiết bị thật:** ít nhất một lần relay tự bật và tự tắt đúng ngưỡng/45 giây, cùng ít nhất một lần tắt tay hết hạn về auto. Lưu nhiệt,mốc monotonic,config_version_no,relay_state/control_mode,ACK. Chọn nhiệt không vượt max sớm để lần thử hết hạn không bị quá nhiệt hủy trước; không lấy simulator thay bằng chứng thật.
 9. Báo cáo ghi rõ10/30/20 phút là giá trị thiết kế, không phải nghiên cứu thời gian hỏng hàng; relay_state không xác nhận máy nén chạy. Chưa thực hiện kiểm thử runtime trong lượt soạn tài liệu.
+
+## Ghi chú thay đổi
+
+- 26/11/2026 — Chốt độ rộng dải nhiệt của lô hàng và cấu hình thiết bị là max − min ≥ 2°C. Áp dụng bằng migration `fix_temperature_width_minimum_2`.

@@ -1,0 +1,1034 @@
+{
+  ".codex/hooks.json": {
+    "mtime": 1794130297.054874,
+    "seen": 1794164600.8961787,
+    "ast_hash": "5ebef3dd159986e465ab65e4014107ec",
+    "semantic_hash": "5ebef3dd159986e465ab65e4014107ec"
+  },
+  "coldtrack-web/.oxlintrc.json": {
+    "mtime": 1793346442.8687882,
+    "seen": 1794164600.8961911,
+    "ast_hash": "029f4905006c1fffd96bc863e2d98d3e",
+    "semantic_hash": "029f4905006c1fffd96bc863e2d98d3e"
+  },
+  "coldtrack-web/package.json": {
+    "mtime": 1793790018.963453,
+    "seen": 1794164600.8961964,
+    "ast_hash": "2a9cf5d35a844577989f3a4f8c97435a",
+    "semantic_hash": "2a9cf5d35a844577989f3a4f8c97435a"
+  },
+  "coldtrack-web/scripts/check-admin-browser.mjs": {
+    "mtime": 1793784989.4059865,
+    "seen": 1794164600.8961997,
+    "ast_hash": "081685ac67371a3521a61a4c350b55eb",
+    "semantic_hash": "081685ac67371a3521a61a4c350b55eb"
+  },
+  "coldtrack-web/scripts/check-auth-browser.mjs": {
+    "mtime": 1793782606.179328,
+    "seen": 1794164600.8962033,
+    "ast_hash": "9264e83977e3cb72ada054ee42cb5bc7",
+    "semantic_hash": "9264e83977e3cb72ada054ee42cb5bc7"
+  },
+  "coldtrack-web/scripts/check-auth-demo.mjs": {
+    "mtime": 1793782799.7487943,
+    "seen": 1794164600.8962061,
+    "ast_hash": "4bc0a1abaa30c38dcffa38915941f191",
+    "semantic_hash": "4bc0a1abaa30c38dcffa38915941f191"
+  },
+  "coldtrack-web/scripts/check-customer-browser.mjs": {
+    "mtime": 1793786911.3841188,
+    "seen": 1794164600.8962095,
+    "ast_hash": "0fc2accfdedbd337795e18b19ad3650a",
+    "semantic_hash": "0fc2accfdedbd337795e18b19ad3650a"
+  },
+  "coldtrack-web/scripts/check-driver-browser.mjs": {
+    "mtime": 1794320777.488943,
+    "seen": 1794320833.380925,
+    "ast_hash": "d2bf508d101ebd7efaaa8cc492232cf1",
+    "semantic_hash": ""
+  },
+  "coldtrack-web/scripts/check-landing-browser.mjs": {
+    "mtime": 1793791823.4162986,
+    "seen": 1794164600.8962147,
+    "ast_hash": "161e2ab4176487222ed99c93ebda1add",
+    "semantic_hash": "161e2ab4176487222ed99c93ebda1add"
+  },
+  "coldtrack-web/src/App.tsx": {
+    "mtime": 1794320295.660735,
+    "seen": 1794320721.8555758,
+    "ast_hash": "5c1d4bef6a0553b28907c9d3c1bd1512",
+    "semantic_hash": ""
+  },
+  "coldtrack-web/src/auth/AuthContext.tsx": {
+    "mtime": 1793782315.0121932,
+    "seen": 1794164600.89622,
+    "ast_hash": "e5bccfbb37210ab33ac89f7a8717e300",
+    "semantic_hash": "e5bccfbb37210ab33ac89f7a8717e300"
+  },
+  "coldtrack-web/src/auth/ForbiddenPage.tsx": {
+    "mtime": 1793346964.5345993,
+    "seen": 1794164600.8962235,
+    "ast_hash": "3b98070406a7df7d5e06971317375b05",
+    "semantic_hash": "3b98070406a7df7d5e06971317375b05"
+  },
+  "coldtrack-web/src/auth/GuestRoute.tsx": {
+    "mtime": 1793790870.8919985,
+    "seen": 1794164600.8962257,
+    "ast_hash": "c1e76d4c1eb6b733cd091441337c450c",
+    "semantic_hash": "c1e76d4c1eb6b733cd091441337c450c"
+  },
+  "coldtrack-web/src/auth/ProtectedRoute.tsx": {
+    "mtime": 1793790871.0595255,
+    "seen": 1794164600.896228,
+    "ast_hash": "b294bf8973a33d9d146d12e56d03c3e6",
+    "semantic_hash": "b294bf8973a33d9d146d12e56d03c3e6"
+  },
+  "coldtrack-web/src/auth/flows.test.tsx": {
+    "mtime": 1794320511.5827854,
+    "seen": 1794320721.8556185,
+    "ast_hash": "dbd411cb3adff4cee7007bff8f5f6931",
+    "semantic_hash": ""
+  },
+  "coldtrack-web/src/auth/index.ts": {
+    "mtime": 1793346985.450319,
+    "seen": 1794164600.8962328,
+    "ast_hash": "b51cf7a373ca6d49dbc95a28f059fada",
+    "semantic_hash": "b51cf7a373ca6d49dbc95a28f059fada"
+  },
+  "coldtrack-web/src/auth/navigation.test.ts": {
+    "mtime": 1793791439.3484056,
+    "seen": 1794164600.8962352,
+    "ast_hash": "34670ad5276a052a8ff8d6e12a172dac",
+    "semantic_hash": "34670ad5276a052a8ff8d6e12a172dac"
+  },
+  "coldtrack-web/src/auth/navigation.ts": {
+    "mtime": 1793790870.8899968,
+    "seen": 1794164600.8962374,
+    "ast_hash": "25626fc19bf9d64dc6809e865413dd65",
+    "semantic_hash": "25626fc19bf9d64dc6809e865413dd65"
+  },
+  "coldtrack-web/src/auth/routing.test.tsx": {
+    "mtime": 1793791593.4691935,
+    "seen": 1794164600.8962398,
+    "ast_hash": "f3e31cbde76d0edbbb9807356d01dbcb",
+    "semantic_hash": "f3e31cbde76d0edbbb9807356d01dbcb"
+  },
+  "coldtrack-web/src/auth/service.test.ts": {
+    "mtime": 1793782390.2791903,
+    "seen": 1794164600.8962424,
+    "ast_hash": "ba4fc9bd5f4289bf53f7667607a225c4",
+    "semantic_hash": "ba4fc9bd5f4289bf53f7667607a225c4"
+  },
+  "coldtrack-web/src/auth/service.ts": {
+    "mtime": 1793782149.9142716,
+    "seen": 1794164600.8962448,
+    "ast_hash": "58c8b7d2b72ec4d4b095eabad5fb52e8",
+    "semantic_hash": "58c8b7d2b72ec4d4b095eabad5fb52e8"
+  },
+  "coldtrack-web/src/auth/validation.test.ts": {
+    "mtime": 1793782390.2751946,
+    "seen": 1794164600.8962467,
+    "ast_hash": "08255667dbbacfdc672c2eee773bb390",
+    "semantic_hash": "08255667dbbacfdc672c2eee773bb390"
+  },
+  "coldtrack-web/src/auth/validation.ts": {
+    "mtime": 1793782148.8152459,
+    "seen": 1794164600.89625,
+    "ast_hash": "aa498cc1b8cc137145568bd474debe03",
+    "semantic_hash": "aa498cc1b8cc137145568bd474debe03"
+  },
+  "coldtrack-web/src/components/admin/AdminUI.tsx": {
+    "mtime": 1793784326.8939517,
+    "seen": 1794164600.8962524,
+    "ast_hash": "86edfd4030c0fce51cfa49bacfcb4a4b",
+    "semantic_hash": "86edfd4030c0fce51cfa49bacfcb4a4b"
+  },
+  "coldtrack-web/src/components/admin/FleetMap.tsx": {
+    "mtime": 1793784558.9938755,
+    "seen": 1794164600.8962548,
+    "ast_hash": "ad3a1cf3b5d62341d319edf1851228d0",
+    "semantic_hash": "ad3a1cf3b5d62341d319edf1851228d0"
+  },
+  "coldtrack-web/src/components/common/Auth.tsx": {
+    "mtime": 1793782653.7415528,
+    "seen": 1794164600.8962564,
+    "ast_hash": "e800758c3bf84ceebac5a8de3c25819f",
+    "semantic_hash": "e800758c3bf84ceebac5a8de3c25819f"
+  },
+  "coldtrack-web/src/components/common/Badge.tsx": {
+    "mtime": 1793347006.0758064,
+    "seen": 1794164600.8962588,
+    "ast_hash": "bdbfb56c4a8a40fa5940c94c31fae8fb",
+    "semantic_hash": "bdbfb56c4a8a40fa5940c94c31fae8fb"
+  },
+  "coldtrack-web/src/components/common/Drawer.tsx": {
+    "mtime": 1793785130.8538048,
+    "seen": 1794164600.8962612,
+    "ast_hash": "b4aea5da3778b6bd06dbfef95e933bda",
+    "semantic_hash": "b4aea5da3778b6bd06dbfef95e933bda"
+  },
+  "coldtrack-web/src/components/common/Field.tsx": {
+    "mtime": 1793347015.4905858,
+    "seen": 1794164600.8962634,
+    "ast_hash": "8cbd709f16e69aa7d660df239a94c0c5",
+    "semantic_hash": "8cbd709f16e69aa7d660df239a94c0c5"
+  },
+  "coldtrack-web/src/components/common/Header.tsx": {
+    "mtime": 1794320685.8240118,
+    "seen": 1794320721.8557253,
+    "ast_hash": "9764cdedfbc59865b2a38cdc6ef86c04",
+    "semantic_hash": ""
+  },
+  "coldtrack-web/src/components/common/Modal.tsx": {
+    "mtime": 1793789132.3818216,
+    "seen": 1794164600.8962674,
+    "ast_hash": "58b40d78c12e507fc0fb94ad0ed0bd30",
+    "semantic_hash": "58b40d78c12e507fc0fb94ad0ed0bd30"
+  },
+  "coldtrack-web/src/components/common/Sidebar.tsx": {
+    "mtime": 1794320603.915867,
+    "seen": 1794320721.8557389,
+    "ast_hash": "44b568c5bbbc64dcbce7209091c2fd74",
+    "semantic_hash": ""
+  },
+  "coldtrack-web/src/components/common/StatCard.tsx": {
+    "mtime": 1793347021.9319785,
+    "seen": 1794164600.8962717,
+    "ast_hash": "2cdc5a3e2d0b3ca8850a99a59c71004a",
+    "semantic_hash": "2cdc5a3e2d0b3ca8850a99a59c71004a"
+  },
+  "coldtrack-web/src/components/common/Table.tsx": {
+    "mtime": 1793347052.4810207,
+    "seen": 1794164600.8962734,
+    "ast_hash": "f429cfd1dd93c91880433cd341325623",
+    "semantic_hash": "f429cfd1dd93c91880433cd341325623"
+  },
+  "coldtrack-web/src/components/common/index.ts": {
+    "mtime": 1793347100.128258,
+    "seen": 1794164600.8962755,
+    "ast_hash": "9a5bd367fe8cfd633136d5e46301afe4",
+    "semantic_hash": "9a5bd367fe8cfd633136d5e46301afe4"
+  },
+  "coldtrack-web/src/components/layout/AppLayout.tsx": {
+    "mtime": 1793789132.3398156,
+    "seen": 1794164600.8962774,
+    "ast_hash": "ae80e49175a8f3af37294be2cfd28701",
+    "semantic_hash": "ae80e49175a8f3af37294be2cfd28701"
+  },
+  "coldtrack-web/src/content/landing.ts": {
+    "mtime": 1793790971.3581579,
+    "seen": 1794164600.8962793,
+    "ast_hash": "a1b47345f33b27dcf8202c05a1127fbd",
+    "semantic_hash": "a1b47345f33b27dcf8202c05a1127fbd"
+  },
+  "coldtrack-web/src/main.tsx": {
+    "mtime": 1793346443.1410296,
+    "seen": 1794164600.8962817,
+    "ast_hash": "787e5a07efeb2bf6209d5937195f2f68",
+    "semantic_hash": "787e5a07efeb2bf6209d5937195f2f68"
+  },
+  "coldtrack-web/src/mock/admin.ts": {
+    "mtime": 1793789811.7779515,
+    "seen": 1794164600.8962836,
+    "ast_hash": "92445b973747957edaccbd0e8f9c1ae5",
+    "semantic_hash": "92445b973747957edaccbd0e8f9c1ae5"
+  },
+  "coldtrack-web/src/mock/auth.ts": {
+    "mtime": 1793782149.3663757,
+    "seen": 1794164600.8962858,
+    "ast_hash": "0001a389d49bfa6af75e51c1707b8b6f",
+    "semantic_hash": "0001a389d49bfa6af75e51c1707b8b6f"
+  },
+  "coldtrack-web/src/mock/customer.ts": {
+    "mtime": 1793786167.6047497,
+    "seen": 1794164600.8962874,
+    "ast_hash": "785b3151eab5a8f396c1be766eb67307",
+    "semantic_hash": "785b3151eab5a8f396c1be766eb67307"
+  },
+  "coldtrack-web/src/mock/data.ts": {
+    "mtime": 1793347215.3515856,
+    "seen": 1794164600.8962898,
+    "ast_hash": "44b3d9fe2f1e75ac57181b94dc706024",
+    "semantic_hash": "44b3d9fe2f1e75ac57181b94dc706024"
+  },
+  "coldtrack-web/src/mock/driver.ts": {
+    "mtime": 1794320639.0923338,
+    "seen": 1794320721.8558304,
+    "ast_hash": "bd2b433ddc34445e93bee5f1f42ee453",
+    "semantic_hash": ""
+  },
+  "coldtrack-web/src/mock/index.ts": {
+    "mtime": 1793346950.2283556,
+    "seen": 1794164600.8962948,
+    "ast_hash": "3814a270a063681f59bd74efddc2c4f2",
+    "semantic_hash": "3814a270a063681f59bd74efddc2c4f2"
+  },
+  "coldtrack-web/src/mock/landing.ts": {
+    "mtime": 1793790971.3605704,
+    "seen": 1794164600.8962967,
+    "ast_hash": "5cf28ff7b6b2c22932a6cd95c310c993",
+    "semantic_hash": "5cf28ff7b6b2c22932a6cd95c310c993"
+  },
+  "coldtrack-web/src/mock/types.ts": {
+    "mtime": 1793786243.0404584,
+    "seen": 1794164600.8962986,
+    "ast_hash": "3c75835de2a92c9e6fbb0fa5ab34d5e0",
+    "semantic_hash": "3c75835de2a92c9e6fbb0fa5ab34d5e0"
+  },
+  "coldtrack-web/src/pages/PlaceholderPage.tsx": {
+    "mtime": 1793347147.5738072,
+    "seen": 1794164600.8963017,
+    "ast_hash": "d60448216b2c4351d1d3189cecf34509",
+    "semantic_hash": "d60448216b2c4351d1d3189cecf34509"
+  },
+  "coldtrack-web/src/pages/admin/AlertsPage.tsx": {
+    "mtime": 1793784645.4958773,
+    "seen": 1794164600.8963041,
+    "ast_hash": "9faa2234beb1dbbf096a8e2994120a97",
+    "semantic_hash": "9faa2234beb1dbbf096a8e2994120a97"
+  },
+  "coldtrack-web/src/pages/admin/ApprovalPage.tsx": {
+    "mtime": 1793784645.4891148,
+    "seen": 1794164600.8963063,
+    "ast_hash": "621cb8a269523f0581eba1256c4fe77e",
+    "semantic_hash": "621cb8a269523f0581eba1256c4fe77e"
+  },
+  "coldtrack-web/src/pages/admin/HistoryPages.tsx": {
+    "mtime": 1793785130.8211796,
+    "seen": 1794164600.8963084,
+    "ast_hash": "a8c4ff778cc01a24e40df7f83d64d5ae",
+    "semantic_hash": "a8c4ff778cc01a24e40df7f83d64d5ae"
+  },
+  "coldtrack-web/src/pages/admin/SettingsPage.tsx": {
+    "mtime": 1793784835.8967392,
+    "seen": 1794164600.8963106,
+    "ast_hash": "331274804f77fbd7eb62a2583c0be3e8",
+    "semantic_hash": "331274804f77fbd7eb62a2583c0be3e8"
+  },
+  "coldtrack-web/src/pages/admin/ShipmentPages.tsx": {
+    "mtime": 1793784558.9958782,
+    "seen": 1794164600.8963122,
+    "ast_hash": "56a98726e07949013d1c807c69f4263f",
+    "semantic_hash": "56a98726e07949013d1c807c69f4263f"
+  },
+  "coldtrack-web/src/pages/admin/VehiclesPage.tsx": {
+    "mtime": 1793784729.770617,
+    "seen": 1794164600.8963141,
+    "ast_hash": "bcff13bd3f7b110ba6ae673acdd6e92a",
+    "semantic_hash": "bcff13bd3f7b110ba6ae673acdd6e92a"
+  },
+  "coldtrack-web/src/pages/admin/admin.test.tsx": {
+    "mtime": 1793785369.6528065,
+    "seen": 1794164600.896316,
+    "ast_hash": "cbad64f07440b9e901df6dc388335a44",
+    "semantic_hash": "cbad64f07440b9e901df6dc388335a44"
+  },
+  "coldtrack-web/src/pages/auth/AuthPages.tsx": {
+    "mtime": 1794320167.9274514,
+    "seen": 1794320721.8559215,
+    "ast_hash": "42d3bd58f238792a1afeba758d987e3e",
+    "semantic_hash": ""
+  },
+  "coldtrack-web/src/pages/auth/ForgotPasswordPage.tsx": {
+    "mtime": 1793782290.5552902,
+    "seen": 1794164600.89632,
+    "ast_hash": "a8ef3dee7ebe8eb79559bbb5104c6103",
+    "semantic_hash": "a8ef3dee7ebe8eb79559bbb5104c6103"
+  },
+  "coldtrack-web/src/pages/auth/LoginPage.tsx": {
+    "mtime": 1793782290.5542886,
+    "seen": 1794164600.8963218,
+    "ast_hash": "2dc5fc98142362f390defef695c532ba",
+    "semantic_hash": "2dc5fc98142362f390defef695c532ba"
+  },
+  "coldtrack-web/src/pages/auth/RegisterPage.tsx": {
+    "mtime": 1793782290.559283,
+    "seen": 1794164600.8963242,
+    "ast_hash": "e5be00e4b61b6e5f1f3e83eab94fdaa5",
+    "semantic_hash": "e5be00e4b61b6e5f1f3e83eab94fdaa5"
+  },
+  "coldtrack-web/src/pages/auth/ResetExpiredPage.tsx": {
+    "mtime": 1793782290.5562885,
+    "seen": 1794164600.8963258,
+    "ast_hash": "31366c27a575a72a9d1b6daa264f5a03",
+    "semantic_hash": "31366c27a575a72a9d1b6daa264f5a03"
+  },
+  "coldtrack-web/src/pages/auth/ResetPasswordPage.tsx": {
+    "mtime": 1793782290.5572891,
+    "seen": 1794164600.8963277,
+    "ast_hash": "0ecfbb1baf0cfe887218dada2cab4d6e",
+    "semantic_hash": "0ecfbb1baf0cfe887218dada2cab4d6e"
+  },
+  "coldtrack-web/src/pages/auth/ResetSuccessPage.tsx": {
+    "mtime": 1793782290.558393,
+    "seen": 1794164600.8963296,
+    "ast_hash": "65f23f997dfb22508d3cbed8c5b6b7d2",
+    "semantic_hash": "65f23f997dfb22508d3cbed8c5b6b7d2"
+  },
+  "coldtrack-web/src/pages/customer/CreateShipmentPage.tsx": {
+    "mtime": 1793786911.3771155,
+    "seen": 1794164600.8963315,
+    "ast_hash": "59b3c6246105e010384199a96855a753",
+    "semantic_hash": "59b3c6246105e010384199a96855a753"
+  },
+  "coldtrack-web/src/pages/customer/CustomerGate.tsx": {
+    "mtime": 1793786335.1536334,
+    "seen": 1794164600.8963332,
+    "ast_hash": "b0de7c9b63512d25aa6c12e174bb6ef6",
+    "semantic_hash": "b0de7c9b63512d25aa6c12e174bb6ef6"
+  },
+  "coldtrack-web/src/pages/customer/CustomerHistoryPage.tsx": {
+    "mtime": 1793786426.7155762,
+    "seen": 1794164600.8963351,
+    "ast_hash": "3e1aa180a8f2161ecb063e1ab49a25c4",
+    "semantic_hash": "3e1aa180a8f2161ecb063e1ab49a25c4"
+  },
+  "coldtrack-web/src/pages/customer/CustomerSettingsPage.tsx": {
+    "mtime": 1793786485.473809,
+    "seen": 1794164600.8963373,
+    "ast_hash": "eb1665bb67f26886013ec219c4f8846e",
+    "semantic_hash": "eb1665bb67f26886013ec219c4f8846e"
+  },
+  "coldtrack-web/src/pages/customer/CustomerShipmentsPage.tsx": {
+    "mtime": 1793786335.1546276,
+    "seen": 1794164600.8963392,
+    "ast_hash": "886011290e7e0f0080a5ed9d6b2018bc",
+    "semantic_hash": "886011290e7e0f0080a5ed9d6b2018bc"
+  },
+  "coldtrack-web/src/pages/customer/customer.test.tsx": {
+    "mtime": 1793786727.250195,
+    "seen": 1794164600.896341,
+    "ast_hash": "38ea9da2e07780f124e2722cd9a5e1fc",
+    "semantic_hash": "38ea9da2e07780f124e2722cd9a5e1fc"
+  },
+  "coldtrack-web/src/pages/driver/DriverActions.tsx": {
+    "mtime": 1793789686.4115698,
+    "seen": 1794164600.896343,
+    "ast_hash": "89a6e50655e24cc962340dbde77e47f4",
+    "semantic_hash": "89a6e50655e24cc962340dbde77e47f4"
+  },
+  "coldtrack-web/src/pages/driver/DriverAlertsPage.tsx": {
+    "mtime": 1793789412.5093691,
+    "seen": 1794164600.8963451,
+    "ast_hash": "de0d00b5262d0c2ff1a9dfaa2bf7b26e",
+    "semantic_hash": "de0d00b5262d0c2ff1a9dfaa2bf7b26e"
+  },
+  "coldtrack-web/src/pages/driver/DriverCurrentPage.tsx": {
+    "mtime": 1794320378.7467513,
+    "seen": 1794320721.856028,
+    "ast_hash": "cd67e25f021109570a9bc8964140f613",
+    "semantic_hash": ""
+  },
+  "coldtrack-web/src/pages/driver/DriverGate.tsx": {
+    "mtime": 1793789132.388815,
+    "seen": 1794164600.8963492,
+    "ast_hash": "ac4335af1b4aa99e2c2bd60b21441637",
+    "semantic_hash": "ac4335af1b4aa99e2c2bd60b21441637"
+  },
+  "coldtrack-web/src/pages/driver/DriverHistoryPage.tsx": {
+    "mtime": 1793789412.507371,
+    "seen": 1794164600.8963509,
+    "ast_hash": "7b06197074a42d113a24f6e2866de5a7",
+    "semantic_hash": "7b06197074a42d113a24f6e2866de5a7"
+  },
+  "coldtrack-web/src/pages/driver/DriverSettingsPage.tsx": {
+    "mtime": 1793789412.511371,
+    "seen": 1794164600.896353,
+    "ast_hash": "dedaec8772006986852e783e50596013",
+    "semantic_hash": "dedaec8772006986852e783e50596013"
+  },
+  "coldtrack-web/src/pages/driver/driver.test.tsx": {
+    "mtime": 1794320458.3718822,
+    "seen": 1794320721.8560574,
+    "ast_hash": "1979ebfb47f7dd33d5f9aecf3d041681",
+    "semantic_hash": ""
+  },
+  "coldtrack-web/src/pages/landing/LandingBlocks.tsx": {
+    "mtime": 1793791593.460189,
+    "seen": 1794164600.896357,
+    "ast_hash": "a6b78618aa04c5d4414535c50c6fe66a",
+    "semantic_hash": "a6b78618aa04c5d4414535c50c6fe66a"
+  },
+  "coldtrack-web/src/pages/landing/LandingPage.tsx": {
+    "mtime": 1793791110.890055,
+    "seen": 1794164600.896359,
+    "ast_hash": "d57f0ff852723b39a935d24d3a4939d1",
+    "semantic_hash": "d57f0ff852723b39a935d24d3a4939d1"
+  },
+  "coldtrack-web/src/pages/landing/LandingSections.tsx": {
+    "mtime": 1793791593.463191,
+    "seen": 1794164600.8963609,
+    "ast_hash": "e6cb0ace5c3827dc0acbe4912eac8131",
+    "semantic_hash": "e6cb0ace5c3827dc0acbe4912eac8131"
+  },
+  "coldtrack-web/src/pages/landing/landing.test.tsx": {
+    "mtime": 1793791439.3524065,
+    "seen": 1794164600.8963628,
+    "ast_hash": "800a1a0159babe373fd2cb99621765e9",
+    "semantic_hash": "800a1a0159babe373fd2cb99621765e9"
+  },
+  "coldtrack-web/src/rules/nhietDo.test.ts": {
+    "mtime": 1793346620.4633431,
+    "seen": 1794164600.8963647,
+    "ast_hash": "a11f8fd0a1c2165b3f293feba7cedfa9",
+    "semantic_hash": "a11f8fd0a1c2165b3f293feba7cedfa9"
+  },
+  "coldtrack-web/src/rules/nhietDo.ts": {
+    "mtime": 1793346501.8111656,
+    "seen": 1794164600.8963668,
+    "ast_hash": "6106932781f107edf0650b88384d7636",
+    "semantic_hash": "6106932781f107edf0650b88384d7636"
+  },
+  "coldtrack-web/src/services/AdminContext.tsx": {
+    "mtime": 1793784326.8919477,
+    "seen": 1794164600.8963828,
+    "ast_hash": "629f835d2a9c16707ca24a5f323934e1",
+    "semantic_hash": "629f835d2a9c16707ca24a5f323934e1"
+  },
+  "coldtrack-web/src/services/CustomerContext.tsx": {
+    "mtime": 1793786243.0854616,
+    "seen": 1794164600.8963864,
+    "ast_hash": "708e157f402f25e565fabf7bbc173016",
+    "semantic_hash": "708e157f402f25e565fabf7bbc173016"
+  },
+  "coldtrack-web/src/services/DriverContext.tsx": {
+    "mtime": 1793789073.9321134,
+    "seen": 1794164600.8963883,
+    "ast_hash": "974e80f18f70d8a9b407532050807c24",
+    "semantic_hash": "974e80f18f70d8a9b407532050807c24"
+  },
+  "coldtrack-web/src/services/adminService.test.ts": {
+    "mtime": 1793784940.5905592,
+    "seen": 1794164600.8963904,
+    "ast_hash": "99d702d9453a3e7c36b734a292a6f692",
+    "semantic_hash": "99d702d9453a3e7c36b734a292a6f692"
+  },
+  "coldtrack-web/src/services/adminService.ts": {
+    "mtime": 1794320229.4431741,
+    "seen": 1794320721.856136,
+    "ast_hash": "65cb4525d597197b633bb403c117bdfa",
+    "semantic_hash": ""
+  },
+  "coldtrack-web/src/services/adminTypes.ts": {
+    "mtime": 1794320224.390081,
+    "seen": 1794320721.8561423,
+    "ast_hash": "535939a4587a3ced69a4a75032a8cf50",
+    "semantic_hash": ""
+  },
+  "coldtrack-web/src/services/customerService.test.ts": {
+    "mtime": 1793786577.9557657,
+    "seen": 1794164600.8963985,
+    "ast_hash": "5ec0dcdbb1b22be5e084f626e2a942cd",
+    "semantic_hash": "5ec0dcdbb1b22be5e084f626e2a942cd"
+  },
+  "coldtrack-web/src/services/customerService.ts": {
+    "mtime": 1793789073.906108,
+    "seen": 1794164600.8964007,
+    "ast_hash": "44bd7e64f14261ae99e42fda398233a7",
+    "semantic_hash": "44bd7e64f14261ae99e42fda398233a7"
+  },
+  "coldtrack-web/src/services/customerTypes.ts": {
+    "mtime": 1793786911.320835,
+    "seen": 1794164600.8964026,
+    "ast_hash": "2273b5e690efb11a11c382012f8aa4cd",
+    "semantic_hash": "2273b5e690efb11a11c382012f8aa4cd"
+  },
+  "coldtrack-web/src/services/customerValidation.test.ts": {
+    "mtime": 1793786577.9527607,
+    "seen": 1794164600.896405,
+    "ast_hash": "f9d305f2a4f23fbb580b873fbadc4edb",
+    "semantic_hash": "f9d305f2a4f23fbb580b873fbadc4edb"
+  },
+  "coldtrack-web/src/services/customerValidation.ts": {
+    "mtime": 1793786243.0444608,
+    "seen": 1794164600.896407,
+    "ast_hash": "2ea54c5aa5261b3cd9a4d5b3349fa5ae",
+    "semantic_hash": "2ea54c5aa5261b3cd9a4d5b3349fa5ae"
+  },
+  "coldtrack-web/src/services/driverRepository.ts": {
+    "mtime": 1794320458.3548756,
+    "seen": 1794320721.8561842,
+    "ast_hash": "a398c199b19b1bc281652a1885892eaf",
+    "semantic_hash": ""
+  },
+  "coldtrack-web/src/services/driverService.test.ts": {
+    "mtime": 1794320499.146366,
+    "seen": 1794320721.8561904,
+    "ast_hash": "323831e56a2fe6d29c2a6fcf634c7f8b",
+    "semantic_hash": ""
+  },
+  "coldtrack-web/src/services/driverService.ts": {
+    "mtime": 1794320343.8049612,
+    "seen": 1794320721.8561966,
+    "ast_hash": "e97a1bb3fd97b348efbcafbd1fb6ae8d",
+    "semantic_hash": ""
+  },
+  "coldtrack-web/src/services/driverTypes.ts": {
+    "mtime": 1794320343.8049612,
+    "seen": 1794320721.8562026,
+    "ast_hash": "e89131d09125e19a34261bb967c54687",
+    "semantic_hash": ""
+  },
+  "coldtrack-web/src/services/driverValidation.ts": {
+    "mtime": 1793789021.2475145,
+    "seen": 1794164600.8964162,
+    "ast_hash": "917bf0c450b5f8acae39b9bdf032f4f8",
+    "semantic_hash": "917bf0c450b5f8acae39b9bdf032f4f8"
+  },
+  "coldtrack-web/src/services/landingService.test.ts": {
+    "mtime": 1793791439.3514068,
+    "seen": 1794164600.896418,
+    "ast_hash": "fcabf1ec2b264fea95bb3d8475c9f1d9",
+    "semantic_hash": "fcabf1ec2b264fea95bb3d8475c9f1d9"
+  },
+  "coldtrack-web/src/services/landingService.ts": {
+    "mtime": 1793790971.3629801,
+    "seen": 1794164600.8964198,
+    "ast_hash": "03862efbd84ace25236dec17d399f327",
+    "semantic_hash": "03862efbd84ace25236dec17d399f327"
+  },
+  "coldtrack-web/tsconfig.app.json": {
+    "mtime": 1793346442.9029467,
+    "seen": 1794164600.8964217,
+    "ast_hash": "5f2dafd737dea8a4ddcbb10f5113ac5a",
+    "semantic_hash": "5f2dafd737dea8a4ddcbb10f5113ac5a"
+  },
+  "coldtrack-web/tsconfig.json": {
+    "mtime": 1793346442.912829,
+    "seen": 1794164600.8964236,
+    "ast_hash": "a3d39fa780ebff65444de257f291ce6c",
+    "semantic_hash": "a3d39fa780ebff65444de257f291ce6c"
+  },
+  "coldtrack-web/tsconfig.node.json": {
+    "mtime": 1793346442.9200373,
+    "seen": 1794164600.8964255,
+    "ast_hash": "f9cb81ddcea69ffdab672fc8c48dca66",
+    "semantic_hash": "f9cb81ddcea69ffdab672fc8c48dca66"
+  },
+  "coldtrack-web/vite.config.ts": {
+    "mtime": 1793783260.3196304,
+    "seen": 1794164600.8964276,
+    "ast_hash": "7b38349f0e797bd47d5708c64b20989f",
+    "semantic_hash": "7b38349f0e797bd47d5708c64b20989f"
+  },
+  "AGENTS.md": {
+    "mtime": 1794130297.0538726,
+    "seen": 1794164600.8964293,
+    "ast_hash": "f36539ecc9af68f33ebd72770ce4a19e",
+    "semantic_hash": "f36539ecc9af68f33ebd72770ce4a19e"
+  },
+  "coldtrack-web/README.md": {
+    "mtime": 1793346442.9413838,
+    "seen": 1794164600.8964314,
+    "ast_hash": "10495bfcc6c568eca4dab6dd5df795d3",
+    "semantic_hash": "10495bfcc6c568eca4dab6dd5df795d3"
+  },
+  "coldtrack-web/index.html": {
+    "mtime": 1793782483.5820816,
+    "seen": 1794164600.8964334,
+    "ast_hash": "59cbcc2ffd854a8f37cfc63ebca137ab",
+    "semantic_hash": "59cbcc2ffd854a8f37cfc63ebca137ab"
+  },
+  "docs/B0-LANDING-HANDOFF.md": {
+    "mtime": 1793791948.4275851,
+    "seen": 1794164600.896435,
+    "ast_hash": "aeba6574ed752b3d4ed0171f72550590",
+    "semantic_hash": "aeba6574ed752b3d4ed0171f72550590"
+  },
+  "docs/B1-AUTH-HANDOFF.md": {
+    "mtime": 1793782809.902859,
+    "seen": 1794164600.8964367,
+    "ast_hash": "6312c414e6f44d75fe798e1e70883f23",
+    "semantic_hash": "6312c414e6f44d75fe798e1e70883f23"
+  },
+  "docs/B2-ADMIN-HANDOFF.md": {
+    "mtime": 1793785314.2462926,
+    "seen": 1794164600.8964388,
+    "ast_hash": "4d0386a32a4248d9ffba2e779246fcb5",
+    "semantic_hash": "4d0386a32a4248d9ffba2e779246fcb5"
+  },
+  "docs/B3-CUSTOMER-HANDOFF.md": {
+    "mtime": 1793787091.0338366,
+    "seen": 1794164600.8964405,
+    "ast_hash": "3413ccffda58b0effdc32fbf1fc65f86",
+    "semantic_hash": "3413ccffda58b0effdc32fbf1fc65f86"
+  },
+  "docs/B4-DRIVER-HANDOFF.md": {
+    "mtime": 1793790144.3547945,
+    "seen": 1794164600.8964424,
+    "ast_hash": "99e2db50bbbceff01c975fd188ccf1b4",
+    "semantic_hash": "99e2db50bbbceff01c975fd188ccf1b4"
+  },
+  "docs/RULES.md": {
+    "mtime": 1793347438.0738976,
+    "seen": 1794164600.896444,
+    "ast_hash": "a7c8a295e16a0c52dbc4b050ada80818",
+    "semantic_hash": "a7c8a295e16a0c52dbc4b050ada80818"
+  },
+  "docs/SCREENS.md": {
+    "mtime": 1793791916.2645285,
+    "seen": 1794164600.896446,
+    "ast_hash": "91ae640ef0bbd484c3fb2857a43895fb",
+    "semantic_hash": "91ae640ef0bbd484c3fb2857a43895fb"
+  },
+  "\u0110oAnTotNghiep.txt": {
+    "mtime": 1789656503.7642508,
+    "seen": 1794164600.8964489,
+    "ast_hash": "941917b6854fdc04059529a881b0245c",
+    "semantic_hash": "941917b6854fdc04059529a881b0245c"
+  },
+  "coldtrack-web/public/favicon.svg": {
+    "mtime": 1793346443.0185995,
+    "seen": 1794164600.8966181,
+    "ast_hash": "7e840862161341271697daa99a40d76b",
+    "semantic_hash": "7e840862161341271697daa99a40d76b"
+  },
+  "coldtrack-web/public/icons.svg": {
+    "mtime": 1793346443.0471108,
+    "seen": 1794164600.89662,
+    "ast_hash": "3b4fcfcf393eca4d264dca4a4663bc37",
+    "semantic_hash": "3b4fcfcf393eca4d264dca4a4663bc37"
+  },
+  "coldtrack-web/src/assets/hero.png": {
+    "mtime": 1793346442.9769585,
+    "seen": 1794164600.896622,
+    "ast_hash": "aead493361b27e7510691c5d7072dfc1",
+    "semantic_hash": "aead493361b27e7510691c5d7072dfc1"
+  },
+  "coldtrack-web/src/assets/react.svg": {
+    "mtime": 1793346443.0787923,
+    "seen": 1794164600.8966238,
+    "ast_hash": "f0402b67b6ce880f65666bb49e841696",
+    "semantic_hash": "f0402b67b6ce880f65666bb49e841696"
+  },
+  "coldtrack-web/src/assets/vite.svg": {
+    "mtime": 1793346443.1010005,
+    "seen": 1794164600.8966258,
+    "ast_hash": "9960a24288958394ac50e57ff638b036",
+    "semantic_hash": "9960a24288958394ac50e57ff638b036"
+  },
+  "coldtrack-web/scripts/check-ui-fixes.mjs": {
+    "mtime": 1794320651.5973806,
+    "seen": 1794320721.8555691,
+    "ast_hash": "df555ed91cd85499985990b7275092cb",
+    "semantic_hash": ""
+  },
+  "coldtrack-web/src/auth/NotFoundPage.tsx": {
+    "mtime": 1794320109.549724,
+    "seen": 1794320721.8556046,
+    "ast_hash": "c1d84af3dd0e6e80cc22731e08ef639c",
+    "semantic_hash": ""
+  },
+  "coldtrack-web/src/pages/admin/DriversPage.tsx": {
+    "mtime": 1794320794.0599184,
+    "seen": 1794320833.3810263,
+    "ast_hash": "5b729c30c11285ba963019ac78f7ac0c",
+    "semantic_hash": ""
+  },
+  "coldtrack-web/src/services/refrigeration.test.ts": {
+    "mtime": 1794320639.6334052,
+    "seen": 1794320721.8562317,
+    "ast_hash": "d90a2657335e5bc44547ff8dd048102a",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/.prettierrc.json": {
+    "mtime": 1794478504.6899076,
+    "seen": 1794479019.3705094,
+    "ast_hash": "b3013e4c88eea8951416bb45c9811105",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/apps/api/src/main.ts": {
+    "mtime": 1795446609.8262649,
+    "seen": 1795446900.5410378,
+    "ast_hash": "7f9a35ed955c89c0e970351b99f74aaf",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/apps/ingest/src/main.ts": {
+    "mtime": 1795448607.5401819,
+    "seen": 1795448824.357952,
+    "ast_hash": "54f34b7fce3608bb05e51cec1bb7dcbc",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/apps/worker/src/main.ts": {
+    "mtime": 1795448608.0503945,
+    "seen": 1795448824.3579612,
+    "ast_hash": "d1338862e7fe70cd8db6966a27a4db98",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/compose.yaml": {
+    "mtime": 1795448730.7807665,
+    "seen": 1795448824.3579698,
+    "ast_hash": "2ce25b3c5607d55277b21c43d833c937",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/libs/platform/bootstrap.ts": {
+    "mtime": 1794478864.9720614,
+    "seen": 1794479019.3705473,
+    "ast_hash": "785a73b8bda348272fc4e94d3654316e",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/libs/platform/environment.ts": {
+    "mtime": 1794478865.1407578,
+    "seen": 1794479019.3705533,
+    "ast_hash": "8ce81957d619b5a0ffea79cc6ff99211",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/libs/platform/resources.ts": {
+    "mtime": 1794478865.3137074,
+    "seen": 1794479019.37056,
+    "ast_hash": "377c84ee19b4048d9dd1030a8d7497df",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/package.json": {
+    "mtime": 1795450849.7618494,
+    "seen": 1795451039.7384064,
+    "ast_hash": "e28fda0adf14bdd04dfbdb1a47b1e78f",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/scripts/configure-local.mjs": {
+    "mtime": 1794479897.210024,
+    "seen": 1794479938.5969248,
+    "ast_hash": "05db53f4848fbc5d49a57c1f8e952d20",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/tsconfig.build.json": {
+    "mtime": 1794478504.1948297,
+    "seen": 1794479019.3705788,
+    "ast_hash": "a89d3d829c9077661b660d49d4feba88",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/tsconfig.json": {
+    "mtime": 1794478503.695057,
+    "seen": 1794479019.3705847,
+    "ast_hash": "8f18575122cd960b3d4c3e50766362d2",
+    "semantic_hash": ""
+  },
+  "BE-0-backend-spec-review.md": {
+    "mtime": 1794478819.7103238,
+    "seen": 1794479019.371399,
+    "ast_hash": "2609d8b38edb4939a3e02fbfef8dde8a",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1794479163.103443,
+    "seen": 1794479938.6581569,
+    "ast_hash": "e0c99725933a612517f1581a5d813021",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/README.md": {
+    "mtime": 1795503511.171617,
+    "seen": 1795503553.3420994,
+    "ast_hash": "193fa33ebb8370c1ccc335e429cc8331",
+    "semantic_hash": ""
+  },
+  "docs/BE-SYSTEM-DESIGN.md": {
+    "mtime": 1794479164.5754712,
+    "seen": 1794479938.6646523,
+    "ast_hash": "b79a76f5165b5c9d706bfff155be4409",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/scripts/check-local.mjs": {
+    "mtime": 1794480008.7959874,
+    "seen": 1794480079.8312924,
+    "ast_hash": "3fd99134768a1c60d39b3e2435f0cc12",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/apps/api/src/app.ts": {
+    "mtime": 1795446764.2696855,
+    "seen": 1795446900.5410223,
+    "ast_hash": "06731180bbdafa5ef22727c202d32ab0",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/apps/api/src/devices/devices.module.ts": {
+    "mtime": 1795446622.8521233,
+    "seen": 1795446900.541028,
+    "ast_hash": "d2a0c8d3e1f04a2160ddd2bd87df0f53",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/apps/api/src/health/health.module.ts": {
+    "mtime": 1795446616.9916224,
+    "seen": 1795446900.5410333,
+    "ast_hash": "31fbf9cc71cfc6400ab20bc4a6c11dd1",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/apps/api/src/shipments/shipments.module.ts": {
+    "mtime": 1795446618.8039765,
+    "seen": 1795446900.541042,
+    "ast_hash": "fccef4976a1b2bb20c02d03d90bcf503",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/apps/api/src/trips/trips.module.ts": {
+    "mtime": 1795446620.726796,
+    "seen": 1795446900.5410464,
+    "ast_hash": "0e32c33b036fa22a099f28701dd289cf",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/eslint.config.js": {
+    "mtime": 1795446769.963203,
+    "seen": 1795446900.5416977,
+    "ast_hash": "8ecf85f0a17a3a5042d98480cca96c05",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/jest.config.js": {
+    "mtime": 1795446768.9498012,
+    "seen": 1795446900.541701,
+    "ast_hash": "46b5714ecc76d2e102ca60fd4658706e",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/libs/config/environment.ts": {
+    "mtime": 1795446612.3817036,
+    "seen": 1795446900.5417035,
+    "ast_hash": "db27de2f25851971bf17e7c5848da84a",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/libs/database/database.module.ts": {
+    "mtime": 1795446614.673267,
+    "seen": 1795446900.541706,
+    "ast_hash": "668b87e048c2570af8398287819ff96b",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/test/environment.test.ts": {
+    "mtime": 1795446765.9312208,
+    "seen": 1795446900.5425525,
+    "ast_hash": "4ece6b2b8b42c7082c2cf17f0e5058d6",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/test/health.integration.test.ts": {
+    "mtime": 1795446766.8341782,
+    "seen": 1795446900.5425556,
+    "ast_hash": "d01f1d4ac6063461eac21145f3ace906",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/tsconfig.test.json": {
+    "mtime": 1795446768.0339735,
+    "seen": 1795446900.5428784,
+    "ast_hash": "abb51cc4fa72009fa058d286130c4cfe",
+    "semantic_hash": ""
+  },
+  "package.json": {
+    "mtime": 1795446772.8086512,
+    "seen": 1795446900.5616062,
+    "ast_hash": "9e9e76558447d9655caac5c984ae2611",
+    "semantic_hash": ""
+  },
+  "BE-0-backend-spec-v0.3.md": {
+    "mtime": 1794481486.7118757,
+    "seen": 1795446900.5619264,
+    "ast_hash": "9617d3f3e4ba4bbd1d8c86e2b501eb85",
+    "semantic_hash": ""
+  },
+  "BE-0-backend-spec-v0.4.md": {
+    "mtime": 1794483045.9657092,
+    "seen": 1795446900.5619297,
+    "ast_hash": "6e0811b433ca038958451659cd3bf1c0",
+    "semantic_hash": ""
+  },
+  "BE-0-thiet-ke-backend-coldtrack.md": {
+    "mtime": 1795680381.055281,
+    "seen": 1795680511.9928536,
+    "ast_hash": "dde982cbc372f5b208d133ffc6ce4cb0",
+    "semantic_hash": ""
+  },
+  "BE-1-BE-3-implementation-plan-v0.3.md": {
+    "mtime": 1794482888.1036901,
+    "seen": 1795446900.5619342,
+    "ast_hash": "418c16d68d6fe71e62f211b80e7e6395",
+    "semantic_hash": ""
+  },
+  "BE-1-BE-3-implementation-plan-v0.4.md": {
+    "mtime": 1794482998.9633458,
+    "seen": 1795446900.5619364,
+    "ast_hash": "ac427d548bca5c6936d68ea5e20cc2db",
+    "semantic_hash": ""
+  },
+  "BE-1-BE-3-implementation-plan.md": {
+    "mtime": 1794760502.3641915,
+    "seen": 1795446900.5619385,
+    "ast_hash": "6acc07e3586ab1ff3ad6f1d3b55ad0cc",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/ke-hoach-buoc.md": {
+    "mtime": 1795444617.1029596,
+    "seen": 1795446900.5621028,
+    "ast_hash": "aeb21cf2a9375c321d1c98414c7eb352",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/infra/mosquitto/scripts/gen-certs.ps1": {
+    "mtime": 1795448678.6666634,
+    "seen": 1795448824.3584466,
+    "ast_hash": "74c5fc571f75144e9739f6fde560b821",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/infra/mosquitto/scripts/gen-certs.sh": {
+    "mtime": 1795448677.69521,
+    "seen": 1795448824.3584526,
+    "ast_hash": "5569aa2b1349fea2a9b9ea2e9c9c39d2",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/infra/mosquitto/scripts/test-tls.sh": {
+    "mtime": 1795448731.6618428,
+    "seen": 1795448824.358457,
+    "ast_hash": "35b6b07544d0a27567c7779fc65e3378",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/libs/platform/transport.ts": {
+    "mtime": 1795448608.5801785,
+    "seen": 1795448824.3608863,
+    "ast_hash": "88c3e77881e857dc3e885012e0e53766",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/test/accounts.integration.test.ts": {
+    "mtime": 1795450881.8133237,
+    "seen": 1795451039.7391422,
+    "ast_hash": "d730f77f2f6ff1151ca9e12ad7f87513",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/libs/credentials/mosquitto-hash.ts": {
+    "mtime": 1795500140.7846823,
+    "seen": 1795500232.500057,
+    "ast_hash": "e04fb852ca7e99acf50102672e6e151b",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/test/resources.integration.test.ts": {
+    "mtime": 1795500302.6226292,
+    "seen": 1795500332.1825984,
+    "ast_hash": "eb6ae1f8be1d961fb86e2b961fc6d130",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/test/shipments-trips.integration.test.ts": {
+    "mtime": 1795680382.3430343,
+    "seen": 1795680511.9641762,
+    "ast_hash": "74c5cbfbbd3193f48ef01398110219d9",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/test/telemetry.integration.test.ts": {
+    "mtime": 1795506741.9815476,
+    "seen": 1795506878.0814571,
+    "ast_hash": "7e607efc40efdaec96a852afec8cd5f1",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/test/config-commands.integration.test.ts": {
+    "mtime": 1795680383.4378376,
+    "seen": 1795680511.9633968,
+    "ast_hash": "b35c3335f93ede26755e2c5e40612eaa",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/test/alerts-notifications.integration.test.ts": {
+    "mtime": 1795507345.688084,
+    "seen": 1795507384.3792303,
+    "ast_hash": "00d3eac228a6409dad76220957bdb0bd",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/package-lock.json": {
+    "mtime": 1795446937.9914129,
+    "seen": 1795447165.606589,
+    "ast_hash": "c299ab367da4e6c9c8836faca976944b",
+    "semantic_hash": ""
+  },
+  "coldtrack-web/package-lock.json": {
+    "mtime": 1793782442.9942567,
+    "seen": 1794320721.8571522,
+    "ast_hash": "7c2d734c4bfb2c95ed1a068515043f90",
+    "semantic_hash": ""
+  }
+}

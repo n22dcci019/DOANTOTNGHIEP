@@ -924,9 +924,9 @@
     "semantic_hash": ""
   },
   "BE-0-thiet-ke-backend-coldtrack.md": {
-    "mtime": 1794760502.3600538,
-    "seen": 1795446900.5619323,
-    "ast_hash": "9dacae57cb30ffa993577fe5936dd690",
+    "mtime": 1795681161.3168032,
+    "seen": 1795681381.696483,
+    "ast_hash": "9562d6a1decc3c8184aee4b13013cd04",
     "semantic_hash": ""
   },
   "BE-1-BE-3-implementation-plan-v0.3.md": {
@@ -996,9 +996,9 @@
     "semantic_hash": ""
   },
   "coldtrack-be/test/shipments-trips.integration.test.ts": {
-    "mtime": 1795506741.276557,
-    "seen": 1795506878.0814533,
-    "ast_hash": "ffad4066aa80ac41d6c992864a06ca40",
+    "mtime": 1795680382.3430343,
+    "seen": 1795680511.9641762,
+    "ast_hash": "74c5cbfbbd3193f48ef01398110219d9",
     "semantic_hash": ""
   },
   "coldtrack-be/test/telemetry.integration.test.ts": {
@@ -1008,15 +1008,21 @@
     "semantic_hash": ""
   },
   "coldtrack-be/test/config-commands.integration.test.ts": {
-    "mtime": 1795506846.860276,
-    "seen": 1795506878.0808709,
-    "ast_hash": "5aed1987508141b44fa0a8aea02d29d1",
+    "mtime": 1795680383.4378376,
+    "seen": 1795680511.9633968,
+    "ast_hash": "b35c3335f93ede26755e2c5e40612eaa",
     "semantic_hash": ""
   },
   "coldtrack-be/test/alerts-notifications.integration.test.ts": {
     "mtime": 1795507345.688084,
     "seen": 1795507384.3792303,
     "ast_hash": "00d3eac228a6409dad76220957bdb0bd",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/test/views-storage-realtime.integration.test.ts": {
+    "mtime": 1795681406.2455678,
+    "seen": 1795681444.4154797,
+    "ast_hash": "96d874431b4cb36855617a7aa65ef7ec",
     "semantic_hash": ""
   },
   "coldtrack-be/package-lock.json": {

@@ -38,7 +38,7 @@ describe('config, commands and ACK migration (real PostgreSQL)', () => {
 
   const insertConfig = `insert into public.temperature_config_versions
     (id, device_id, trip_id, config_version_no, target_min, target_max, status, issued_by, issued_at)
-    values ($1, $2, $3, $4, -20.5, -19, 'approved', $5, $6)`;
+    values ($1, $2, $3, $4, -21, -19, 'approved', $5, $6)`;
   const insertManual = `insert into public.device_commands
     (command_id, device_id, trip_id, type, payload, state, duration_seconds, issued_at, expires_at, status, issued_by)
     values ($1, $2, $3, 'set_relay_manual', '{}', 'on', 600, $4, $5, $6, $7) returning id`;
@@ -126,12 +126,12 @@ describe('config, commands and ACK migration (real PostgreSQL)', () => {
     });
   });
 
-  it('c: enforces temperature boundaries, width and half-degree steps', async () => {
+  it('c: enforces temperature boundaries, width at least 2 and half-degree steps', async () => {
     const update = 'update public.temperature_config_versions set target_min = $1, target_max = $2 where id = $3';
-    for (const [min, max] of [[-19, -20], [-20, -20], [-20, -19.5], [-20, -19], [-25.5, -22], [-20, -14.5], [-20.25, -18], [-20, -18.25]]) {
-      await rejects(update, [min, max, own.config], '23514', 'temperature_config_versions_range');
+    for (const [min, max] of [[-19, -20], [-20, -20], [-20, -19.5], [-20, -19], [-20.5, -19], [-25.5, -22], [-20, -14.5], [-20.25, -18], [-20.5, -18.25]]) {
+      await rejects(update, [min, max, own.config], '23514', 'temperature_config_versions_range_minimum_width_2_check');
     }
-    for (const [min, max] of [[-25, -15], [-20.5, -19]]) {
+    for (const [min, max] of [[-25, -15], [-20, -18], [-20.5, -18]]) {
       await isolated(() => db.query(update, [min, max, own.config]));
     }
   });
