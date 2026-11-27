@@ -11,6 +11,7 @@ import { TripsModule } from './trips/trips.module.js';
 import { DevicesModule } from './devices/devices.module.js';
 import { ApiModule, configureApi } from '../../../libs/api/api.module.js';
 import { AccountsModule } from './accounts/accounts.module.js';
+import { TemperatureConfigsModule } from './temperature-configs/temperature-configs.module.js';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { AccountsModule } from './accounts/accounts.module.js';
     HealthModule,
     ShipmentsModule,
     TripsModule,
+    TemperatureConfigsModule,
     DevicesModule,
   ],
 })

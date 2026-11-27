@@ -1,5 +1,54 @@
 # ColdTrack Backend
 
+## Bước 2.5 — Cấu hình nhiệt và lệnh queued
+
+Không thêm migration hoặc quyền. POST `/api/v1/trips/:id/temperature-configs`
+chỉ admin có `temperature_configs.create`, bắt buộc Idempotency-Key và body
+`target_min`, `target_max`, `version` của trip. Dải trong [-25,-15], bội 0.5 và
+độ rộng ít nhất 2°C; dải sai trả 400 VALIDATION_FAILED. Chuyến phải scheduled
+hoặc in_transit, khác trả 422 UNPROCESSABLE; version cũ trả 409 VERSION_CONFLICT.
+
+**Chủ đích đã chốt:** tạo cấu hình kiểm tra nhưng không tăng `trips.version`.
+API khóa shipment → trip → device; lấy và tăng `devices.next_config_version_no`
+trong transaction. Counter theo thiết bị tăng xuyên các chuyến, không reset.
+Hai request đồng thời cùng version trip đều có thể trả 201, nhận hai số cấu hình
+khác nhau; cấu hình được tạo sau supersede cấu hình trước. `version` trong dòng
+cấu hình là version của bản ghi cấu hình, khác với trips.version và config_version_no.
+
+Cùng transaction: supersede mọi config approved/sent của thiết bị và tăng version
+các dòng đó; fail mọi command queued/sent với superseded_command; tạo config mới
+approved, command set_target_range queued, outbox pending và audit cho mọi thao tác.
+Wire payload có schema_version=1, command_id UUID, type=set_target_range,
+config_version_no, target_min/max, issued_at UTC, expires_at=issued_at+30 giây.
+Outbox dùng topic `device_command.enqueued`, payload chỉ command_id/device_id.
+Response 201 có id cấu hình, config_version_no, command_id. Config applied/failed
+và command đã kết thúc được giữ nguyên. Rollback hoàn tác cả counter/supersession,
+các dòng mới và audit; test kiểm chứng bằng lỗi constraint thật ở cuối transaction.
+
+GET `/api/v1/trips/:id/temperature-configs`: admin/driver được giao; ngoài phạm vi
+và customer trả 404. GET `/api/v1/device-commands/:command_id` trả metadata trạng
+thái/failure_reason và `acks` (ack_id, result, reason, retry_after_seconds, received_at)
+cho admin/driver được giao; ngoài phạm vi trả 404, không có command payload hay raw ACK.
+ACK reader dùng bigint FK nội bộ; UUID command_id là định danh trên API/wire.
+
+Depart chọn cấu hình có config_version_no lớn nhất của chuyến, status khác
+superseded, kiểm tra device_latest_state.config_version_no khớp và mẫu tươi trong
+60 giây, rồi gán departure_config_version_id cùng transaction khởi hành. Không chờ
+ACK applied. Không có config hợp lệ thì giữ hành vi 2.4, departure_config_version_id=null.
+Cấu hình tạo khi in_transit không thay đổi pin cấu hình tại thời điểm departure.
+
+API không import MQTT, không publish, không đọc/xử lý outbox. Event của command cũ
+đã superseded vẫn pending; publisher 2.7 phải đối chiếu trạng thái command trước gửi.
+ACK ingest chưa triển khai (3.1); test ACK reader chèn ACK bằng SQL. Telemetry trong
+test cũng được chèn SQL, không kiểm thử ingest. Chưa relay tay hoặc retry/publisher.
+Giới hạn crash giữa commit nghiệp vụ và lưu response idempotency 2.1 vẫn còn.
+
+`test:temperature-configs` chạy riêng sau trips, trước reset seed, giữ audit append-only.
+Ca không publish dùng MQTT subscriber thật của SIM-01, chỉ subscribe (không publish
+probe); cần broker 1.9 đang chạy với credential đã provision và chứng chỉ local.
+Nó xác nhận không nhận UUID lệnh mới, command vẫn queued, outbox pending/attempts=0,
+không có command attempt. Sau toàn bộ test khôi phục seed/device/service/MQTT như runbook.
+
 ## Bước 2.4 — Chuyến và bằng chứng
 
 Không thêm migration, không thay cấu hình Auth/Storage hay policy. Mọi mutation
@@ -41,7 +90,7 @@ cleanup thất bại ghi request_id/path để xử lý thủ công và trả IN
 
 Giới hạn bước này: telemetry trong test được chèn trực tiếp vào device_latest_state
 và telemetry_readings; **chưa kiểm thử ingest/MQTT**, để BE-3.1. Kiểm tra cấu hình
-nhiệt/config_version_no được ghi TODO cho BE-2.5; test 2.4 dùng chuyến chưa cấu hình.
+nhiệt/config_version_no đã được bổ sung ở BE-2.5 phía trên; test 2.4 vẫn dùng chuyến chưa cấu hình.
 Đánh giá pass/fail để 3.6. GET chưa phân trang; chưa thêm endpoint signed URL.
 Storage/DB không có distributed transaction: process crash giữa upload và commit
 có thể để lại object cần dọn. Giới hạn crash giữa commit DB và lưu response của

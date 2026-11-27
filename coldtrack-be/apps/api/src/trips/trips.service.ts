@@ -75,14 +75,17 @@ export class TripsService {
       // as required. A stale version on a still-scheduled trip yields 409.
       if (trip.status !== 'scheduled' || shipment.status !== 'scheduled') throw new ApiError('UNPROCESSABLE');
       assertVersion(trip, body.version);
-      const fresh = await tx.selectFrom('device_latest_state').select('device_id').where('device_id', '=', trip.device_id)
+      const fresh = await tx.selectFrom('device_latest_state').select(['device_id', 'config_version_no']).where('device_id', '=', trip.device_id)
         .where('last_fresh_sample_at', '>=', sql<Date>`clock_timestamp() - interval '60 seconds'`)
         .where('last_fresh_sample_at', '<=', sql<Date>`clock_timestamp()`).executeTakeFirst();
       if (!fresh) throw new ApiError('UNPROCESSABLE');
-      // TODO(BE-2.5): resolve this trip's approved configuration and verify the
-      // telemetry config_version_no. 2.4 exercises trips without a configuration;
-      // no ACK applied requirement is introduced here.
+      const config = await tx.selectFrom('temperature_config_versions').select(['id', 'config_version_no'])
+        .where('trip_id', '=', trip.id).where('status', '!=', 'superseded').orderBy('config_version_no', 'desc').executeTakeFirst();
+      if (config && fresh.config_version_no !== config.config_version_no) throw new ApiError('UNPROCESSABLE');
+      // Telemetry, not ACK state, proves the device is using this configuration.
+      // No config preserves 2.4 behavior; only superseded rows do not select one.
       const updated = await tx.updateTable('trips').set({ status: 'in_transit', departed_at: sql<Date>`clock_timestamp()`,
+        departure_config_version_id: config?.id ?? null,
         version: sql<number>`version + 1`, updated_at: new Date() }).where('id', '=', id).returningAll().executeTakeFirstOrThrow();
       await tx.updateTable('shipments').set({ status: 'in_transit', version: sql<number>`version + 1`, updated_at: new Date() })
         .where('id', '=', shipment.id).execute();
