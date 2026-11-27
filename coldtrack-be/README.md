@@ -1,5 +1,28 @@
 # ColdTrack Backend
 
+## Bước 2.1 — Guard API
+
+API mặc định yêu cầu JWT và kiểm tra `account_access` cùng quyền trong DB mỗi request.
+Chỉ route `@Public()` (health) bỏ qua guard. Các route `/_t` chỉ có trong module kiểm thử,
+không được đăng ký trong AppModule production.
+
+Đặt `SUPABASE_URL=http://127.0.0.1:54321` trong `.env` ở thư mục gốc repo.
+Guard chỉ chấp nhận ES256/HS256, yêu cầu `exp`, audience `authenticated` và issuer
+`{SUPABASE_URL}/auth/v1`. ES256 dùng khóa công khai theo `kid` từ JWKS của Supabase;
+cache trong bộ nhớ 10 phút, giới hạn tải lại mỗi 60 giây, timeout 3 giây.
+Không lấy được khóa cần thiết thì trả `401 UNAUTHENTICATED`.
+
+HS256 chỉ được bật khi `SUPABASE_JWT_SECRET` có giá trị. Tại `coldtrack-be/`, lấy trường
+`JWT_SECRET` từ `npm.cmd run --silent db:status -- --output json` và đặt vào `.env`
+dưới tên `SUPABASE_JWT_SECRET`. Giữ secret trong file đã ignore, không đưa vào Git/frontend.
+Không cần đổi cấu hình Auth hoặc `supabase/config.toml`.
+
+Mọi lỗi có envelope `error: { code, message, details, request_id }` và header `X-Request-Id`.
+`@Idempotent()` cung cấp claim/replay cho POST/PATCH/DELETE; `assertVersion` trả
+`VERSION_CONFLICT` với `details.current_version`. Chưa có endpoint nghiệp vụ ở bước này.
+Các transaction nghiệp vụ ở bước sau vẫn cần commit dữ liệu và response idempotency
+trong cùng transaction theo BE-0; interceptor hiện tại chưa cung cấp tính nguyên tử đó.
+
 ## Bước 1.9 — MQTT TLS
 
 Trong PowerShell tại `coldtrack-be/`, dùng Supabase local DoAnTotNghiep và chứng chỉ bước 0.2.

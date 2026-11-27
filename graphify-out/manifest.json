@@ -816,9 +816,9 @@
     "semantic_hash": ""
   },
   "coldtrack-be/README.md": {
-    "mtime": 1795762538.4051783,
-    "seen": 1795762637.0321577,
-    "ast_hash": "abdbd0caae2e0e1fabb31e12f993c638",
+    "mtime": 1795765526.6018329,
+    "seen": 1795765630.6726696,
+    "ast_hash": "ac27f9ea951c5dd91ffede540541630e",
     "semantic_hash": ""
   },
   "docs/BE-SYSTEM-DESIGN.md": {
@@ -834,9 +834,9 @@
     "semantic_hash": ""
   },
   "coldtrack-be/apps/api/src/app.ts": {
-    "mtime": 1795446764.2696855,
-    "seen": 1795446900.5410223,
-    "ast_hash": "06731180bbdafa5ef22727c202d32ab0",
+    "mtime": 1795764426.0785258,
+    "seen": 1795764672.4861434,
+    "ast_hash": "09e50bb9989163ea508532f0f310090f",
     "semantic_hash": ""
   },
   "coldtrack-be/apps/api/src/devices/devices.module.ts": {
@@ -846,9 +846,9 @@
     "semantic_hash": ""
   },
   "coldtrack-be/apps/api/src/health/health.module.ts": {
-    "mtime": 1795446616.9916224,
-    "seen": 1795446900.5410333,
-    "ast_hash": "31fbf9cc71cfc6400ab20bc4a6c11dd1",
+    "mtime": 1795764426.636181,
+    "seen": 1795764672.486363,
+    "ast_hash": "a3726e1ab14cd1f1811914ca1b594b6e",
     "semantic_hash": ""
   },
   "coldtrack-be/apps/api/src/shipments/shipments.module.ts": {
@@ -1071,6 +1071,48 @@
     "mtime": 1795763151.8667617,
     "seen": 1795763191.3698637,
     "ast_hash": "68be5ecd60040ac2576d36345803db39",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/libs/api/api.module.ts": {
+    "mtime": 1795765296.3851523,
+    "seen": 1795765630.5942962,
+    "ast_hash": "7bfe525a037cff9310bdbf64d977462f",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/libs/api/auth.ts": {
+    "mtime": 1795765295.7537181,
+    "seen": 1795765630.5943077,
+    "ast_hash": "2a8c3111ba065f108fe027aa4d31b3f0",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/libs/api/errors.ts": {
+    "mtime": 1795764423.704185,
+    "seen": 1795764672.4897647,
+    "ast_hash": "4692c70f1af62cbcac628b77a25e6f23",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/libs/api/idempotency.ts": {
+    "mtime": 1795765370.2040117,
+    "seen": 1795765630.59474,
+    "ast_hash": "c961613d3dc05f1538c760b5715fb3d8",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/test/api-guard.integration.test.ts": {
+    "mtime": 1795765297.8328965,
+    "seen": 1795765630.6039283,
+    "ast_hash": "09f2cb1cc6a974ea36f2df9a543cb52a",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/test/support/guard-fixtures.ts": {
+    "mtime": 1795764574.993453,
+    "seen": 1795764672.4966404,
+    "ast_hash": "534f161b31fd2c93d7be8bfed7873ad5",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/libs/api/jwt-verifier.ts": {
+    "mtime": 1795765295.0878124,
+    "seen": 1795765630.594749,
+    "ast_hash": "d7e117b932fd893927337bcb00b98b76",
     "semantic_hash": ""
   },
   "coldtrack-be/package-lock.json": {

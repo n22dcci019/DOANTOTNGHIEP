@@ -9,6 +9,7 @@ import { HealthModule } from './health/health.module.js';
 import { ShipmentsModule } from './shipments/shipments.module.js';
 import { TripsModule } from './trips/trips.module.js';
 import { DevicesModule } from './devices/devices.module.js';
+import { ApiModule, configureApi } from '../../../libs/api/api.module.js';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { DevicesModule } from './devices/devices.module.js';
       validate: validateEnvironment,
     }),
     DatabaseModule,
+    ApiModule,
     HealthModule,
     ShipmentsModule,
     TripsModule,
@@ -28,6 +30,6 @@ export class AppModule {}
 
 export async function createApi() {
   const app = await NestFactory.create(AppModule);
-  app.setGlobalPrefix('api/v1');
+  configureApi(app);
   return app;
 }

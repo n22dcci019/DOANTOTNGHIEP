@@ -834,9 +834,9 @@
     "semantic_hash": ""
   },
   "coldtrack-be/apps/api/src/app.ts": {
-    "mtime": 1795446764.2696855,
-    "seen": 1795446900.5410223,
-    "ast_hash": "06731180bbdafa5ef22727c202d32ab0",
+    "mtime": 1795764426.0785258,
+    "seen": 1795764672.4861434,
+    "ast_hash": "09e50bb9989163ea508532f0f310090f",
     "semantic_hash": ""
   },
   "coldtrack-be/apps/api/src/devices/devices.module.ts": {
@@ -846,9 +846,9 @@
     "semantic_hash": ""
   },
   "coldtrack-be/apps/api/src/health/health.module.ts": {
-    "mtime": 1795446616.9916224,
-    "seen": 1795446900.5410333,
-    "ast_hash": "31fbf9cc71cfc6400ab20bc4a6c11dd1",
+    "mtime": 1795764426.636181,
+    "seen": 1795764672.486363,
+    "ast_hash": "a3726e1ab14cd1f1811914ca1b594b6e",
     "semantic_hash": ""
   },
   "coldtrack-be/apps/api/src/shipments/shipments.module.ts": {
@@ -1044,9 +1044,9 @@
     "semantic_hash": ""
   },
   "coldtrack-be/scripts/mqtt-local.ts": {
-    "mtime": 1795686450.8137293,
-    "seen": 1795762636.9873848,
-    "ast_hash": "f1eddfcd8865eeedfee361c0472888ea",
+    "mtime": 1795762976.149595,
+    "seen": 1795763191.3670292,
+    "ast_hash": "368b0c0479ee0bf9f8421c32e8d10bd3",
     "semantic_hash": ""
   },
   "coldtrack-be/scripts/provision-device-credentials.ts": {
@@ -1068,9 +1068,45 @@
     "semantic_hash": ""
   },
   "coldtrack-be/test/mqtt-credentials.integration.test.ts": {
-    "mtime": 1795762536.232637,
-    "seen": 1795762636.9885166,
-    "ast_hash": "f9cf6900ad06020a67f33feeaab802c1",
+    "mtime": 1795763151.8667617,
+    "seen": 1795763191.3698637,
+    "ast_hash": "68be5ecd60040ac2576d36345803db39",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/libs/api/api.module.ts": {
+    "mtime": 1795764425.1985488,
+    "seen": 1795764672.4897513,
+    "ast_hash": "1ca81e12ed8792c7a4f65e015b73b66a",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/libs/api/auth.ts": {
+    "mtime": 1795764424.2029,
+    "seen": 1795764672.489759,
+    "ast_hash": "76de64b1336c77bde7febf43ef8b9775",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/libs/api/errors.ts": {
+    "mtime": 1795764423.704185,
+    "seen": 1795764672.4897647,
+    "ast_hash": "4692c70f1af62cbcac628b77a25e6f23",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/libs/api/idempotency.ts": {
+    "mtime": 1795764424.7026691,
+    "seen": 1795764672.4897695,
+    "ast_hash": "abee86b1fa04f8ff25bcd831ddf7bedf",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/test/api-guard.integration.test.ts": {
+    "mtime": 1795764575.6380713,
+    "seen": 1795764672.4951167,
+    "ast_hash": "fadd8dcdd3c0043978f1fe34f805a136",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/test/support/guard-fixtures.ts": {
+    "mtime": 1795764574.993453,
+    "seen": 1795764672.4966404,
+    "ast_hash": "534f161b31fd2c93d7be8bfed7873ad5",
     "semantic_hash": ""
   },
   "coldtrack-be/package-lock.json": {
