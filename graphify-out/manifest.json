@@ -756,9 +756,9 @@
     "semantic_hash": ""
   },
   "coldtrack-be/compose.yaml": {
-    "mtime": 1795686350.7251167,
-    "seen": 1795762636.9847276,
-    "ast_hash": "f1511b312fa188c0875c20b52e7170d5",
+    "mtime": 1795767953.5844653,
+    "seen": 1795768687.875828,
+    "ast_hash": "03c90a94d12778b27566e53d6655cb8f",
     "semantic_hash": ""
   },
   "coldtrack-be/libs/platform/bootstrap.ts": {
@@ -780,9 +780,9 @@
     "semantic_hash": ""
   },
   "coldtrack-be/package.json": {
-    "mtime": 1795686498.2605686,
-    "seen": 1795762636.9870372,
-    "ast_hash": "51041cbc4c0a6537c69983d059b2bab4",
+    "mtime": 1795768815.9858973,
+    "seen": 1795768930.5227377,
+    "ast_hash": "198c03bc8b42630fb783a9d46c591cbe",
     "semantic_hash": ""
   },
   "coldtrack-be/scripts/configure-local.mjs": {
@@ -816,9 +816,9 @@
     "semantic_hash": ""
   },
   "coldtrack-be/README.md": {
-    "mtime": 1795765526.6018329,
-    "seen": 1795765630.6726696,
-    "ast_hash": "ac27f9ea951c5dd91ffede540541630e",
+    "mtime": 1795768816.5103278,
+    "seen": 1795768930.6430395,
+    "ast_hash": "8f2c92f312e881b4745f4cd5c2e08abe",
     "semantic_hash": ""
   },
   "docs/BE-SYSTEM-DESIGN.md": {
@@ -834,9 +834,9 @@
     "semantic_hash": ""
   },
   "coldtrack-be/apps/api/src/app.ts": {
-    "mtime": 1795764426.0785258,
-    "seen": 1795764672.4861434,
-    "ast_hash": "09e50bb9989163ea508532f0f310090f",
+    "mtime": 1795767578.651354,
+    "seen": 1795768687.8742733,
+    "ast_hash": "389b8d68aee9ecd581598dee983687a8",
     "semantic_hash": ""
   },
   "coldtrack-be/apps/api/src/devices/devices.module.ts": {
@@ -1026,9 +1026,9 @@
     "semantic_hash": ""
   },
   "coldtrack-be/libs/database/schema.ts": {
-    "mtime": 1795682463.1702108,
-    "seen": 1795682885.8661926,
-    "ast_hash": "a842b435746863efad995dc070eb411e",
+    "mtime": 1795767850.6935003,
+    "seen": 1795768687.8802645,
+    "ast_hash": "6783fd8ebda51bcac922bf164848a4c7",
     "semantic_hash": ""
   },
   "coldtrack-be/scripts/seed-demo.ts": {
@@ -1086,15 +1086,15 @@
     "semantic_hash": ""
   },
   "coldtrack-be/libs/api/errors.ts": {
-    "mtime": 1795764423.704185,
-    "seen": 1795764672.4897647,
-    "ast_hash": "4692c70f1af62cbcac628b77a25e6f23",
+    "mtime": 1795767557.362177,
+    "seen": 1795768687.8787465,
+    "ast_hash": "858703f93da96507a5b1e166c6c4cc76",
     "semantic_hash": ""
   },
   "coldtrack-be/libs/api/idempotency.ts": {
-    "mtime": 1795765370.2040117,
-    "seen": 1795765630.59474,
-    "ast_hash": "c961613d3dc05f1538c760b5715fb3d8",
+    "mtime": 1795768815.4643416,
+    "seen": 1795768930.5195816,
+    "ast_hash": "cc47a7df2080b7362160dc94717c8710",
     "semantic_hash": ""
   },
   "coldtrack-be/test/api-guard.integration.test.ts": {
@@ -1115,10 +1115,40 @@
     "ast_hash": "d7e117b932fd893927337bcb00b98b76",
     "semantic_hash": ""
   },
+  "coldtrack-be/apps/api/src/accounts/accounts.dto.ts": {
+    "mtime": 1795767743.4924462,
+    "seen": 1795768687.8742604,
+    "ast_hash": "362c2a021ea632b5816c4ae28327c534",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/apps/api/src/accounts/accounts.module.ts": {
+    "mtime": 1795767573.040711,
+    "seen": 1795768687.8742657,
+    "ast_hash": "ca2dce43972fe2f289f9baaf3d141770",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/apps/api/src/accounts/accounts.service.ts": {
+    "mtime": 1795768380.2601826,
+    "seen": 1795768687.8742692,
+    "ast_hash": "2183bf6be8e0052ff9d147555c0bda46",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/libs/email/email-sender.ts": {
+    "mtime": 1795767560.819379,
+    "seen": 1795768687.8802688,
+    "ast_hash": "23948a581d0f9ff144ee40a559eb8a8d",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/test/profiles-invitations.integration.test.ts": {
+    "mtime": 1795768778.2814665,
+    "seen": 1795768930.5272331,
+    "ast_hash": "f98679629e26053d44afceb0280e25db",
+    "semantic_hash": ""
+  },
   "coldtrack-be/package-lock.json": {
-    "mtime": 1795682294.6986334,
-    "seen": 1795682885.918759,
-    "ast_hash": "2b712c46d2965378f97964822da33f77",
+    "mtime": 1795767453.2966576,
+    "seen": 1795768687.9462123,
+    "ast_hash": "1303671b87091d03c109f5201fe28864",
     "semantic_hash": ""
   },
   "coldtrack-web/package-lock.json": {

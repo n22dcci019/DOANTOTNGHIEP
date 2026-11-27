@@ -4,7 +4,7 @@ import type { Request, Response } from 'express';
 
 export const errorStatus = {
   VALIDATION_FAILED: 400, UNAUTHENTICATED: 401, FORBIDDEN: 403,
-  ACCOUNT_INACTIVE: 403, NOT_FOUND: 404, VERSION_CONFLICT: 409,
+  ACCOUNT_INACTIVE: 403, NOT_FOUND: 404, VERSION_CONFLICT: 409, CONFLICT: 409,
   IDEMPOTENCY_KEY_REQUIRED: 400, IDEMPOTENCY_KEY_REUSED: 409,
   IDEMPOTENCY_IN_PROGRESS: 409, UNPROCESSABLE: 422, INTERNAL: 500,
 } as const;
@@ -13,6 +13,7 @@ const messages: Record<ErrorCode, string> = {
   VALIDATION_FAILED: 'Invalid request.', UNAUTHENTICATED: 'Authentication required.',
   FORBIDDEN: 'Permission denied.', ACCOUNT_INACTIVE: 'Account is not active.',
   NOT_FOUND: 'Resource not found.', VERSION_CONFLICT: 'Resource version has changed.',
+  CONFLICT: 'Data conflicts with an existing resource.',
   IDEMPOTENCY_KEY_REQUIRED: 'Idempotency-Key is required.',
   IDEMPOTENCY_KEY_REUSED: 'Idempotency-Key was used for a different request.',
   IDEMPOTENCY_IN_PROGRESS: 'Request is already in progress.',

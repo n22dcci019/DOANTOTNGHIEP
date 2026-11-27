@@ -39,6 +39,19 @@ export interface AccountAccess {
   version: Generated<number>;
 }
 
+export interface AccountInvitations {
+  created_at: Generated<Timestamp>;
+  created_by: string;
+  email: string;
+  expires_at: Timestamp;
+  id: Generated<string>;
+  revoked_at: Timestamp | null;
+  role_id: string;
+  token_hash: string;
+  used_at: Timestamp | null;
+  used_by: string | null;
+}
+
 export interface AlertEvents {
   actor_id: string | null;
   alert_id: string;
@@ -293,6 +306,7 @@ export interface Profiles {
   id: string;
   phone: string | null;
   updated_at: Generated<Timestamp>;
+  version: Generated<number>;
 }
 
 export interface RolePermissions {
@@ -433,6 +447,7 @@ export interface Vehicles {
 
 export interface DB {
   account_access: AccountAccess;
+  account_invitations: AccountInvitations;
   alert_events: AlertEvents;
   alerts: Alerts;
   audit_logs: AuditLogs;

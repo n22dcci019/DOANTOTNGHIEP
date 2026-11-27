@@ -1,5 +1,6 @@
 import { Inject, Injectable, Logger, SetMetadata, type CallHandler, type ExecutionContext, type NestInterceptor } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
+import { ConfigService } from '@nestjs/config';
 import { createHash } from 'node:crypto';
 import { sql } from 'kysely';
 import { defer, lastValueFrom, type Observable } from 'rxjs';
@@ -23,7 +24,11 @@ export function canonicalJson(value: unknown): string {
 @Injectable()
 export class IdempotencyInterceptor implements NestInterceptor {
   private readonly logger = new Logger(IdempotencyInterceptor.name);
-  constructor(@Inject(DATABASE) private readonly db: Database, private readonly reflector: Reflector) {}
+  // Test-only exposed invitation tokens may live in memory (like NoopEmailSender),
+  // but must never be persisted in an idempotency response. No production tokens
+  // enter this cache. A process restart loses this optional test-only exposure.
+  private readonly exposedTestResponses = new Map<string, { response: unknown; expires: number }>();
+  constructor(@Inject(DATABASE) private readonly db: Database, private readonly reflector: Reflector, private readonly config: ConfigService) {}
 
   intercept(context: ExecutionContext, next: CallHandler): Observable<unknown> {
     const req = context.switchToHttp().getRequest<ApiRequest>();
@@ -61,12 +66,28 @@ export class IdempotencyInterceptor implements NestInterceptor {
         if (claim.row.payload_hash !== hash || claim.row.operation !== operation) throw new ApiError('IDEMPOTENCY_KEY_REUSED');
         if (claim.row.status_code === null) throw new ApiError('IDEMPOTENCY_IN_PROGRESS');
         res.status(claim.row.status_code);
+        if (this.config.get<string>('NODE_ENV') === 'test' && this.config.get<string>('EXPOSE_INVITE_TOKEN_FOR_TEST') === 'true') {
+          const exposed = this.exposedTestResponses.get(claim.row.id);
+          if (exposed && exposed.expires > Date.now()) return exposed.response;
+        }
         return claim.row.response;
       }
       try {
         const response: unknown = await lastValueFrom(next.handle());
+        let persisted = response;
+        if (operation === 'POST /api/v1/invitations' && this.config.get<string>('NODE_ENV') === 'test' &&
+            this.config.get<string>('EXPOSE_INVITE_TOKEN_FOR_TEST') === 'true' &&
+            response !== null && typeof response === 'object' && 'token' in response) {
+          const safe: Record<string, unknown> = { ...response };
+          delete safe.token;
+          persisted = safe;
+          for (const [id, entry] of this.exposedTestResponses) {
+            if (entry.expires <= Date.now()) this.exposedTestResponses.delete(id);
+          }
+          this.exposedTestResponses.set(claim.row.id, { response, expires: claim.row.expires_at.getTime() });
+        }
         await asService(this.db, tx => tx.updateTable('idempotency_requests')
-          .set({ response: sql`${JSON.stringify(response ?? null)}::jsonb`, status_code: res.statusCode })
+          .set({ response: sql`${JSON.stringify(persisted ?? null)}::jsonb`, status_code: res.statusCode })
           .where('id', '=', claim.row.id).where('created_at', '=', sql<Date>`${claim.row.claim_created_at}::timestamptz`).execute());
         return response;
       } catch (error) {

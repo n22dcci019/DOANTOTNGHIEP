@@ -1,5 +1,69 @@
 # ColdTrack Backend
 
+## Bước 2.2 — Hồ sơ và lời mời
+
+Migration `20261127081646_profiles_invitations_email.sql` thêm `profiles.version`,
+unique index `profiles_email_lower_unique`, bảng lời mời chỉ service role truy cập,
+và quyền `account.invite`, `account.manage` chỉ gán cho admin. Migration cũ giữ nguyên.
+
+| Endpoint | Quyền / đầu vào |
+|---|---|
+| PATCH /api/v1/me | `profiles.update`; full_name, phone, email, version; Idempotency-Key |
+| POST /api/v1/invitations | `account.invite`; email, role_code; Idempotency-Key; trả 202 |
+| POST /api/v1/invitations/accept | Public; token, full_name, password; trả 201 |
+| POST /api/v1/accounts/:userId/suspend | `account.manage`; Idempotency-Key |
+| POST /api/v1/accounts/:userId/activate | `account.manage`; Idempotency-Key |
+
+Hồ sơ chỉ sửa theo chủ JWT. Version bắt buộc; UPDATE kiểm tra id/version và tăng version
+trong cùng câu lệnh, không có trigger version. Email trùng không phân biệt hoa thường
+trả `409 CONFLICT`; version cũ trả `409 VERSION_CONFLICT`. Phone bỏ khoảng trắng,
+kiểm tra tiền tố `0` hoặc `+84` và 9–10 chữ số theo sau. Admin tự suspend trả
+`422 UNPROCESSABLE`. Mọi thao tác thành công ghi audit cùng transaction DB,
+không ghi token, mật khẩu hay email vào audit payload.
+
+Lời mời có token ngẫu nhiên 32 byte base64url, DB chỉ lưu SHA-256; thời hạn đúng
+72 giờ. Mặc định response không chứa token. Chỉ khi **cả** `NODE_ENV=test` và
+`EXPOSE_INVITE_TOKEN_FOR_TEST=true`, response test mới có token. Không bật cờ này
+trong môi trường thật. Không ghi token/mật khẩu vào log.
+Token expose chỉ được cache trong bộ nhớ khi test để replay; response lưu ở bảng
+idempotency luôn bỏ token. Sau khi process test khởi động lại, replay không còn
+trả được phần token tùy chọn này. Production không có ngoại lệ đó.
+
+**Ngoại lệ đã duyệt:** accept công khai **không yêu cầu Idempotency-Key**.
+Token sai, hết hạn, thu hồi hoặc đã dùng đều trả `404 NOT_FOUND`; token dùng rồi
+không replay response. Đăng ký dùng email từ lời mời, full_name và password
+8–128 ký tự qua Auth Admin API, xác nhận email theo quyền sở hữu link mời.
+Sau khi tạo Auth user, transaction DB khóa lời mời bằng SELECT FOR UPDATE, kiểm tra
+lại và tạo profile/account_access active theo role từ DB, đánh dấu used, ghi audit.
+Session advisory lock theo hash token tuần tự hóa các accept cùng lời mời trước
+Auth creation, tránh GoTrue trả 500 khi hai createUser cạnh tranh email; transaction
+nghiệp vụ vẫn bắt đầu sau Auth creation và vẫn kiểm tra lời mời bằng FOR UPDATE.
+DB thất bại thì xóa Auth user vừa tạo; lỗi compensation ghi request_id và user_id
+ở mức error để xử lý thủ công. Auth và PostgreSQL không có distributed transaction.
+
+Email thay đổi ở PATCH /me chỉ cập nhật `profiles.email`, **không đổi email đăng nhập
+trong auth.users**. API vẫn dùng cơ chế claim/replay idempotency bước 2.1; crash giữa
+commit dữ liệu và lưu response vẫn là giới hạn hiện có của interceptor.
+
+SMTP lời mời dùng Mailpit riêng trong Compose backend vì Mailpit của Supabase
+chỉ expose UI; không thay cấu hình Auth hoặc Supabase. Tại `coldtrack-be/`:
+
+```powershell
+docker compose up -d mailpit
+```
+
+Trong `.env` gốc: `EMAIL_PROVIDER=mailpit` (mặc định), `MAILPIT_SMTP_HOST=127.0.0.1`,
+`MAILPIT_SMTP_PORT=54325`. Inbox lời mời: `http://127.0.0.1:54326`.
+Mailpit chỉ bind loopback, không có SMTP relay ra ngoài. `EMAIL_PROVIDER=noop` dùng
+NoopEmailSender lưu email trong bộ nhớ khi integration test. Server Auth Admin cần
+`SUPABASE_SECRET_KEY` (hoặc `SUPABASE_SERVICE_ROLE_KEY`) trong `.env` đã ignore.
+
+Integration test 2.2 cố ý giữ fixture có audit đã commit: audit là append-only và FK
+tham chiếu profile. Vì các suite baseline yêu cầu dataset rỗng, `npm test` chạy
+`test:core` trước, rồi `test:profiles` riêng; không đổi assertion hay quyền DB.
+`npm test` reset DB ở bước seed tiếp theo để xóa fixture, sau đó
+phải chạy lại `db:seed`, `device:provision`, `svc:provision`, `mqtt:sync` như runbook.
+
 ## Bước 2.1 — Guard API
 
 API mặc định yêu cầu JWT và kiểm tra `account_access` cùng quyền trong DB mỗi request.

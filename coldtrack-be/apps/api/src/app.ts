@@ -10,6 +10,7 @@ import { ShipmentsModule } from './shipments/shipments.module.js';
 import { TripsModule } from './trips/trips.module.js';
 import { DevicesModule } from './devices/devices.module.js';
 import { ApiModule, configureApi } from '../../../libs/api/api.module.js';
+import { AccountsModule } from './accounts/accounts.module.js';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { ApiModule, configureApi } from '../../../libs/api/api.module.js';
     }),
     DatabaseModule,
     ApiModule,
+    AccountsModule,
     HealthModule,
     ShipmentsModule,
     TripsModule,
