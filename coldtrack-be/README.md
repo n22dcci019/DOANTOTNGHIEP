@@ -1,5 +1,57 @@
 # ColdTrack Backend
 
+## Bước 2.4 — Chuyến và bằng chứng
+
+Không thêm migration, không thay cấu hình Auth/Storage hay policy. Mọi mutation
+bắt buộc Idempotency-Key và version của **trip**. Tài xế phải active và được giao
+chuyến; tài xế khác nhận `404 NOT_FOUND`, khách/admin gọi depart nhận `403 FORBIDDEN`.
+
+| Endpoint | Điều kiện / kết quả |
+|---|---|
+| POST /api/v1/trips/:id/depart | trips.depart; scheduled; last_fresh_sample_at trong 60 giây; trả 200 |
+| POST /api/v1/trips/:id/complete | trips.complete; in_transit, có delivery_proofs; trả 200 |
+| POST /api/v1/trips/:id/proof | delivery_proofs.upload; in_transit; multipart; trả 201 |
+| PATCH /api/v1/trips/:id/notes | trips.update_notes; scheduled/in_transit; body version, driver_notes |
+| GET /api/v1/trips; GET /api/v1/trips/:id | admin thấy tất cả; driver chỉ chuyến của mình; customer dùng view |
+
+Depart/complete khóa shipment trước rồi trip theo cùng thứ tự với API hủy lô.
+Trạng thái chuyến và lô phải tương ứng; sai trạng thái/telemetry thiếu hoặc cũ/
+complete thiếu bằng chứng trả `422 UNPROCESSABLE`. Trạng thái được kiểm tra trước
+version: hai request depart khác key đồng thời trả đúng một 200 và một 422;
+version cũ khi chuyến còn scheduled trả `409 VERSION_CONFLICT`.
+Depart cập nhật cả hai sang in_transit và đặt departed_at. Complete đặt cả hai
+completed, completed_at, result=pending_evaluation; không tự pass/fail. Version
+của cả hai tăng trong cùng transaction với audit. Notes chỉ sửa driver_notes
+và tăng version trip; các trường khác bị từ chối.
+
+Upload dùng field `file`, `version` và `signed_by` tùy chọn. Version multipart là
+chuỗi số nguyên; JSON depart/complete/notes dùng số nguyên. Chỉ nhận JPEG/PNG có
+magic bytes phù hợp MIME, tối đa **5 × 1024 × 1024 byte**, kể cả đúng biên 5 MB.
+Không lấy tên hoặc đường dẫn do client gửi để đặt object. Server dùng service role
+ghi `delivery-proofs/proofs/{trip_id}/{uuid}.jpg|png`; bucket vẫn private, client
+không được đọc object trực tiếp. Proof thành công trả photo_path và trip_version
+mới để complete; gửi proof thứ hai khác key trả `409 CONFLICT`.
+
+Global upload interceptor chạy sau guard và trước idempotency: hash tính trên các
+field và SHA-256 của bytes ảnh, không phụ thuộc boundary multipart hoặc tên file.
+Cùng key/cùng ảnh replay response; cùng key/khác ảnh trả IDEMPOTENCY_KEY_REUSED.
+Ảnh không vào response, log hoặc audit. Proof ghi audit cho delivery_proofs và
+version trip. Nếu DB thất bại sau Storage upload, service xóa object vừa tạo;
+cleanup thất bại ghi request_id/path để xử lý thủ công và trả INTERNAL.
+
+Giới hạn bước này: telemetry trong test được chèn trực tiếp vào device_latest_state
+và telemetry_readings; **chưa kiểm thử ingest/MQTT**, để BE-3.1. Kiểm tra cấu hình
+nhiệt/config_version_no được ghi TODO cho BE-2.5; test 2.4 dùng chuyến chưa cấu hình.
+Đánh giá pass/fail để 3.6. GET chưa phân trang; chưa thêm endpoint signed URL.
+Storage/DB không có distributed transaction: process crash giữa upload và commit
+có thể để lại object cần dọn. Giới hạn crash giữa commit DB và lưu response của
+interceptor idempotency 2.1 vẫn còn.
+
+`test:trips` dùng PostgreSQL/Auth/Storage local thật. Test xóa các object Storage
+do mình tạo, giữ audit append-only đến reset của test:seed. Chuỗi `npm test` chạy
+core → profiles → shipments → trips → seed/reset → MQTT; sau đó khôi phục bốn
+lệnh seed/device/service/MQTT theo runbook bên dưới.
+
 ## Bước 2.3 — API lô hàng
 
 Không thêm migration hoặc trigger. Dùng CHECK dải nhiệt và bốn partial unique index

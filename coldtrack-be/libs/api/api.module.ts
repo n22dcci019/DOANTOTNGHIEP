@@ -5,12 +5,15 @@ import { AuthGuard } from './auth.js';
 import { ApiError, ApiExceptionFilter, requestId } from './errors.js';
 import { IdempotencyInterceptor } from './idempotency.js';
 import { JwtVerifier } from './jwt-verifier.js';
+import { ProofUploadInterceptor } from './proof-upload.js';
 
 @Module({
   imports: [DatabaseModule],
   providers: [
     JwtVerifier,
     { provide: APP_GUARD, useClass: AuthGuard },
+    // Parse/validate uploads after guards but before idempotency hashes the body.
+    { provide: APP_INTERCEPTOR, useClass: ProofUploadInterceptor },
     { provide: APP_INTERCEPTOR, useClass: IdempotencyInterceptor },
   ],
 })

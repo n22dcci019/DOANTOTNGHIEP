@@ -780,9 +780,9 @@
     "semantic_hash": ""
   },
   "coldtrack-be/package.json": {
-    "mtime": 1795768815.9858973,
-    "seen": 1795768930.5227377,
-    "ast_hash": "198c03bc8b42630fb783a9d46c591cbe",
+    "mtime": 1795770748.185231,
+    "seen": 1795770987.5782728,
+    "ast_hash": "1b18eb3e93abc7100053acaf628bfad5",
     "semantic_hash": ""
   },
   "coldtrack-be/scripts/configure-local.mjs": {
@@ -816,9 +816,9 @@
     "semantic_hash": ""
   },
   "coldtrack-be/README.md": {
-    "mtime": 1795768816.5103278,
-    "seen": 1795768930.6430395,
-    "ast_hash": "8f2c92f312e881b4745f4cd5c2e08abe",
+    "mtime": 1795770906.1936865,
+    "seen": 1795770987.6312504,
+    "ast_hash": "314b52f09991cbd9a6d5a31eb8965644",
     "semantic_hash": ""
   },
   "docs/BE-SYSTEM-DESIGN.md": {
@@ -852,9 +852,9 @@
     "semantic_hash": ""
   },
   "coldtrack-be/apps/api/src/shipments/shipments.module.ts": {
-    "mtime": 1795446618.8039765,
-    "seen": 1795446900.541042,
-    "ast_hash": "fccef4976a1b2bb20c02d03d90bcf503",
+    "mtime": 1795770519.2325544,
+    "seen": 1795770987.5693815,
+    "ast_hash": "471011e127c77a4bb68fa78726ba2596",
     "semantic_hash": ""
   },
   "coldtrack-be/apps/api/src/trips/trips.module.ts": {
@@ -1143,6 +1143,24 @@
     "mtime": 1795768778.2814665,
     "seen": 1795768930.5272331,
     "ast_hash": "f98679629e26053d44afceb0280e25db",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/apps/api/src/shipments/shipments.dto.ts": {
+    "mtime": 1795770517.9651322,
+    "seen": 1795770987.5693696,
+    "ast_hash": "d99bea4e547e594bc5e3f650271233fb",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/apps/api/src/shipments/shipments.service.ts": {
+    "mtime": 1795770518.5420775,
+    "seen": 1795770987.5693882,
+    "ast_hash": "ad793f8fb698db753091eac86057e560",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/test/shipments-api.integration.test.ts": {
+    "mtime": 1795770747.590382,
+    "seen": 1795770987.584363,
+    "ast_hash": "b0292b4892063949660c8a6c9aeb03b4",
     "semantic_hash": ""
   },
   "coldtrack-be/package-lock.json": {

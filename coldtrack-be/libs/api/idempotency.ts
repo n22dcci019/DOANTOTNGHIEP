@@ -42,7 +42,10 @@ export class IdempotencyInterceptor implements NestInterceptor {
       const userId = req.principal.userId;
       const normalizedKey = key.toLowerCase();
       const operation = `${req.method} ${req.path}`;
-      const hash = createHash('sha256').update(canonicalJson(req.body)).digest('hex');
+      const payload = req.file ? { body: req.body, file: {
+        hash: createHash('sha256').update(req.file.buffer).digest('hex'), mimetype: req.file.mimetype,
+      } } : req.body;
+      const hash = createHash('sha256').update(canonicalJson(payload)).digest('hex');
       const res = context.switchToHttp().getResponse<Response>();
       const claim = await asService(this.db, async tx => {
         // The existing unique(user_id,key) arbitrates concurrent requests across
