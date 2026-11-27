@@ -756,9 +756,9 @@
     "semantic_hash": ""
   },
   "coldtrack-be/compose.yaml": {
-    "mtime": 1795448730.7807665,
-    "seen": 1795448824.3579698,
-    "ast_hash": "2ce25b3c5607d55277b21c43d833c937",
+    "mtime": 1795686350.7251167,
+    "seen": 1795762636.9847276,
+    "ast_hash": "f1511b312fa188c0875c20b52e7170d5",
     "semantic_hash": ""
   },
   "coldtrack-be/libs/platform/bootstrap.ts": {
@@ -780,9 +780,9 @@
     "semantic_hash": ""
   },
   "coldtrack-be/package.json": {
-    "mtime": 1795683823.9139762,
-    "seen": 1795683994.1516376,
-    "ast_hash": "35c9969284ec2a6d8b85360e64673948",
+    "mtime": 1795686498.2605686,
+    "seen": 1795762636.9870372,
+    "ast_hash": "51041cbc4c0a6537c69983d059b2bab4",
     "semantic_hash": ""
   },
   "coldtrack-be/scripts/configure-local.mjs": {
@@ -798,9 +798,9 @@
     "semantic_hash": ""
   },
   "coldtrack-be/tsconfig.json": {
-    "mtime": 1795682449.250275,
-    "seen": 1795682885.873648,
-    "ast_hash": "0e5ab5106ff7ae8105b208230392ca8b",
+    "mtime": 1795686498.995644,
+    "seen": 1795762636.9902148,
+    "ast_hash": "25e756db5ff2346c38ab571cd876b442",
     "semantic_hash": ""
   },
   "BE-0-backend-spec-review.md": {
@@ -816,9 +816,9 @@
     "semantic_hash": ""
   },
   "coldtrack-be/README.md": {
-    "mtime": 1795682649.8806374,
-    "seen": 1795682885.9143765,
-    "ast_hash": "2282e064e8a6aab792776d7f7a67b3e4",
+    "mtime": 1795762538.4051783,
+    "seen": 1795762637.0321577,
+    "ast_hash": "abdbd0caae2e0e1fabb31e12f993c638",
     "semantic_hash": ""
   },
   "docs/BE-SYSTEM-DESIGN.md": {
@@ -972,9 +972,9 @@
     "semantic_hash": ""
   },
   "coldtrack-be/libs/platform/transport.ts": {
-    "mtime": 1795448608.5801785,
-    "seen": 1795448824.3608863,
-    "ast_hash": "88c3e77881e857dc3e885012e0e53766",
+    "mtime": 1795686351.6607385,
+    "seen": 1795762636.9870327,
+    "ast_hash": "522ae2105ae3146c7d0fcc159206ed04",
     "semantic_hash": ""
   },
   "coldtrack-be/test/accounts.integration.test.ts": {
@@ -984,9 +984,9 @@
     "semantic_hash": ""
   },
   "coldtrack-be/libs/credentials/mosquitto-hash.ts": {
-    "mtime": 1795500140.7846823,
-    "seen": 1795500232.500057,
-    "ast_hash": "e04fb852ca7e99acf50102672e6e151b",
+    "mtime": 1795686449.8671615,
+    "seen": 1795762636.9861312,
+    "ast_hash": "8090206b1f4f5fd15624608e8a65e9f1",
     "semantic_hash": ""
   },
   "coldtrack-be/test/resources.integration.test.ts": {
@@ -1041,6 +1041,36 @@
     "mtime": 1795682813.0822744,
     "seen": 1795682885.8692977,
     "ast_hash": "4c2d29a935f9c711eb1e8ff3c38894be",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/scripts/mqtt-local.ts": {
+    "mtime": 1795762976.149595,
+    "seen": 1795763191.3670292,
+    "ast_hash": "368b0c0479ee0bf9f8421c32e8d10bd3",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/scripts/provision-device-credentials.ts": {
+    "mtime": 1795686494.621612,
+    "seen": 1795762636.9873881,
+    "ast_hash": "ba360d58e4df352f5dda0f2a6ec0e73b",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/scripts/provision-service-credentials.ts": {
+    "mtime": 1795686495.3560858,
+    "seen": 1795762636.9873908,
+    "ast_hash": "a06d517b2487dd757b8dc9352587ed9d",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/scripts/sync-mosquitto.ts": {
+    "mtime": 1795686496.4967785,
+    "seen": 1795762636.9875772,
+    "ast_hash": "6d761efd5b0d669c5e6e6f77d4c4e90b",
+    "semantic_hash": ""
+  },
+  "coldtrack-be/test/mqtt-credentials.integration.test.ts": {
+    "mtime": 1795763151.8667617,
+    "seen": 1795763191.3698637,
+    "ast_hash": "68be5ecd60040ac2576d36345803db39",
     "semantic_hash": ""
   },
   "coldtrack-be/package-lock.json": {

@@ -7,11 +7,8 @@ x-app: &app
     DATABASE_URL: postgresql://postgres:postgres@host.docker.internal:54322/postgres
     MQTT_URL: mqtts://mosquitto:8883
     MQTT_CA_FILE: /run/mqtt/ca.crt
-    MQTT_USERNAME: coldtrack-test
-    MQTT_PASSWORD_FILE: /run/mqtt/test-password
   volumes:
     - ./infra/mosquitto/certs/ca.crt:/run/mqtt/ca.crt:ro
-    - ./infra/mosquitto/secrets/test-password:/run/mqtt/test-password:ro
   depends_on:
     mosquitto:
       condition: service_started
@@ -23,10 +20,24 @@ services:
     volumes:
       - ./infra/mosquitto/config:/mosquitto/config:ro
       - ./infra/mosquitto/certs:/mosquitto/certs:ro
-      - ./infra/mosquitto/secrets:/mosquitto/secrets:ro
-      - ./infra/mosquitto/scripts:/mosquitto/scripts:ro
       - mqtt-data:/mosquitto/data
     restart: unless-stopped
+  mosquitto-test:
+    image: eclipse-mosquitto:2
+    profiles: [tls-test]
+    command: [mosquitto, -c, /mosquitto/config/mosquitto-test.conf]
+    ports:
+      - '127.0.0.1:8884:8883'
+    networks:
+      tls-test:
+        aliases: [mosquitto]
+    volumes:
+      - ./infra/mosquitto/config/mosquitto-test.conf:/mosquitto/config/mosquitto-test.conf:ro
+      - ./infra/mosquitto/config/acl-test:/mosquitto/config/acl-test:ro
+      - ./infra/mosquitto/secrets/passwords:/mosquitto/config/passwd-test:ro
+      - ./infra/mosquitto/secrets/test-password:/mosquitto/secrets/test-password:ro
+      - ./infra/mosquitto/certs:/mosquitto/certs:ro
+      - ./infra/mosquitto/scripts:/mosquitto/scripts:ro
   api:
     <<: *app
     build:
@@ -46,13 +57,17 @@ services:
       retries: 3
   ingest:
     <<: *app
+    env_file: ./secrets/services/svc-ingest.env
     build:
       context: .
       target: ingest
   publisher:
     <<: *app
+    env_file: ./secrets/services/svc-publisher.env
     build:
       context: .
       target: publisher
 volumes:
   mqtt-data:
+networks:
+  tls-test:

@@ -1,17 +1,17 @@
-# Graph Report - DoAnTotNghiep  (2026-11-26)
+# Graph Report - DoAnTotNghiep  (2026-11-27)
 
 ## Corpus Check
-- 177 files · ~131,283 words
+- 182 files · ~134,135 words
 - Verdict: corpus is large enough that graph structure adds value.
-- Unclassified: 21 file(s) not represented in the graph (top: (none) 9, .css 7, .example 2)
+- Unclassified: 21 file(s) not represented in the graph (top: (none) 8, .css 7, .example 2)
 
 ## Summary
-- 1319 nodes · 3225 edges · 78 communities (62 shown, 16 thin omitted)
-- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 14 edges (avg confidence: 0.91)
+- 1372 nodes · 3335 edges · 87 communities (72 shown, 15 thin omitted)
+- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 18 edges (avg confidence: 0.89)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `6dccfbfb`
+- Built from commit: `dcbba373`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -27,7 +27,7 @@
 - Development Tool Dependencies
 - Driver Implementation Handoff
 - BE-0: Đặc tả thiết kế backend ColdTrack
-- adminTypes.ts
+- data.ts
 - Frontend TypeScript Configuration
 - Browser Verification Scripts
 - Customer Implementation Handoff
@@ -36,7 +36,7 @@
 - Landing Implementation Handoff
 - Admin Implementation Handoff
 - Screen Role Mapping
-- data.ts
+- mqtt-local.ts
 - AuthPages.tsx
 - BE-0-backend-spec-review.md
 - DemoState
@@ -47,17 +47,17 @@
 - resources.integration.test.ts
 - ColdTrack — Plan BE-1 đến BE-3 theo BE-0 v0.3
 - React Lint Rules
-- data.ts
+- mqtt-credentials.integration.test.ts
 - Demo Environment Flags
 - Cold Chain Architecture
 - 11. Bổ sung thiết kế để triển khai
 - 5. Hợp đồng MQTT
 - useAuth
 - views-storage-realtime.integration.test.ts
-- ref_jest_globals
+- pg
 - NguoiDung
 - schema.ts
-- DriverService
+- ref_node_fs
 - service.ts
 - seed-demo.ts
 - HealthController
@@ -69,9 +69,18 @@
 - shipments-trips.integration.test.ts
 - seed-bootstrap.integration.test.ts
 - customer.test.tsx
-- ref_node_crypto
-- config-commands.integration.test.ts
-- telemetry.integration.test.ts
+- vite.config.ts
+- driver.test.tsx
+- services
+- x-app
+- mosquitto-test
+- environment
+- dependencies
+- scripts
+- AuthService
+- build
+- ingest
+- publisher
 - Lightning Favicon Asset
 - Reusable Icon Sprite
 - Layered Hero Illustration
@@ -102,8 +111,8 @@
 6. `ColdTrack Web: Quy tắc nghiệp vụ và từ vựng` - 37 edges
 7. `rangeVi()` - 36 edges
 8. `react-router-dom` - 35 edges
-9. `Status()` - 34 edges
-10. `NguoiDung` - 34 edges
+9. `NguoiDung` - 34 edges
+10. `Status()` - 34 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `open()` --calls--> `App()`  [EXTRACTED]
@@ -120,15 +129,15 @@
 ## Import Cycles
 - None detected.
 
-## Communities (78 total, 16 thin omitted)
+## Communities (87 total, 15 thin omitted)
 
 ### Community 0 - "driverTypes.ts"
-Cohesion: 0.15
-Nodes (24): DRIVER_HISTORY_OWNERS, DRIVER_MOCK, DRIVER_RESOURCE_IDS, driverMockConfig(), driverRuntime(), initialDriverSettings(), CanhBao, adminService (+16 more)
+Cohesion: 0.17
+Nodes (21): DRIVER_HISTORY_OWNERS, DRIVER_MOCK, DRIVER_RESOURCE_IDS, driverMockConfig(), driverRuntime(), initialDriverSettings(), LoHang, createDriverRepository() (+13 more)
 
 ### Community 1 - "Shared Admin Components"
-Cohesion: 0.11
-Nodes (86): BackLink(), Chart(), DataGate(), DataTable(), ErrorNotice(), Filters(), KeyValues(), PageHeading() (+78 more)
+Cohesion: 0.10
+Nodes (96): BackLink(), Chart(), DataGate(), DataTable(), ErrorNotice(), Filters(), KeyValues(), PageHeading() (+88 more)
 
 ### Community 2 - "BE-0: Đặc tả thiết kế backend ColdTrack"
 Cohesion: 0.06
@@ -136,27 +145,27 @@ Nodes (34): 0. Giả định và giá trị khởi đầu, 10. Chờ xác nhận
 
 ### Community 3 - "Status Badges Content"
 Cohesion: 0.09
-Nodes (48): Badge(), BadgeProps, BadgeVariant, getVariantFromStatus(), variantStyles, landingContent, LANDING_MOCK_OPTIONS, LANDING_TESTIMONIALS (+40 more)
+Nodes (48): Badge(), BadgeProps, BadgeVariant, getVariantFromStatus(), variantStyles, landingContent, customerMockConfig(), LANDING_MOCK_OPTIONS (+40 more)
 
 ### Community 4 - "ColdTrack — Plan BE-1 đến BE-3 theo BE-0 v0.4"
 Cohesion: 0.06
 Nodes (32): 1. Phạm vi và thông số, 2. Kiến trúc và phân quyền, 3. Schema tối thiểu, 4.1 Dải nhiệt, 4.2 Relay tay, 4.3 Telemetry và giờ, 4. MQTT và firmware, 5. API BE-2 và tổng tắt tay (+24 more)
 
 ### Community 5 - "ColdTrack — Thiết kế backend MVP để duyệt"
-Cohesion: 0.05
-Nodes (42): Bước 0.1 — API, Bước 0.2 — Docker Compose TLS, Bước 1.1 — Baseline tài khoản, Bước 1.2 — Xe, thiết bị và phân công, Bước 1.3 — Lô, chuyến, giao nhận và phiên thiết bị, Bước 1.8 — Seed demo và kiểu Kysely, Chuẩn bị môi trường local, Chạy các tiến trình (+34 more)
+Cohesion: 0.04
+Nodes (43): Bước 0.1 — API, Bước 0.2 — Docker Compose TLS, Bước 1.1 — Baseline tài khoản, Bước 1.2 — Xe, thiết bị và phân công, Bước 1.3 — Lô, chuyến, giao nhận và phiên thiết bị, Bước 1.8 — Seed demo và kiểu Kysely, Bước 1.9 — MQTT TLS, Chuẩn bị môi trường local (+35 more)
 
 ### Community 6 - "Product Interface Rules"
 Cohesion: 0.07
 Nodes (8): Badge, ColdTrack Web: Quy tắc nghiệp vụ và từ vựng, Drawer, Header, Modal, Sidebar, StatCard, Table
 
 ### Community 7 - "adminService.ts"
-Cohesion: 0.13
-Nodes (25): createAdminMockData(), CUSTOMER_HISTORY_OWNERS, customerMockConfig(), initialCustomerSettings(), createMockAdminService(), setup(), AdminError, TemperatureConfig (+17 more)
+Cohesion: 0.12
+Nodes (25): CUSTOMER_HISTORY_OWNERS, initialCustomerSettings(), adminService, createMockAdminService(), setup(), AdminError, TemperatureConfig, vehicleIssue() (+17 more)
 
 ### Community 8 - "Development Tool Dependencies"
-Cohesion: 0.06
-Nodes (41): dependencies, lucide-react@^1.65.0, react@^19.3.1, react-dom@^19.3.1, react-router-dom@^7.18.5, tailwindcss@^4.3.3, @tailwindcss/vite@^4.3.3, devDependencies (+33 more)
+Cohesion: 0.12
+Nodes (21): devDependencies, jsdom@^29.1.1, oxlint@^1.89.0, @testing-library/react@^16.3.3, @testing-library/user-event@^14.6.8, @types/node@^24.19.2, @types/react@^19.3.0, @types/react-dom@^19.3.0 (+13 more)
 
 ### Community 9 - "Driver Implementation Handoff"
 Cohesion: 0.09
@@ -166,17 +175,17 @@ Nodes (8): B4 — Tài xế ColdTrack Web, datChuan, DRIVER_HISTORY_OWNERS, DRIV
 Cohesion: 0.14
 Nodes (14): 0. Giả định và giá trị khởi đầu, 10. Chờ xác nhận, 12. Quyết định chờ chủ đồ án, 13. Đối chiếu rà soát, 14. Nghiệm thu bổ sung v0.3, 1. Kiến trúc và ranh giới truy cập, 2. ERD, 3. Bảng và ràng buộc chính (+6 more)
 
-### Community 11 - "adminTypes.ts"
-Cohesion: 0.15
-Nodes (14): ChuyenLichSu, MucDoCanhBao, NhatKyHoatDong, TrangThaiLoHang, TrangThaiXe, Xe, Assignment, Driver (+6 more)
+### Community 11 - "data.ts"
+Cohesion: 0.13
+Nodes (19): ADMIN_MOCK_OPTIONS, createAdminMockData(), MOCK_CANH_BAO, MOCK_LICH_SU, MOCK_LO_HANG, MOCK_NHAT_KY, MOCK_THONG_KE, MOCK_USERS (+11 more)
 
 ### Community 12 - "Frontend TypeScript Configuration"
 Cohesion: 0.10
 Nodes (19): compilerOptions, allowArbitraryExtensions, allowImportingTsExtensions, erasableSyntaxOnly, jsx, lib, module, moduleDetection (+11 more)
 
 ### Community 13 - "Browser Verification Scripts"
-Cohesion: 0.11
-Nodes (7): @playwright/test@^1.64.1, problems, problems, problems, problems, errors, @playwright/test
+Cohesion: 0.14
+Nodes (6): @playwright/test@^1.64.1, problems, problems, problems, problems, @playwright/test
 
 ### Community 14 - "Customer Implementation Handoff"
 Cohesion: 0.11
@@ -202,21 +211,21 @@ Nodes (6): AdminProvider, AdminService, B2 — Điều phối ColdTrack Web, cre
 Cohesion: 0.15
 Nodes (6): AD-TongQuan, AUTH-DangNhap, Cold Chain Logistics Portal, ColdTrack Web: Ánh xạ màn hình Stitch, KH-LoHangCuaToi, TX-ChuyenHienTai
 
-### Community 20 - "data.ts"
+### Community 20 - "mqtt-local.ts"
 Cohesion: 0.21
-Nodes (9): open(), MOCK_THONG_KE, MOCK_USERS, SAN_PHAM_DONG_LANH, THOI_GIAN_HIEN_THI, Identity(), setup(), @testing-library/react (+1 more)
+Nodes (16): derive, hashMosquittoCredential(), matchesMosquittoHash(), assertSim(), atomicWrite(), config, createSecret(), Entry (+8 more)
 
 ### Community 21 - "AuthPages.tsx"
-Cohesion: 0.13
-Nodes (27): App(), HomeRedirect(), OverviewAlias(), AuthProvider(), NotFoundPage(), AuthHeading(), AuthLayout(), AuthLogo() (+19 more)
+Cohesion: 0.24
+Nodes (12): NotFoundPage(), AuthHeading(), AuthLayout(), AuthLogo(), BackToLogin(), AuthFormPage(), ResetExpiredPage(), ResetSuccessPage() (+4 more)
 
 ### Community 22 - "BE-0-backend-spec-review.md"
 Cohesion: 0.07
 Nodes (28): 0. Giả định và giá trị khởi đầu, 10. Chờ xác nhận, 11.1 Quy ước dữ liệu và giao dịch, 11.2 Hợp đồng HTTP API tối thiểu, 11.3 Thời gian, gửi bù và phân chuyến, 11.4 Tính liên tục và vòng đời cảnh báo, 11.5 Lệnh, outbox và cấu hình hiệu lực, 11.6 Hoàn thành chuyến và bằng chứng giao nhận (+20 more)
 
 ### Community 23 - "DemoState"
-Cohesion: 0.20
-Nodes (4): AdminContextValue, DemoState, Value, CustomerService
+Cohesion: 0.10
+Nodes (6): AdminContextValue, DemoState, Value, CustomerService, Value, DriverService
 
 ### Community 24 - "Project Setup Guide"
 Cohesion: 0.25
@@ -224,19 +233,19 @@ Nodes (6): Oxlint, React, React + TypeScript + Vite, SWC, TypeScript, Vite
 
 ### Community 25 - "dependencies"
 Cohesion: 0.08
-Nodes (26): dependencies, class-transformer@0.5.1, class-validator@0.15.1, helmet@8.3.0, jose@6.2.17, kysely@0.29.8, mqtt@5.16.1, @nestjs/common@12.4.2 (+18 more)
+Nodes (24): dependencies, class-transformer@0.5.1, class-validator@0.15.1, dotenv@18.0.10, helmet@8.3.0, jose@6.2.17, kysely@0.29.8, @nestjs/common@12.4.2 (+16 more)
 
 ### Community 26 - "react"
-Cohesion: 0.42
-Nodes (8): Header(), Sidebar(), AppLayout(), useOptionalAdmin(), CustomerContext, useOptionalCustomer(), DriverContext, useOptionalDriver()
+Cohesion: 0.29
+Nodes (10): FieldProps, Header(), Sidebar(), AppLayout(), useOptionalAdmin(), CustomerContext, useOptionalCustomer(), DriverContext (+2 more)
 
 ### Community 27 - "configure-local.mjs"
-Cohesion: 0.11
-Nodes (13): dotenv@18.0.10, device, env, mqtt, brokerConfig, databaseAddress, db, deviceFile (+5 more)
+Cohesion: 0.18
+Nodes (8): brokerConfig, databaseAddress, db, deviceFile, envFile, passwordPath, root, status
 
 ### Community 28 - "resources.integration.test.ts"
-Cohesion: 0.31
-Nodes (7): derive, hashMosquittoCredential(), MOSQUITTO_HASH_ITERATIONS, asClient(), env, isolated(), rejected()
+Cohesion: 0.47
+Nodes (5): MOSQUITTO_HASH_ITERATIONS, asClient(), env, isolated(), rejected()
 
 ### Community 29 - "ColdTrack — Plan BE-1 đến BE-3 theo BE-0 v0.3"
 Cohesion: 0.14
@@ -246,9 +255,9 @@ Nodes (14): BE-1 — Nền dữ liệu, quyền và môi trường, BE-2 — API
 Cohesion: 0.33
 Nodes (5): plugins, rules, react/only-export-components, react/rules-of-hooks, $schema
 
-### Community 31 - "data.ts"
-Cohesion: 0.25
-Nodes (7): ADMIN_MOCK_OPTIONS, MOCK_CANH_BAO, MOCK_LICH_SU, MOCK_LO_HANG, MOCK_NHAT_KY, MOCK_XE, THOI_GIAN_MOCK_HIEN_TAI
+### Community 31 - "mqtt-credentials.integration.test.ts"
+Cohesion: 0.14
+Nodes (14): as(), ca, clients, db, delivered(), deniedWrite(), login(), marker() (+6 more)
 
 ### Community 32 - "Demo Environment Flags"
 Cohesion: 0.33
@@ -267,28 +276,32 @@ Cohesion: 0.29
 Nodes (7): 5.1 Topic, 5.2 Payload telemetry, 5.3 Sync ACK, 5.4 Lệnh điều khiển, 5.5 Time-sync, 5.6 Quyền ACL (Mosquitto), 5. Hợp đồng MQTT
 
 ### Community 36 - "useAuth"
-Cohesion: 0.20
-Nodes (13): AuthContext, AuthContextType, useAuth(), ForbiddenPage(), GuestRoute(), allowedPaths, postLoginDestination(), ProtectedRoute() (+5 more)
+Cohesion: 0.18
+Nodes (15): HomeRedirect(), AuthContext, useAuth(), ForbiddenPage(), GuestRoute(), allowedPaths, postLoginDestination(), ProtectedRoute() (+7 more)
 
 ### Community 37 - "views-storage-realtime.integration.test.ts"
 Cohesion: 0.22
 Nodes (8): @supabase/supabase-js@2.119.0, asClient(), driverFields, env, isolated(), summaryFields, viewNames, @supabase/supabase-js
 
-### Community 38 - "ref_jest_globals"
-Cohesion: 0.47
-Nodes (4): asClient(), env, isolated(), rejects()
+### Community 38 - "pg"
+Cohesion: 0.15
+Nodes (16): asClient(), env, profileIds(), asClient(), env, isolated(), rejects(), asClient() (+8 more)
 
 ### Community 39 - "NguoiDung"
 Cohesion: 0.20
-Nodes (4): LoHang, NguoiDung, CustomerRepository, DriverRepository
+Nodes (4): AuthContextType, NguoiDung, CustomerRepository, DriverRepository
 
 ### Community 40 - "schema.ts"
 Cohesion: 0.05
 Nodes (40): AccountAccess, AlertEvents, Alerts, AuditLogs, CustomerShipmentsView, CustomerTripsView, DB, DeliveryProofs (+32 more)
 
+### Community 41 - "ref_node_fs"
+Cohesion: 0.17
+Nodes (5): device, env, mqtt, errors, dotenv
+
 ### Community 42 - "service.ts"
-Cohesion: 0.13
-Nodes (16): open(), AuthError, AuthService, authService, createMockAuthService(), RegisterInput, ResetRequest, setup() (+8 more)
+Cohesion: 0.12
+Nodes (17): open(), open(), AuthError, authService, createMockAuthService(), RegisterInput, ResetRequest, setup() (+9 more)
 
 ### Community 43 - "seed-demo.ts"
 Cohesion: 0.29
@@ -315,40 +328,72 @@ Cohesion: 0.22
 Nodes (5): authClient(), credentialPath, demoCodes, env, signIn()
 
 ### Community 52 - "customer.test.tsx"
-Cohesion: 0.35
-Nodes (10): CreateShipmentPage(), change(), fillValid(), Identity(), setup(), CustomerHistoryPage(), CustomerSettingsPage(), CustomerShipmentsPage() (+2 more)
+Cohesion: 0.26
+Nodes (13): App(), OverviewAlias(), AuthProvider(), CreateShipmentPage(), change(), fillValid(), Identity(), setup() (+5 more)
 
-### Community 53 - "ref_node_crypto"
-Cohesion: 0.28
-Nodes (4): asClient(), env, profileIds(), checkoutKey
+### Community 53 - "vite.config.ts"
+Cohesion: 0.22
+Nodes (7): @tailwindcss/vite@^4.3.3, vite@^8.3.5, @vitejs/plugin-react@^6.1.2, checkoutKey, @tailwindcss/vite, vite, @vitejs/plugin-react
 
-### Community 54 - "config-commands.integration.test.ts"
+### Community 54 - "driver.test.tsx"
+Cohesion: 0.33
+Nodes (9): Identity(), setup(), DriverAlertsPage(), DriverCurrentPage(), DriverGate(), DriverHistoryPage(), DriverSettingsPage(), DriverProvider() (+1 more)
+
+### Community 55 - "services"
+Cohesion: 0.20
+Nodes (9): image, ports, restart, volumes, name, services, mosquitto, volumes (+1 more)
+
+### Community 56 - "x-app"
+Cohesion: 0.20
+Nodes (10): depends_on, mosquitto, depends_on, condition, depends_on, x-app, depends_on, init (+2 more)
+
+### Community 57 - "mosquitto-test"
+Cohesion: 0.20
+Nodes (10): command, image, networks, ports, profiles, volumes, networks, tls-test (+2 more)
+
+### Community 58 - "environment"
+Cohesion: 0.42
+Nodes (9): environment, DATABASE_URL, MQTT_CA_FILE, MQTT_URL, NODE_ENV, PORT, environment, environment (+1 more)
+
+### Community 59 - "dependencies"
+Cohesion: 0.25
+Nodes (8): dependencies, lucide-react@^1.65.0, react@^19.3.1, react-dom@^19.3.1, react-router-dom@^7.18.5, tailwindcss@^4.3.3, react-dom, tailwindcss
+
+### Community 60 - "scripts"
+Cohesion: 0.33
+Nodes (6): scripts, build, dev, lint, preview, test
+
+### Community 62 - "build"
 Cohesion: 0.60
-Nodes (4): asClient(), env, isolated(), rejects()
+Nodes (5): build, context, target, build, build
 
-### Community 55 - "telemetry.integration.test.ts"
-Cohesion: 0.60
-Nodes (4): asClient(), env, isolated(), rejectsCheck()
+### Community 63 - "ingest"
+Cohesion: 0.40
+Nodes (5): env_file, init, restart, volumes, ingest
+
+### Community 64 - "publisher"
+Cohesion: 0.40
+Nodes (5): env_file, init, restart, volumes, publisher
 
 ### Community 101 - "scripts"
-Cohesion: 0.07
-Nodes (30): scripts, build, check:local, db:migration, db:reset, db:seed, db:start, db:start:full (+22 more)
+Cohesion: 0.06
+Nodes (34): scripts, build, check:local, db:migration, db:reset, db:seed, db:start, db:start:full (+26 more)
 
 ### Community 103 - "compilerOptions"
 Cohesion: 0.12
 Nodes (16): compilerOptions, emitDecoratorMetadata, esModuleInterop, experimentalDecorators, forceConsistentCasingInFileNames, module, moduleResolution, outDir (+8 more)
 
 ### Community 105 - "bootstrap.ts"
-Cohesion: 0.16
-Nodes (12): ApiErrorFilter, bootstrap(), Environment, loadEnvironment(), optionalValue, port, positiveInt, schema (+4 more)
+Cohesion: 0.19
+Nodes (10): ApiErrorFilter, bootstrap(), Environment, loadEnvironment(), optionalValue, port, positiveInt, schema (+2 more)
 
 ### Community 106 - "Các bước"
 Cohesion: 0.20
 Nodes (9): BE-1: Dữ liệu, quyền, môi trường, BE-2: API, giao dịch, publisher, BE-3: Ingest, cảnh báo, simulator, demo, Các bước, Firmware (song song), Giai đoạn 0: Nền tảng, Kế hoạch triển khai backend ColdTrack, Quy tắc thực hiện (+1 more)
 
 ### Community 107 - "api"
-Cohesion: 0.05
-Nodes (54): build, depends_on, environment, healthcheck, init, ports, restart, volumes (+46 more)
+Cohesion: 0.18
+Nodes (11): healthcheck, init, ports, restart, volumes, interval, retries, start_period (+3 more)
 
 ### Community 108 - "BE-1-BE-3-implementation-plan.md"
 Cohesion: 0.20
@@ -370,25 +415,29 @@ Nodes (7): compilerOptions, outDir, sourceMap, exclude, extends, include, ./tsco
 Cohesion: 0.25
 Nodes (7): name, private, scripts, build, lint, start, test
 
+### Community 130 - "transport.ts"
+Cohesion: 0.27
+Nodes (6): validateEnvironment(), startTransport(), mqtt@5.16.1, reflect-metadata@0.2.2, mqtt, reflect-metadata
+
 ## Knowledge Gaps
 - **60 isolated node(s):** `./tsconfig.json`, `./tsconfig.json`, `Vite logo`, `Vite branding asset`, `CUSTOMER_HISTORY_OWNERS` (+55 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 638 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **16 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 661 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **15 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `react` connect `Shared Admin Components` to `Status Badges Content`, `useAuth`, `Development Tool Dependencies`, `service.ts`, `customer.test.tsx`, `AuthPages.tsx`, `data.ts`, `react`?**
-  _High betweenness centrality (0.111) - this node is a cross-community bridge._
+- **Why does `react` connect `react` to `Shared Admin Components`, `Status Badges Content`, `useAuth`, `Development Tool Dependencies`, `customer.test.tsx`, `AuthPages.tsx`, `driver.test.tsx`, `dependencies`?**
+  _High betweenness centrality (0.087) - this node is a cross-community bridge._
 - **What connects `./tsconfig.json`, `./tsconfig.json`, `Vite logo` to the rest of the system?**
   _60 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Shared Admin Components` be split into smaller, more focused modules?**
-  _Cohesion score 0.11092436974789915 - nodes in this community are weakly interconnected._
-- **Why does `@playwright/test` connect `Browser Verification Scripts` to `Development Tool Dependencies`?**
-  _High betweenness centrality (0.091) - this node is a cross-community bridge._
+  _Cohesion score 0.10372410175714661 - nodes in this community are weakly interconnected._
+- **Why does `@playwright/test` connect `Browser Verification Scripts` to `Development Tool Dependencies`, `ref_node_fs`?**
+  _High betweenness centrality (0.075) - this node is a cross-community bridge._
 - **Should `BE-0: Đặc tả thiết kế backend ColdTrack` be split into smaller, more focused modules?**
   _Cohesion score 0.058823529411764705 - nodes in this community are weakly interconnected._
-- **Why does `react-router-dom` connect `Shared Admin Components` to `Status Badges Content`, `useAuth`, `Development Tool Dependencies`, `service.ts`, `customer.test.tsx`, `AuthPages.tsx`, `data.ts`, `react`?**
-  _High betweenness centrality (0.052) - this node is a cross-community bridge._
+- **Why does `react-router-dom` connect `Shared Admin Components` to `Status Badges Content`, `useAuth`, `Development Tool Dependencies`, `customer.test.tsx`, `AuthPages.tsx`, `driver.test.tsx`, `react`, `dependencies`?**
+  _High betweenness centrality (0.043) - this node is a cross-community bridge._
 - **Should `Status Badges Content` be split into smaller, more focused modules?**
-  _Cohesion score 0.09351256575102279 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.09096045197740113 - nodes in this community are weakly interconnected._

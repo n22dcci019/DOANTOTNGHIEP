@@ -8,9 +8,9 @@ import { validateEnvironment } from '../config/environment.js';
 // Infrastructure only: no telemetry subscriptions, ACKs or command publication.
 export async function startTransport(role: 'ingest' | 'publisher') {
   const env = validateEnvironment(process.env);
-  const { MQTT_URL, MQTT_CA_FILE, MQTT_USERNAME, MQTT_PASSWORD_FILE } = process.env;
-  if (!MQTT_URL || !MQTT_CA_FILE || !MQTT_USERNAME || !MQTT_PASSWORD_FILE) {
-    throw new Error('MQTT_URL, MQTT_CA_FILE, MQTT_USERNAME and MQTT_PASSWORD_FILE are required');
+  const { MQTT_URL, MQTT_CA_FILE, SERVICE_USER, SERVICE_PASSWORD } = process.env;
+  if (!MQTT_URL || !MQTT_CA_FILE || SERVICE_USER !== `svc-${role}` || !SERVICE_PASSWORD) {
+    throw new Error(`MQTT_URL, MQTT_CA_FILE and credentials for svc-${role} are required`);
   }
   if (new URL(MQTT_URL).protocol !== 'mqtts:') throw new Error('MQTT_URL requires TLS');
   const db = new Kysely<Record<string, never>>({
@@ -24,8 +24,8 @@ export async function startTransport(role: 'ingest' | 'publisher') {
   });
   const mqtt = connect(MQTT_URL, {
     ca: readFileSync(MQTT_CA_FILE),
-    username: MQTT_USERNAME,
-    password: readFileSync(MQTT_PASSWORD_FILE, 'utf8').trim(),
+    username: SERVICE_USER,
+    password: SERVICE_PASSWORD,
     rejectUnauthorized: true,
     reconnectPeriod: 5000,
     connectTimeout: 5000,

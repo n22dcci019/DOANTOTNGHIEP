@@ -1,5 +1,38 @@
 # ColdTrack Backend
 
+## Bước 1.9 — MQTT TLS
+
+Trong PowerShell tại `coldtrack-be/`, dùng Supabase local DoAnTotNghiep và chứng chỉ bước 0.2.
+Sau khi reset DB, chạy theo thứ tự sau.
+
+```powershell
+$localStatus = npm.cmd run --silent db:status -- --output json | ConvertFrom-Json
+$env:SUPABASE_URL = $localStatus.API_URL
+$env:SUPABASE_SECRET_KEY = $localStatus.SECRET_KEY
+npm run db:seed
+npm run device:provision
+npm run svc:provision
+npm run mqtt:sync
+docker compose up -d --build mosquitto ingest publisher
+docker compose restart mosquitto
+```
+
+Simulator đọc `secrets/devices/SIM-XX.env`. Compose đọc hai file `secrets/services/svc-*.env`.
+Git bỏ qua các file bí mật, `infra/mosquitto/config/passwd` (hash) và `acl` (sinh từ DB).
+Sau reset sạch, provisioning dùng lại mật khẩu trong file hiện có. Thu hồi credential bằng cách
+đặt `revoked_at` và `active=false`, sau đó chạy `npm run mqtt:sync -- --restart` để ngắt phiên.
+Chạy provisioning với `-- --rotate` để thay credential cả nhóm. Sau khi xoay mật khẩu dịch vụ,
+chạy `docker compose up -d --force-recreate ingest publisher` để nạp lại env_file.
+
+`npm test` chạy core, seed rồi MQTT tuần tự. Broker chính dùng 8883. Broker kiểm thử bước 0.2
+dùng cổng host 8884, mạng Compose riêng và cùng chứng chỉ. Trong container kiểm thử,
+`mosquitto-test.conf` đọc `passwd-test` (mount từ `infra/mosquitto/secrets/passwords`) và `acl-test`.
+
+```powershell
+docker compose up -d mosquitto-test
+docker compose exec -T mosquitto-test sh /mosquitto/scripts/test-tls.sh
+```
+
 ## Bước 1.8 — Seed demo và kiểu Kysely
 
 Chạy từ `coldtrack-be/` với stack local `DoAnTotNghiep` đang hoạt động. Lấy URL
@@ -166,7 +199,8 @@ docker compose config --quiet
 docker compose up -d --build
 docker compose ps
 curl.exe -i http://localhost:3000/api/v1/health
-docker compose exec -T mosquitto sh /mosquitto/scripts/test-tls.sh
+docker compose up -d mosquitto-test
+docker compose exec -T mosquitto-test sh /mosquitto/scripts/test-tls.sh
 docker compose logs ingest publisher
 ```
 

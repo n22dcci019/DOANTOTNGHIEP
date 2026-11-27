@@ -14,6 +14,6 @@
     "types": ["node"],
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["apps/**/*.ts", "libs/**/*.ts", "scripts/seed-demo.ts"],
+  "include": ["apps/**/*.ts", "libs/**/*.ts", "scripts/*.ts"],
   "exclude": ["node_modules", "dist"]
 }

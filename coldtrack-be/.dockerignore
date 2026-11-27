@@ -4,5 +4,6 @@ dist
 coverage
 .env*
 infra
+secrets
 supabase
 *.log

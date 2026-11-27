@@ -12,3 +12,7 @@ infra/mosquitto/config/passwords
 infra/mosquitto/certs/
 infra/mosquitto/secrets/
 infra/mosquitto/device.env
+/secrets/
+/infra/mosquitto/config/passwd
+/infra/mosquitto/config/acl
+/infra/mosquitto/config/.*.tmp
