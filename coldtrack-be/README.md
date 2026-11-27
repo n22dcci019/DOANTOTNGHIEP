@@ -1,5 +1,54 @@
 # ColdTrack Backend
 
+## Bước 2.3 — API lô hàng
+
+Không thêm migration hoặc trigger. Dùng CHECK dải nhiệt và bốn partial unique index
+trên tài nguyên chuyến từ BE-1. Các route `/api/v1/shipments` đi qua guard, kiểm tra
+account_access/quyền mỗi request và dùng envelope lỗi chuẩn.
+
+| Endpoint | Quyền / trạng thái |
+|---|---|
+| POST /shipments | customer, shipments.create; tạo draft/version 1, trả 201 |
+| PATCH /shipments/:id | customer chủ sở hữu, shipments.update; draft/pending_review |
+| POST /shipments/:id/submit | customer chủ sở hữu, shipments.submit; draft → pending_review |
+| POST /shipments/:id/approve | admin, shipments.approve; pending_review → approved |
+| POST /shipments/:id/reject | admin, shipments.reject; pending_review → rejected, cần rejected_reason |
+| POST /shipments/:id/assign | admin, shipments.assign; approved → scheduled và tạo trip scheduled |
+| POST /shipments/:id/cancel | shipments.cancel; customer: draft/pending_review; admin: thêm approved/scheduled |
+| GET /shipments; GET /shipments/:id | customer chỉ lô của mình; admin tất cả; driver trả 404 |
+
+POST nhận product_type, temp_min, temp_max, warehouse_notes tùy chọn. `customer_id`
+nếu gửi lên bị bỏ qua; chủ lô lấy từ principal đã xác thực. Create khởi tạo version 1
+vì chưa có entity trước đó; mọi cập nhật/action sau create bắt buộc body.version.
+Mọi mutation bắt buộc Idempotency-Key UUID. PATCH không cho sửa chủ hoặc status;
+chỉ các action nêu trên đổi trạng thái. Từ chối cần lý do không rỗng sau khi trim;
+rejected/cancelled là trạng thái cuối của các thao tác bước này.
+
+Mã lỗi thống nhất: sửa/hủy sai trạng thái và tài nguyên không active/không đủ dải
+trả `422 UNPROCESSABLE`; tranh tài nguyên chuyến trả `409 CONFLICT`; version cũ
+trả `409 VERSION_CONFLICT` với current_version. Ngoài phạm vi và không tồn tại
+đều trả `404 NOT_FOUND`. Dải nhiệt kiểm tra trong API và CHECK DB: [-25,-15],
+bước 0.5, độ rộng ít nhất 2°C; PATCH kiểm tra dải sau khi ghép với giá trị hiện có.
+
+Trong transaction service role, API khóa shipment và so version, rồi khóa xe,
+account_access tài xế và thiết bị theo thứ tự cố định khi phân công. Xe, tài xế
+và thiết bị phải active; tài xế phải có role driver. Xe phải có đủ hai biên nhiệt
+để bao phủ dải shipment. Kiểm tra chuyến scheduled/in_transit và unique index DB
+ngăn trùng xe/tài xế/thiết bị/lô, kể cả hai request đồng thời.
+Phân công tạo trip và đổi shipment cùng transaction, ghi audit cho cả hai.
+Admin hủy lô scheduled thì khóa/hủy trip scheduled, tăng version của cả hai
+và ghi audit trong cùng transaction. Không đặt lô về approved khi hủy toàn lô.
+
+Test `test:shipments` chạy sau core/profiles, trước reset của seed để cách ly
+fixture có audit append-only. Test gây lỗi DB thật kiểm chứng rollback shipment,
+trip và audit; không sửa assertion baseline hay nới quyền. `npm test` chạy đủ các
+suite rồi cần khôi phục seed/device/service/MQTT theo runbook.
+
+Giới hạn: chưa depart/complete, cấu hình nhiệt/lệnh, publisher hay cảnh báo.
+Không thay đổi lịch sử gán thiết bị/xe; không yêu cầu telemetry tươi/online ở assign.
+GET list chưa phân trang. Giới hạn crash giữa commit dữ liệu và lưu response của
+interceptor idempotency 2.1 vẫn còn; response chưa commit nguyên tử cùng nghiệp vụ.
+
 ## Bước 2.2 — Hồ sơ và lời mời
 
 Migration `20261127081646_profiles_invitations_email.sql` thêm `profiles.version`,

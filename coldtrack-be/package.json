@@ -36,9 +36,10 @@
     "local:configure": "node scripts/configure-local.mjs",
     "check:local": "node scripts/check-local.mjs",
     "lint": "eslint apps libs test \"scripts/*.ts\"",
-    "test": "npm run db:reset && npm run test:core && npm run test:profiles && npm run test:seed && npm run test:mqtt",
-    "test:core": "tsc -p tsconfig.test.json && node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand --testPathIgnorePatterns=seed-bootstrap --testPathIgnorePatterns=mqtt-credentials --testPathIgnorePatterns=profiles-invitations",
+    "test": "npm run db:reset && npm run test:core && npm run test:profiles && npm run test:shipments && npm run test:seed && npm run test:mqtt",
+    "test:core": "tsc -p tsconfig.test.json && node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand --testPathIgnorePatterns=seed-bootstrap --testPathIgnorePatterns=mqtt-credentials --testPathIgnorePatterns=profiles-invitations --testPathIgnorePatterns=shipments-api",
     "test:profiles": "tsc -p tsconfig.test.json && node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand --runTestsByPath .test-dist/test/profiles-invitations.integration.test.js",
+    "test:shipments": "tsc -p tsconfig.test.json && node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand --runTestsByPath .test-dist/test/shipments-api.integration.test.js",
     "test:mqtt": "npm run device:provision && npm run svc:provision && npm run mqtt:sync && docker compose up -d mosquitto mosquitto-test && docker compose restart mosquitto && tsc -p tsconfig.test.json && node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand --runTestsByPath .test-dist/test/mqtt-credentials.integration.test.js",
     "test:seed": "npm run db:reset && npm run db:seed && tsc -p tsconfig.test.json && node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand --runTestsByPath .test-dist/test/seed-bootstrap.integration.test.js"
   },
